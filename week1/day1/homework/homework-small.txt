@@ -1,0 +1,18 @@
+git status 
+    displays which files are in the staging area, and which ones have not been commited yet. 
+
+rm -rf ./Sample
+    rm : delete (remove)
+    -rf : delete a folder and all of the contents inside
+    ./Sample : a folder called "Sample" in the current directory
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby: a folder called "ruby" inside the parents bin>usr
+    -e: makes sure to exit out of installation if there's an error
+    $(): execute the command
+    -fsSL: tells computer what to do if the command fails/tells it to do it silently/tells it to print error message/find new location of a url
+    curl: transfers data (URL) from server
+    https://raw.githubusercontent.com/Homebrew/install/master/install : location of data to transfer/install
+
+
+
