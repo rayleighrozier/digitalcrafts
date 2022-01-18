@@ -5,7 +5,7 @@ def lookUpNumber():
         userInput= input("Whose phone number would you like to find? ").lower()
         isItInPhoneBook = [entry for entry in phoneBook if entry["name"] == userInput]
         if len(isItInPhoneBook)>0:
-            print(f"Found entry for {userInput.capitalize()} : {isItInPhoneBook[0]['phoneNumber']}")
+            print(f"Found phone number for {userInput.capitalize()} : {isItInPhoneBook[0]['phoneNumber']}")
         else:
             print("That name is not in the phone book!")
             listAllEntries()
