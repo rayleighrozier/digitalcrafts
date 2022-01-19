@@ -9,6 +9,9 @@ class BankAccount:
     def transfer_funds (self, otherAccount, amount):
         self.balance = self.balance - amount
         otherAccount.balance = otherAccount.balance + amount
+    def print_balance (self):
+        print(f"Your account balance is ${self.balance}.")
+
 
 rayAccount = BankAccount (1234)
 bobAccount = BankAccount (3456)
@@ -20,3 +23,4 @@ print(vars(rayAccount))
 rayAccount.transfer_funds(bobAccount, 100)
 print(vars(rayAccount))
 print(vars(bobAccount))
+rayAccount.print_balance()

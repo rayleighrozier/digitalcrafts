@@ -15,7 +15,6 @@ class Address:
         self.city = city
         self.state = state
         self.zip_code = zip_code
-    # def printAddress(self):
 
 rayleigh = User ("Rayleigh", "Rozier")
 rayleighAddress = Address("123 sesame street", "Atlanta", "Georgia", "30082")
