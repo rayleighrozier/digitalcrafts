@@ -30,7 +30,11 @@ def printAllLists():
     =================
         """)
     else:
-        print("No lists yet! Try making one.")
+        print("""
+    No lists yet! Try making one.""")
+        print ("""
+    =================
+        """)
 
 def printListMenu(allLists):
     print ("""
@@ -88,7 +92,7 @@ def deleteItem(currentList):
 #VARIABLES
 allLists = []
 
-#PROGRAM STARTS TO RUN
+#PROGRAM STARTS TO LOOP
 while True:
     userInput = input("""
     GROCERY LIST APP
@@ -125,7 +129,15 @@ while True:
             print("Bye!")
             break
         else:
-            print("Oops! Try again.")
+            print("""
+    Oops! Try again.""")
+            print ("""
+    =================
+        """)
     except:
-         print ("Oops! Try again.")
+         print ("""
+    Oops! Try again.""")
+         print ("""
+    =================
+        """)
     
