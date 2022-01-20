@@ -39,7 +39,6 @@ class Player(pygame.sprite.Sprite):  #<---- the player class inherits sprite fro
 
 
 
-
 #Game loop begins
 while True:
        pygame.display.update() #keep updating game (updates when it is called)
