@@ -20,10 +20,12 @@ def printAllLists():
             print(f"""
     Grocery List For {list.store.capitalize()} :
          """)
+            counter = 1
             for item in list.items:
                 print(f"""
-    {item.name} ({item.quantity})
+    {counter}.{item.name} ({item.quantity})
                  """) 
+                counter = counter + 1
         print ("""
     =================
         """)
@@ -65,7 +67,7 @@ def printCurrentList(currentList):
         """)
 
 def addNewList():
-    whichStore = input("Which store would you like to make a grocery list for? ")
+    whichStore = input("Enter the name of the grocery store: ")
     newStore = GroceryList(whichStore)
     allLists.append(newStore)   
     print(f"""
@@ -73,6 +75,15 @@ def addNewList():
     =================
     """)
 
+def addNewItem(currentList):
+    itemName = input("Enter the name of the item: ")
+    itemQuantity = input("How many do you need? ") 
+    newItem = GroceryItem (itemName, itemQuantity)
+    currentList.items = currentList.items + [newItem]
+
+def deleteItem(currentList):
+    itemName = int(input("Which item would you like to delete (choose a number) ?"))
+    del(currentList.items[itemName - 1])
 
 #VARIABLES
 allLists = []
@@ -88,7 +99,7 @@ while True:
     4. Delete item from a list
     5. Quit
     =================
-    What do you want to do?
+    What do you want to do (1-5)?
     """)
     try:
         userInput = int(userInput)
@@ -98,21 +109,17 @@ while True:
             addNewList()
         elif userInput == 3:
             printListMenu(allLists)
-            userInput3 = int(input ("Which grocery list do you want to update?"))
+            userInput3 = int(input ("Which grocery list do you want to update (choose a number)?"))
             currentList = allLists[userInput3 - 1]
             printCurrentList(currentList)
-            itemName = input("What would you like to add to the list? ")
-            itemQuantity = input("How many do you need? ") 
-            newItem = GroceryItem (itemName, itemQuantity)
-            currentList.items = currentList.items + [newItem]
+            addNewItem(currentList)
             printCurrentList(currentList)
         elif userInput == 4:
             printListMenu(allLists)
-            userInput4 = int(input ("Which grocery list do you want to edit?"))
+            userInput4 = int(input ("Which grocery list do you want to update (choose a number)?"))
             currentList = allLists[userInput4 - 1]
             printCurrentList(currentList)
-            itemName = int(input("Which item would you like to delete?"))
-            del(currentList.items[itemName - 1])
+            deleteItem(currentList)
             printCurrentList(currentList)
         elif userInput == 5:
             print("Bye!")
