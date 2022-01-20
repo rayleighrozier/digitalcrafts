@@ -29,6 +29,17 @@ color4 = pygame.Color(255, 0, 0)       # Red
 FPS = pygame.time.Clock()
 FPS.tick(60) #<--- usually between 30-60
 
+#Sprites/player class
+class Player(pygame.sprite.Sprite):  #<---- the player class inherits sprite from pygame
+    def __init__(self):
+        super().__init__() # <--- bring in all the stuff from sprite class
+        self.image = pygame.image.load("Player.png") # pass image to the player
+        self.rect = self.image.get_rect() #actually sets dimensions, or rectangle the play 
+        self.rect.center = (160, 520)
+
+
+
+
 #Game loop begins
 while True:
        pygame.display.update() #keep updating game (updates when it is called)
