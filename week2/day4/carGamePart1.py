@@ -1,3 +1,4 @@
+#### Notes from PART ONE of car game tutorial ####
 import pygame, sys
 from pygame.locals import *
 import random
@@ -67,7 +68,7 @@ E1 = Enemy()
 # Where the game loop starts. All of the methods in here are running continuously
 while True:     
     for event in pygame.event.get():              
-        if event.type == QUIT:
+        if event.type == QUIT: #quit event is built into pygame
             pygame.quit()
             sys.exit()
     P1.update() # <--- check for player movement/move player
