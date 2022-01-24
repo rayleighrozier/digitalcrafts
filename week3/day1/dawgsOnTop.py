@@ -1,7 +1,7 @@
 #NEED TO ADDRESS: a tie, too many 6s and 8s 
 import random
+from time import sleep
 
-from pip import main
 class Team:
     def __init__(self, coachName, offense = 20 , defense = 20, experience = 0, wins =0):
         self.coachName = coachName
@@ -48,68 +48,102 @@ class Team:
             return score
 
 #FUNCTIONS 
-# def newGame ():
+
+def mainMenu():
+    print ("""================
+    """)
+    sleep(1)
+    print ("""  DAWGS
+    """)
+    sleep(1)
+    print ("""  ON
+    """)
+    sleep(1)
+    print ("""  TOP
+    """)
+    sleep(1)
+    print ("""================
+    """)
+    sleep(1)
+    while True:
+        try:
+            mainMenu = int(input("""  What would you like to do?
+
+  1. Start a new game
+  2. Quit
+
+================
+  """))
+            if mainMenu == 1 or mainMenu ==2:
+                break
+            else:
+                print ("  Oops! Try picking 1 or 2.")
+                continue
+        except:
+            print ("  Oops! Try picking 1 or 2.")
+            continue
+    return mainMenu
 
 #GAME LOOP
 
 while True:
-    print ("""================
-    DAWGS ON TOP
-    ================
-    """)
-    while True:
-        try:
-            mainMenu = int(input("""================  
-    What would you like to do?
-    1. Start a new game
-    2. Quit
-    """))
-            if mainMenu == 1 or mainMenu ==2:
-                break
-            else:
-                print ("Oops! Try picking 1 or 2.")
-                continue
-        except:
-            print ("Oops! Try picking 1 or 2.")
-    if mainMenu == 2:
-        print ("Goodbye!")
+    mainChoice = mainMenu()
+    if mainChoice == 2:
+        print ("  Goodbye!")
         break
-    if mainMenu ==1:
+    if mainChoice == 1:
+        sleep (1)
+        print ("""================
+  """)
         print ("""  Glory Glory to ol' Georgia!
-        After a historic championship season...
-        Kirby Smart has retired as head coach of the Georgia Bulldogs.
-        The coaching search was long and tedious...
-        but UGA has selected YOU to lead the team.
-        Will you coach the Dawgs to another trophy? 
-        Or stumble against your most hated rivals?
-        The road to the natty starts now! 
-
-        ================
         """)
-        coachName = input("""  What is your name? """)
+        sleep(2)
+        print ("""  After a historic championship season...
+  Kirby Smart has retired as head coach of the Georgia Bulldogs.
+        """)
+        sleep(3)
+        print ("""  The coaching search was long and tedious...
+  but UGA has selected YOU to lead the team.
+        """)
+        sleep(3)
+        print ("""  Will you coach the Dawgs to another trophy?
+        """)
+        sleep(3)
+        print ("""  Or stumble against your most hated rivals?
+        """)
+        sleep(3)
+        print ("""  The road to the natty starts now! 
+        """)
+        sleep(3)
+        print ("""================
+  """)
+        sleep(2)
+        coachName = input("""  What is your name? """).capitalize()
+        sleep(0.5)
         print (f""" 
-        Welcome Coach {coachName}! 
-        Let's find out what kind of coach you are.
+  Welcome Coach {coachName}! 
+  Let's find out what kind of coach you are.
         """)
+        sleep(2)
         while True:
             try:
                 baseStats = int (input("""================  
 
-        Which number best describes your coaching style?
+  Which number best describes your coaching style?
 
-        1. Focused on the fundamentals (+ defense, - offense)
-        2. Go big or go home (+offense , - defense)
-        3. Balanced approach is best (equal offense and defense)
+  1. Focused on the fundamentals (+ defense, - offense)
+  2. Go big or go home (+offense , - defense)
+  3. Balanced approach is best (equal offense and defense)
 
-    ================ 
-            """))
+================ 
+  """))
                 if baseStats == 1 or baseStats == 2 or baseStats == 3:
                     break
                 else:
-                    print ("Oops! Try picking a number 1-3.")
+                    print ("  Oops! Try picking a number 1-3.")
                     continue
             except:
-                print ("Oops! Try picking a number 1-3.")
+                print ("  Oops! Try picking a number 1-3.")
                 continue  
         if baseStats == 1:
                 print("hi")
