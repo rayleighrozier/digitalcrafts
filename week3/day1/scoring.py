@@ -74,8 +74,12 @@ if teamHalf2 == 1 or teamHalf2 == 4:
 if rivalHalf2 == 1 or rivalHalf2 == 4:
     rivalHalf2 = rivalHalf2 +2
 
+
 teamFinal = teamHalf1 + teamHalf2
 rivalFinal = rivalHalf1 + rivalHalf2 
+
+if teamFinal == rivalFinal: 
+    
 print (f"""
 FINAL SCORE:
 Georgia - {teamFinal}
