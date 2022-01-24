@@ -1,3 +1,4 @@
+#NEED TO ADDRESS: a tie, too many 6s and 8s 
 import random
 class Team:
     def __init__(self, coachName, offense = 20 , defense = 20, experience = 0, wins =0):
@@ -45,44 +46,49 @@ class Team:
             score = score +2
             return score
 
-    
-Georgia = Team("Georgia") 
-Oregon = Team("Oregon")
 
-Georgia.offense = 52
-Georgia.defense = 55
-Georgia.experience = 2
-Oregon.offense = 0
-Oregon.defense = 10
+#Game loop starts
+#while True:
 
-teamHalf1 = Georgia.getScore(Oregon)
-rivalHalf1 = Oregon.getScore(Georgia)
-
-print (f"""
-HALFTIME SCORE:
-Georgia - {teamHalf1}
-Oregon - {rivalHalf1}
+print ("""================
+  DAWGS ON TOP
+================
 """)
+print ("""  Glory Glory to ol' Georgia!
+  After a historic championship season...
+  Kirby Smart has retired as head coach of the Georgia Bulldogs.
+  The coaching search was long and tedious...
+  but UGA has selected YOU to lead the team.
+  Will you coach the Dawgs to another trophy? 
+  Or stumble against your most hated rivals?
+  The road to the natty starts now! 
 
-#will need to put in function
-
-teamHalf2 = Georgia.getScore(Oregon)
-rivalHalf2 = Oregon.getScore(Georgia)
-
-if teamHalf2 == 1 or teamHalf2 == 4:
-    teamHalf2 = teamHalf2 +2
-
-if rivalHalf2 == 1 or rivalHalf2 == 4:
-    rivalHalf2 = rivalHalf2 +2
-
-
-teamFinal = teamHalf1 + teamHalf2
-rivalFinal = rivalHalf1 + rivalHalf2 
-
-# add in code for tie 
-
-print (f"""
-FINAL SCORE:
-Georgia - {teamFinal}
-Oregon - {rivalFinal}
+================
 """)
+coachName = input("""  What is your name? """)
+print (f""" 
+  Welcome Coach {coachName}! 
+  Let's find out what kind of coach you are.
+""")
+baseStats = input("""================  
+
+  Which number best describes your coaching style?
+
+  1. Focused on the fundamentals (+ defense, - offense)
+  2. Go big or go home (+offense , - defense)
+  3. Balanced approach is best (equal offense and defense)
+
+================ 
+""")
+try:
+    baseStats = int(baseStats)
+    if baseStats == 1:
+        print("hi")
+    elif baseStats == 2:
+        print("hi")
+    elif baseStats == 3:
+        print("hi")
+    else:
+        print ("Oops! Try picking a number 1-3.")
+except:
+    print ("Oops! Try picking a number 1-3.")
