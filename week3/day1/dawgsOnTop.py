@@ -10,7 +10,15 @@ class Team:
         self.experience = experience
         self.wins = wins
     
-    def getScore (self, rival): 
+    def printStats(self):
+        print(f"""
+  Offense : {self.offense}
+  Defense : {self.defense}
+  Experience : {self.experience}
+  Wins : {self.wins}
+""")
+
+    def getScore(self, rival): 
         def getBoost (stat):
             points = stat
             boost = 0 
@@ -83,6 +91,42 @@ def mainMenu():
             print ("  Oops! Try picking 1 or 2.")
             continue
     return mainMenu
+def coachName():
+    sleep (1)
+    print ("""================
+""")
+    print ("""  Glory Glory to ol' Georgia!
+  """)
+    sleep(2)
+    print ("""  After a historic championship season...
+  Kirby Smart has retired as head coach of the Georgia Bulldogs.
+  """)
+    sleep(3)
+    print ("""  The coaching search was long and tedious...
+  but UGA has selected YOU to lead the team.
+  """)
+    sleep(3)
+    print ("""  Will you coach the Dawgs to another trophy?
+  """)
+    sleep(3)
+    print ("""  Or stumble against your most hated rivals?
+  """)
+    sleep(3)
+    print ("""  The road to the natty starts now! 
+  """)
+    sleep(3)
+    print ("""================
+""")
+    sleep(2)
+    coach = input("""  What is your name? """).capitalize()
+    sleep(0.5)
+    print (f""" 
+  Welcome Coach {coach}! 
+  Let's find out what kind of coach you are.
+    """)
+    return coach
+       
+
 
 #GAME LOOP
 
@@ -92,43 +136,12 @@ while True:
         print ("  Goodbye!")
         break
     if mainChoice == 1:
-        sleep (1)
-        print ("""================
-  """)
-        print ("""  Glory Glory to ol' Georgia!
-        """)
-        sleep(2)
-        print ("""  After a historic championship season...
-  Kirby Smart has retired as head coach of the Georgia Bulldogs.
-        """)
-        sleep(3)
-        print ("""  The coaching search was long and tedious...
-  but UGA has selected YOU to lead the team.
-        """)
-        sleep(3)
-        print ("""  Will you coach the Dawgs to another trophy?
-        """)
-        sleep(3)
-        print ("""  Or stumble against your most hated rivals?
-        """)
-        sleep(3)
-        print ("""  The road to the natty starts now! 
-        """)
-        sleep(3)
-        print ("""================
-  """)
-        sleep(2)
-        coachName = input("""  What is your name? """).capitalize()
-        sleep(0.5)
-        print (f""" 
-  Welcome Coach {coachName}! 
-  Let's find out what kind of coach you are.
-        """)
+        coach = coachName()
         sleep(2)
         while True:
+            print ("""================""")
             try:
-                baseStats = int (input("""================  
-
+                baseStats = int (input("""
   Which number best describes your coaching style?
 
   1. Focused on the fundamentals (+ defense, - offense)
@@ -146,10 +159,23 @@ while True:
                 print ("  Oops! Try picking a number 1-3.")
                 continue  
         if baseStats == 1:
-                print("hi")
+                Georgia = Team(coach, offense = 10 , defense = 30, experience = 0, wins =0 )
+                print ("""================
+
+  Defense all the way! Here are your starting stats.""")
+                Georgia.printStats()
         if baseStats == 2:
-                print("hi")
+                Georgia = Team(coach, offense = 30 , defense = 10, experience = 0, wins =0 )
+                print ("""================
+
+  Talk about a powerhouse offense! Here are your starting stats.""")
+                Georgia.printStats()
         if baseStats == 3:
-                print("hi")
+                Georgia = Team(coach, offense = 20 , defense = 20, experience = 0, wins =0 )
+                print ("""================
+
+  Best of both worlds! Here are your starting stats.""")
+                Georgia.printStats()
+                
         
 
