@@ -1,5 +1,7 @@
 #NEED TO ADDRESS: a tie, too many 6s and 8s 
 import random
+
+from pip import main
 class Team:
     def __init__(self, coachName, offense = 20 , defense = 20, experience = 0, wins =0):
         self.coachName = coachName
@@ -7,7 +9,6 @@ class Team:
         self.defense = defense
         self.experience = experience
         self.wins = wins
-    
     
     def getScore (self, rival): 
         def getBoost (stat):
@@ -46,49 +47,75 @@ class Team:
             score = score +2
             return score
 
+#FUNCTIONS 
+# def newGame ():
 
-#Game loop starts
-#while True:
+#GAME LOOP
 
-print ("""================
-  DAWGS ON TOP
-================
-""")
-print ("""  Glory Glory to ol' Georgia!
-  After a historic championship season...
-  Kirby Smart has retired as head coach of the Georgia Bulldogs.
-  The coaching search was long and tedious...
-  but UGA has selected YOU to lead the team.
-  Will you coach the Dawgs to another trophy? 
-  Or stumble against your most hated rivals?
-  The road to the natty starts now! 
+while True:
+    print ("""================
+    DAWGS ON TOP
+    ================
+    """)
+    while True:
+        try:
+            mainMenu = int(input("""================  
+    What would you like to do?
+    1. Start a new game
+    2. Quit
+    """))
+            if mainMenu == 1 or mainMenu ==2:
+                break
+            else:
+                print ("Oops! Try picking 1 or 2.")
+                continue
+        except:
+            print ("Oops! Try picking 1 or 2.")
+    if mainMenu == 2:
+        print ("Goodbye!")
+        break
+    if mainMenu ==1:
+        print ("""  Glory Glory to ol' Georgia!
+        After a historic championship season...
+        Kirby Smart has retired as head coach of the Georgia Bulldogs.
+        The coaching search was long and tedious...
+        but UGA has selected YOU to lead the team.
+        Will you coach the Dawgs to another trophy? 
+        Or stumble against your most hated rivals?
+        The road to the natty starts now! 
 
-================
-""")
-coachName = input("""  What is your name? """)
-print (f""" 
-  Welcome Coach {coachName}! 
-  Let's find out what kind of coach you are.
-""")
-baseStats = input("""================  
+        ================
+        """)
+        coachName = input("""  What is your name? """)
+        print (f""" 
+        Welcome Coach {coachName}! 
+        Let's find out what kind of coach you are.
+        """)
+        while True:
+            try:
+                baseStats = int (input("""================  
 
-  Which number best describes your coaching style?
+        Which number best describes your coaching style?
 
-  1. Focused on the fundamentals (+ defense, - offense)
-  2. Go big or go home (+offense , - defense)
-  3. Balanced approach is best (equal offense and defense)
+        1. Focused on the fundamentals (+ defense, - offense)
+        2. Go big or go home (+offense , - defense)
+        3. Balanced approach is best (equal offense and defense)
 
-================ 
-""")
-try:
-    baseStats = int(baseStats)
-    if baseStats == 1:
-        print("hi")
-    elif baseStats == 2:
-        print("hi")
-    elif baseStats == 3:
-        print("hi")
-    else:
-        print ("Oops! Try picking a number 1-3.")
-except:
-    print ("Oops! Try picking a number 1-3.")
+    ================ 
+            """))
+                if baseStats == 1 or baseStats == 2 or baseStats == 3:
+                    break
+                else:
+                    print ("Oops! Try picking a number 1-3.")
+                    continue
+            except:
+                print ("Oops! Try picking a number 1-3.")
+                continue  
+        if baseStats == 1:
+                print("hi")
+        if baseStats == 2:
+                print("hi")
+        if baseStats == 3:
+                print("hi")
+        
+
