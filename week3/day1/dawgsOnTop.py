@@ -2,6 +2,7 @@
 import random
 from time import sleep
 
+#CLASS
 class Team:
     def __init__(self, coachName, offense = 20 , defense = 20, experience = 0, wins =0):
         self.coachName = coachName
@@ -56,7 +57,6 @@ class Team:
             return score
 
 #FUNCTIONS 
-
 def mainMenu():
     print ("""================
     """)
@@ -75,14 +75,14 @@ def mainMenu():
     sleep(1)
     while True:
         try:
-            mainMenu = int(input("""  What would you like to do?
+            mainChoice = int(input("""  What would you like to do?
 
   1. Start a new game
   2. Quit
 
 ================
   """))
-            if mainMenu == 1 or mainMenu ==2:
+            if mainChoice == 1 or mainChoice ==2:
                 break
             else:
                 print ("  Oops! Try picking 1 or 2.")
@@ -90,7 +90,8 @@ def mainMenu():
         except:
             print ("  Oops! Try picking 1 or 2.")
             continue
-    return mainMenu
+    return mainChoice
+
 def coachName():
     sleep (1)
     print ("""================
@@ -168,7 +169,7 @@ while True:
                 Georgia = Team(coach, offense = 30 , defense = 10, experience = 0, wins =0 )
                 print ("""================
 
-  Talk about a powerhouse offense! Here are your starting stats.""")
+  Now that's a powerhouse offense! Here are your starting stats.""")
                 Georgia.printStats()
         if baseStats == 3:
                 Georgia = Team(coach, offense = 20 , defense = 20, experience = 0, wins =0 )
@@ -177,5 +178,6 @@ while True:
   Best of both worlds! Here are your starting stats.""")
                 Georgia.printStats()
                 
+    #Work on what would you like to do menu (quit, read up on opponent, practice etc)
         
 
