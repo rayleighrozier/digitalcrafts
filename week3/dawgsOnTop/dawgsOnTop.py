@@ -1,10 +1,12 @@
 #NEED TO ADDRESS: a tie, too many 6s and 8s 
+#uncomment the sleeps 
 import random
 from time import sleep
 
 #CLASS
 class Team:
-    def __init__(self, coachName, offense = 20 , defense = 20, experience = 0, wins =0):
+    def __init__(self, teamName, coachName, offense = 20 , defense = 20, experience = 0, wins =0):
+        self.teamName = teamName
         self.coachName = coachName
         self.offense = offense
         self.defense = defense
@@ -17,6 +19,8 @@ class Team:
   Defense : {self.defense}
   Experience : {self.experience}
   Wins : {self.wins}
+
+================ 
 """)
 
     def getScore(self, rival): 
@@ -56,23 +60,26 @@ class Team:
             score = score +2
             return score
 
+#BUILT-IN CLASS OBJECTS
+Oregon = Team("Oregon", "Dan Lanning", 15, 20, 0, 0)
+
 #FUNCTIONS 
 def mainMenu():
     print ("""================
     """)
-    sleep(1)
+    # sleep(1)
     print ("""  DAWGS
     """)
-    sleep(1)
+    # sleep(1)
     print ("""  ON
     """)
-    sleep(1)
+    # sleep(1)
     print ("""  TOP
     """)
-    sleep(1)
+    # sleep(1)
     print ("""================
     """)
-    sleep(1)
+    # sleep(1)
     while True:
         try:
             mainChoice = int(input("""  What would you like to do?
@@ -92,56 +99,46 @@ def mainMenu():
             continue
     return mainChoice
 
-def coachName():
-    sleep (1)
+def getCoachName():
+    # sleep (1)
     print ("""================
 """)
     print ("""  Glory Glory to ol' Georgia!
   """)
-    sleep(2)
+    # sleep(2)
     print ("""  After a historic championship season...
   Kirby Smart has retired as head coach of the Georgia Bulldogs.
   """)
-    sleep(3)
+    # sleep(3)
     print ("""  The coaching search was long and tedious...
   but UGA has selected YOU to lead the team.
   """)
-    sleep(3)
+    # sleep(3)
     print ("""  Will you coach the Dawgs to another trophy?
   """)
-    sleep(3)
+    # sleep(3)
     print ("""  Or stumble against your most hated rivals?
   """)
-    sleep(3)
+    # sleep(3)
     print ("""  The road to the natty starts now! 
   """)
-    sleep(3)
+    # sleep(3)
     print ("""================
 """)
-    sleep(2)
+    # sleep(2)
     coach = input("""  What is your name? """).capitalize()
-    sleep(0.5)
+    # sleep(0.5)
     print (f""" 
   Welcome Coach {coach}! 
   Let's find out what kind of coach you are.
     """)
     return coach
-       
 
+def getBaseStats():
+    while True:
+        try:
+            baseStats = int (input("""================
 
-#GAME LOOP
-while True:
-    mainChoice = mainMenu()
-    if mainChoice == 2:
-        print ("  Goodbye!")
-        break
-    if mainChoice == 1:
-        coach = coachName()
-        sleep(2)
-        while True:
-            print ("""================""")
-            try:
-                baseStats = int (input("""
   Which number best describes your coaching style?
 
   1. Focused on the fundamentals (+ defense, - offense)
@@ -150,33 +147,102 @@ while True:
 
 ================ 
   """))
-                if baseStats == 1 or baseStats == 2 or baseStats == 3:
-                    break
-                else:
-                    print ("  Oops! Try picking a number 1-3.")
-                    continue
-            except:
+            if baseStats == 1 or baseStats == 2 or baseStats == 3:
+                break
+            else:
                 print ("  Oops! Try picking a number 1-3.")
-                continue  
-        if baseStats == 1:
-                Georgia = Team(coach, offense = 10 , defense = 30, experience = 0, wins =0 )
-                print ("""================
+                continue
+        except:
+            print ("  Oops! Try picking a number 1-3.")
+            continue  
+    if baseStats == 1:
+        Georgia = Team("Georgia",coach, offense = 10 , defense = 30, experience = 0, wins =0 )
+        print ("""================
 
   Defense all the way! Here are your starting stats.""")
-                Georgia.printStats()
-        if baseStats == 2:
-                Georgia = Team(coach, offense = 30 , defense = 10, experience = 0, wins =0 )
-                print ("""================
+        Georgia.printStats()
+    if baseStats == 2:
+        Georgia = Team("Georgia",coach, offense = 30 , defense = 10, experience = 0, wins =0 )
+        print ("""================
 
   Now that's a powerhouse offense! Here are your starting stats.""")
-                Georgia.printStats()
-        if baseStats == 3:
-                Georgia = Team(coach, offense = 20 , defense = 20, experience = 0, wins =0 )
-                print ("""================
+        Georgia.printStats()
+ 
+    if baseStats == 3:
+        Georgia = Team("Georgia",coach, offense = 20 , defense = 20, experience = 0, wins =0 )
+        print ("""================
 
   Best of both worlds! Here are your starting stats.""")
-                Georgia.printStats()
-                
-    #Work on what would you like to do menu (quit, read up on opponent, practice etc)
+        Georgia.printStats()  
+
+def coachMenu (rival):
+    while True:
+        try:
+            coachChoice = int(input(f"""================  
+
+  What would you like to do?
+
+  1. Check my stats
+  2. Check {rival.teamName}'s stats
+  3. Prepare for {rival.teamName} 
+  4. Quit 
+
+================
+    """))
+            if coachChoice == 1 or coachChoice ==2 or coachChoice ==3 or coachChoice ==4:
+                break
+            else:
+                print ("  Oops! Try picking 1-4.")
+                continue
+        except:
+            print ("  Oops! Try picking 1-4.")
+            continue
+    print (coachChoice)
+    return coachChoice
+
+def coachMenu2 (rival):
+    while True:
+        try:
+            coachChoice = int(input(f"""================
+
+  What would you like to do?
+
+  1. Check my stats
+  2. Check {rival.teamName}'s stats
+  3. Play game against {rival.teamName} 
+  4. Quit 
+
+================
+    """))
+            if coachChoice == 1 or coachChoice ==2 or coachChoice ==3 or coachChoice ==4:
+                break
+            else:
+                print ("  Oops! Try picking 1-4.")
+                continue
+        except:
+            print ("  Oops! Try picking 1-4.")
+            continue
+    print (coachChoice)
+    return coachChoice
+
+#GAME LOOP
+while True:
+    mainChoice = mainMenu()
+    if mainChoice == 2:
+        print ("  Goodbye!")
+        break
+    if mainChoice == 1:
+        coach = getCoachName()
+        getBaseStats()
+        print("""  The choices you make as coach will impact your stats 
+  and affect your chances of winning games. 
+    """)
+        print("""  There are 5 games in the regular season. 
+  Win 3 of them, and you'll have a shot at a title. 
+
+  For Game One, the Dawgs are taking on Oregon in Atlanta.
+""")
+        coachMenu (Oregon)
+    
         
 
