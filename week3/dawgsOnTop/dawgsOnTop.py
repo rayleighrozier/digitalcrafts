@@ -130,7 +130,6 @@ def coachName():
 
 
 #GAME LOOP
-
 while True:
     mainChoice = mainMenu()
     if mainChoice == 2:

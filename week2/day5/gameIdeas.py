@@ -7,7 +7,8 @@ class Team:
         self.experience = experience
         self.wins = wins
     
-    
+    #getScore will run TWICE to get final score! 
+    #fix to prevent score of only 1 
     def getScore (self, rival): 
         def getBoost (stat):
             points = stat
@@ -39,11 +40,12 @@ class Team:
             else:
                 score = score
             counter = counter - 1
-        if score != 1 and score !=4:
+        if score != 1 and :
             return score
         else:
-            score = score +2
+            score = score -1
             return score
+    
 
     
 Georgia = Team("Georgia") 
