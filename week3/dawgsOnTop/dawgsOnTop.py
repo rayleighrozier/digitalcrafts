@@ -1,17 +1,20 @@
 #NEED TO ADDRESS: a tie, too many 6s and 8s 
 #uncomment the sleeps 
+#get rid of "MENU 1" and "MENU 2 " in prints
+
 import random
 from time import sleep
 
 #CLASS
 class Team:
-    def __init__(self, teamName, coachName, offense = 20 , defense = 20, experience = 0, wins =0):
+    def __init__(self, teamName, coachName, offense = 20 , defense = 20, experience = 0, wins =0 , losses = 0):
         self.teamName = teamName
         self.coachName = coachName
         self.offense = offense
         self.defense = defense
         self.experience = experience
         self.wins = wins
+        self.losses = losses
     
     def printStats(self):
         print(f"""
@@ -21,11 +24,12 @@ class Team:
   Defense : {self.defense}
   Experience : {self.experience}
   Wins : {self.wins}
+  Losses : {self.losses}
 
 ================ 
 """)
 
-    def prepareTeam(self):
+    def prepareTeam(self): #update with other options (ex. QB)
         while True:
             try:
                 choice = int(input("""  How will your team prepare this week?
@@ -102,8 +106,8 @@ class Team:
             return score
 
 #BUILT-IN CLASS OBJECTS
-Georgia = Team("Georgia","", 20 , 20, 0, 0 )
-Oregon = Team("Oregon", "Dan Lanning", 15, 20, 0, 0)
+Georgia = Team("Georgia","", 20 , 20, 0, 0, 0 )
+Oregon = Team("Oregon", "Dan Lanning", 15, 20, 0, 0, 0)
 
 #FUNCTIONS 
 def mainMenu():
@@ -302,11 +306,40 @@ def coachMenu2 (team, rival):
 """)
         rival.printStats()
     if coachChoice == 3:
-        print("This is where we are going to play the game")
+        playGame(team,rival)
     if coachChoice == 4:
         return True
-        
 
+def playGame (team,rival):
+    print (f"""  It's game day! {team.teamName} and {rival.teamName} are facing off.
+    """)
+    print("will put more text here..... ")
+    teamHalf1 = team.getScore(rival) 
+    rivalHalf1 = rival.getScore(team)      
+    print (f"""
+  HALFTIME SCORE:
+  {team.teamName} - {teamHalf1}
+  {rival.teamName} - {rivalHalf1}
+    """)
+    #HALF TIME ADJUSTMENTS HERE < -- class func 
+    print ("will put more text here..... ")
+    teamHalf2 = team.getScore(rival) 
+    rivalHalf2 = rival.getScore(team)
+    print (f"""
+  FINAL SCORE:
+  {team.teamName} - {(teamHalf1 + teamHalf2)}
+  {rival.teamName} - {(rivalHalf1 + rivalHalf2)}
+    """)
+    if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
+        print (f""" {team.teamName} wins!!!""")
+        team.wins = team.wins + 1
+        print (f""" {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
+        return True
+    if (teamHalf1 + teamHalf2) < (rivalHalf1 + rivalHalf2):
+        print (f""" {rival.teamName} wins.""")
+        team.losses = team.losses + 1
+        print (f""" {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
+        return True
 #GAME LOOP
 while True:
     mainChoice = mainMenu()
@@ -318,6 +351,7 @@ while True:
         getBaseStats(Georgia)
         while True:
             flag = coachMenu(Georgia, Oregon)  #flag is none unless you pick 3 or 4
+            #set a true flag when its time to change opponets
             if flag:
                 break
 
