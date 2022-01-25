@@ -1,6 +1,8 @@
 #NEED TO ADDRESS: a tie, too many 6s and 8s 
 #uncomment the sleeps 
 #get rid of "MENU 1" and "MENU 2 " in prints
+#fix all menus really lol 
+#for every menu put line at bottom 
 
 import random
 from time import sleep
@@ -106,8 +108,15 @@ class Team:
             return score
 
 #BUILT-IN CLASS OBJECTS
-Georgia = Team("Georgia","", 20 , 20, 0, 0, 0 )
+#set to zero for now --- fix stats
+Georgia = Team("Georgia","", 20 , 20, 0, 0, 0)
 Oregon = Team("Oregon", "Dan Lanning", 15, 20, 0, 0, 0)
+Tennessee = Team("Tennessee", "Josh Heupel", 0, 0, 0, 0, 0)
+Florida = Team("Florida", "Billy Napier", 0, 0, 0, 0, 0)
+Auburn = Team ("Auburn", "Bryan Harsin", 0, 0 , 0, 0, 0)
+GeorgiaTech = Team("Georgia Tech", "Geoff Collins", 0, 0, 0, 0, 0)
+Alabama = Team ("Alabama", "Nick Saban", 0, 0, 0, 0, 0)
+NotreDame = Team("Notre Dame", "Marcus Freeman", 0, 0, 0, 0, 0)
 
 #FUNCTIONS 
 def mainMenu():
@@ -268,13 +277,11 @@ def coachMenu (team, rival):
     if coachChoice == 3:
         team.prepareTeam()
         while True:
-            menu2flag = coachMenu2 (Georgia,Oregon)
+            menu2flag = coachMenu2 (team, rival)
             if menu2flag:
                 return True
-                break
     if coachChoice == 4:
         return True
-
 def coachMenu2 (team, rival):
     while True:
         try:
@@ -307,6 +314,7 @@ def coachMenu2 (team, rival):
         rival.printStats()
     if coachChoice == 3:
         playGame(team,rival)
+        return True
     if coachChoice == 4:
         return True
 
@@ -331,15 +339,17 @@ def playGame (team,rival):
   {rival.teamName} - {(rivalHalf1 + rivalHalf2)}
     """)
     if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
-        print (f""" {team.teamName} wins!!!""")
+        print (f"""  {team.teamName} wins!!!""")
         team.wins = team.wins + 1
-        print (f""" {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
+        team.experience = team.experience + 1
+        print (f"""  {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
+        print (f""" You also gained +1 experience! """)
         return True
     if (teamHalf1 + teamHalf2) < (rivalHalf1 + rivalHalf2):
-        print (f""" {rival.teamName} wins.""")
+        print (f"""  {rival.teamName} wins.""")
         team.losses = team.losses + 1
-        print (f""" {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
-        return True
+        print (f"""  {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
+    return True
 #GAME LOOP
 while True:
     mainChoice = mainMenu()
@@ -347,13 +357,51 @@ while True:
         print ("  Goodbye!")
         break
     if mainChoice == 1:
-        coach = getCoachName()
+        Georgia.coachName = getCoachName()
         getBaseStats(Georgia)
         while True:
-            flag = coachMenu(Georgia, Oregon)  #flag is none unless you pick 3 or 4
-            #set a true flag when its time to change opponets
-            if flag:
-                break
+            while (Georgia.wins + Georgia.losses) == 0 :
+                flag = coachMenu(Georgia, Oregon)
+                if flag:
+                    break
+            if Georgia.wins == 1:
+                    print(f"""  Congratulations on the victory, Coach {Georgia.coachName}.""")
+                    print(f"""  Your next opponent is Tennessee.""")
+            else:
+                    print(f""" Tough luck against Oregon, Coach {Georgia.coachName}.
+        but here is your chance to redeem yourself!""")
+                    print(f"""  Your next opponent is Tennessee.""")
+            while (Georgia.wins + Georgia.losses) == 1 :
+                flag = coachMenu(Georgia,Tennessee)
+                if flag:
+                    break
+            while (Georgia.wins + Georgia.losses) == 2 :
+                flag = coachMenu(Georgia, Florida)
+                if flag:
+                    break
+            while (Georgia.wins + Georgia.losses) == 3 :
+                flag = coachMenu(Georgia, Auburn)
+                if flag:
+                    break
+            while (Georgia.wins + Georgia.losses) == 4 :
+                flag = coachMenu(Georgia, GeorgiaTech)
+                if flag:
+                    break
+            while (Georgia.wins + Georgia.losses) == 5 :
+                if Georgia.wins >= 3: 
+                    flag = coachMenu(Georgia, Alabama)
+                    if flag:
+                        break
+                else:
+                    print("""  The season is over! 
+  You did not get enough wins to advance to the SEC Championship.
+  Maybe next time! """)
+                    break
+            break
+            
+            
+           
+        
 
         
         
