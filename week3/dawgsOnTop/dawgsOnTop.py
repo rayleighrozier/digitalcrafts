@@ -1,8 +1,8 @@
-#NEED TO ADDRESS: a tie, too many 6s and 8s 
-#uncomment the sleeps 
-#get rid of "MENU 1" and "MENU 2 " in prints
-#fix all menus really lol 
+#Fix tie situations , too many 6s and 8s 
+#uncomment the sleeps
+#fix text in playgame()
 #for every menu put line at bottom 
+# one space for answers 
 
 import random
 from time import sleep
@@ -19,53 +19,64 @@ class Team:
         self.losses = losses
     
     def printStats(self):
-        print(f"""
-  {self.teamName.upper()}
+        print(f"""  {self.teamName.upper()}
 
   Offense : {self.offense}
   Defense : {self.defense}
   Experience : {self.experience}
   Wins : {self.wins}
   Losses : {self.losses}
-
-================ 
-""")
+  """)
 
     def prepareTeam(self): #update with other options (ex. QB)
         while True:
             try:
-                choice = int(input("""  How will your team prepare this week?
+                choice = int(input("""================
+
+  How will your team prepare this week?
 
   1. Practice trick plays (+ random offense boost)
   2. Run a ton of drills (+ random defense boost)
   3. Study the film (+1 experience)
-                
-                """))
+
+================ 
+  """))
                 if choice == 1 or choice ==2 or choice ==3:
                     break
                 else:
-                    print ("  Oops! Try picking 1-3.")
+                    print ("""  Oops! Try picking 1-3.
+
+================ """)
                     continue
             except:
-                print ("  Oops! Try picking 1-3.")
+                print ("""  Oops! Try picking 1-3.
+                    
+================ """)
                 continue
         if choice == 1:
             boost = random.randint(5,15)
             self.offense = self.offense + boost
             print(f"""  They'll never see it coming! Your offense was boosted by {boost}.
-""") 
-            print ("""  Here are your updated stats:""")      
+  """) 
+            print ("""  Here are your updated stats:
+""")      
             self.printStats()
         if choice == 2:
             boost = random.randint(5,15)
             self.defense = self.defense + boost
-            print(f"""  No pain no gain! Your defense was boosted by {boost}.
-""") 
-            print ("""  Here are your updated stats:""")      
+            print(f"""================ 
+  
+  No pain no gain! Your defense was boosted by {boost}.
+  """) 
+            print ("""================ 
+
+  Here are your updated stats:""")      
             self.printStats()
         if choice == 3:
             self.experience = self.experience + 1
-            print(f"""  Studying pays off! Your experience was boosted by 1.
+            print(f"""================ 
+
+  Studying pays off! Your experience was boosted by 1.
 """) 
             print ("""  Here are your updated stats:""") 
             self.printStats()
@@ -107,8 +118,156 @@ class Team:
             score = score +2
             return score
 
+    def halftimeAdjustment(self): ###
+        while True:
+            try:
+                choice = int(input("""================
+
+  Which halftime adjustment will you make?
+
+  1. Change quarterbacks (+ random offense boost)
+  2. Retool the defense (+ random defense boost)
+  3. Give inspirational locker room speech (+1 experience and small random stat boost)
+
+================ 
+  """))
+                if choice == 1 or choice ==2 or choice ==3:
+                    break
+                else:
+                    print ("""  Oops! Try picking 1-3.
+
+================ """)
+                    continue
+            except:
+                print ("""  Oops! Try picking 1-3.
+                    
+================ """)
+                continue
+        if choice == 1:
+            boost = random.randint(5,15)
+            self.offense = self.offense + boost
+            print(f"""================
+
+  The backup is ALWAYS better than the starter. Your offense was boosted by {boost}.
+  """) 
+            print ("""  Here are your updated stats:
+""")      
+            self.printStats()
+        if choice == 2:
+            boost = random.randint(5,15)
+            self.defense = self.defense + boost
+            print(f"""================ 
+  
+  Defense wins championships! Your defense was boosted by {boost}.
+  """) 
+            print ("""================ 
+
+  Here are your updated stats:
+  """)      
+            self.printStats()
+        if choice == 3:
+            self.experience = self.experience + 1
+            tinyBoost = random.choice(["offense", "defense"])
+            boost = random.randint(1,5)
+            if tinyBoost == "offense":
+                self.offense = self.offense + boost
+            if tinyBoost == "defense":
+                self.defense = self.defense + boost
+            print(f"""================ 
+
+  What a speech! Is that linebacker crying? 
+  Your experience was boosted by 1 and your 
+  {tinyBoost} was boosted by {boost}.
+""") 
+            print ("""  Here are your updated stats:""") 
+            self.printStats()
+
+    def playGame (self, rival):
+        print (f"""================
+
+  It's game day! {self.teamName} and {rival.teamName} are facing off.
+""")
+        print("  Gooooooo..... ")
+        print("  Dawgs! ")
+        print("  Sic 'em! ")
+        print("""  Woof woof woof woof!  
+""")
+        teamHalf1 = self.getScore(rival) 
+        rivalHalf1 = rival.getScore(self)
+        if teamHalf1 > rivalHalf1:
+            print(f"""  Strong start for the Dawgs!
+  They're in the lead after the first half.
+  """)
+        elif teamHalf1 < rivalHalf1:
+             print(f"""  It's time to hunker down! 
+  The Dawgs are trailing after the first half.
+  """)
+        else:
+            print(f"""  It's anybody's game! 
+  The teams are tied going into the second half.
+  """)
+        print (f"""
+  HALFTIME SCORE:
+  {self.teamName} - {teamHalf1}
+  {rival.teamName} - {rivalHalf1}
+        """)
+        Georgia.halftimeAdjustment() 
+        print ("""  Time for the second half.
+""")
+        print("  Gooooooo..... ")
+        print("  Dawgs! ")
+        print("  Sic 'em! ")
+        print("""  Woof woof woof woof!  
+""")
+        teamHalf2 = self.getScore(rival) 
+        rivalHalf2 = rival.getScore(self)
+        #tie condition
+        if (teamHalf1 + teamHalf2) == (rivalHalf1 + rivalHalf2):
+            coinflip = random.choice(1,2)
+            if coinflip == 1:
+                teamHalf2 = teamHalf2 + 1 
+            if coinflip == 2:
+                rivalHalf2 = rivalHalf2 + 1
+        teamFinal = teamHalf1 + teamHalf2
+        rivalFinal = rivalHalf1 + rivalHalf2
+        if teamFinal > rivalFinal and (teamFinal - rivalFinal) > 14:
+            print (f"""  It's a blowout! The dawgs handle {rival.teamName} easily. """)
+        elif teamFinal > rivalFinal and (teamFinal - rivalFinal) < 3:
+            print (f"""  That was a close one! Georgia squeaks out
+  a victory against {rival.teamName}. """)
+        elif teamFinal > rivalFinal:
+             print (f""" Another W for the dawgs! Georgia takes down {rival.teamName}. """)
+        elif teamFinal < rivalFinal and (rivalFinal - teamFinal) > 14:
+             print (f"""  Oof! {rival.teamName} had your number today.
+  Dawgs lose and it wasn't pretty. """)
+        elif teamFinal < rivalFinal and (rivalFinal - teamFinal) < 3:
+            print (f"""  What a heartbreaker! Georgia comes up just short.
+  {rival.teamName} wins. """)
+        else:
+             print (f""" Sometimes it's just not your day. {rival.teamName} wins. """)
+        print (f"""
+  FINAL SCORE:
+  {self.teamName} - {teamFinal}
+  {rival.teamName} - {rivalFinal}
+        """)
+        if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
+            self.wins = self.wins + 1
+            self.experience = self.experience + 1
+            print (f"""  {self.teamName}'s Current Record: {self.wins} - {self.losses} """)
+            print (f"""  You also gained +1 experience! 
+            
+================""")
+        if (teamHalf1 + teamHalf2) < (rivalHalf1 + rivalHalf2):
+            self.losses = self.losses + 1
+            self.experience = self.experience + 1
+            print (f"""  {self.teamName}'s Current Record: {self.wins} - {self.losses} """)
+            print (f"""  You still gained +1 experience! 
+            
+================""")
+
+
 #BUILT-IN CLASS OBJECTS
-#set to zero for now --- fix stats
+#### Add in team stats
 Georgia = Team("Georgia","", 20 , 20, 0, 0, 0)
 Oregon = Team("Oregon", "Dan Lanning", 15, 20, 0, 0, 0)
 Tennessee = Team("Tennessee", "Josh Heupel", 0, 0, 0, 0, 0)
@@ -147,10 +306,14 @@ def mainMenu():
             if mainChoice == 1 or mainChoice ==2:
                 break
             else:
-                print ("  Oops! Try picking 1 or 2.")
+                print ("""  Oops! Try picking 1 or 2.
+
+================ """)
                 continue
         except:
-            print ("  Oops! Try picking 1 or 2.")
+            print ("""  Oops! Try picking 1 or 2.
+
+================ """)
             continue
     return mainChoice
 
@@ -183,17 +346,19 @@ def getCoachName():
     # sleep(2)
     coach = input("""  What is your name? """).capitalize()
     # sleep(0.5)
-    print (f""" 
+    print (f"""
+================ 
+
   Welcome Coach {coach}! 
   Let's find out what kind of coach you are.
-    """)
+
+================ """)
     return coach
 
 def getBaseStats(team):
     while True:
         try:
-            baseStats = int (input("""================
-
+            baseStats = int (input("""  
   Which number best describes your coaching style?
 
   1. Go big or go home (+offense , - defense)
@@ -205,34 +370,41 @@ def getBaseStats(team):
             if baseStats == 1 or baseStats == 2 or baseStats == 3:
                 break
             else:
-                print ("  Oops! Try picking a number 1-3.")
+                print ("""  Oops! Try picking 1-3.
+
+================ """)
                 continue
         except:
-            print ("  Oops! Try picking a number 1-3.")
+            print ("""  Oops! Try picking 1-3.
+
+================ """)
             continue  
     if baseStats == 1:
         team.offense = 30
         team.defense = 10
-        print ("""================
+        print ("""================ 
 
-  Now that's a powerhouse offense! Here are your starting stats.""")
+  Now that's a powerhouse offense! Here are your starting stats.
+  """)
         team.printStats()
-        return Georgia
     if baseStats == 2:
         team.offense = 10
         team.defense = 30
-        print ("""================
+        print ("""================ 
 
-  Defense all the way! Here are your starting stats.""")
+  Defense all the way! Here are your starting stats.
+  """)
         team.printStats()
-        return team
     if baseStats == 3:
-        print ("""================
+        print ("""================ 
 
-  Best of both worlds! Here are your starting stats.""")
+  Best of both worlds! Here are your starting stats.
+  """)
         team.printStats()  
-        return team
-    print("""  The choices you make as coach will impact your stats 
+        
+    print("""================   
+  
+  The choices you make as coach will impact your stats 
   and affect your chances of winning games. 
 """)
     print("""  There are 5 games in the regular season. 
@@ -240,13 +412,14 @@ def getBaseStats(team):
 """)
     print("""  To kickoff the season, the Dawgs are taking on Oregon in Atlanta.
 """)
+    return team
 
 def coachMenu (team, rival):
     while True:
         try:
             coachChoice = int(input(f"""================  
 
-  MENU 1 What would you like to do?
+  What would you like to do?
 
   1. Check my stats
   2. Check {rival.teamName}'s stats
@@ -258,19 +431,25 @@ def coachMenu (team, rival):
             if coachChoice == 1 or coachChoice ==2 or coachChoice ==3 or coachChoice ==4:
                 break
             else:
-                print ("  Oops! Try picking 1-4.")
+                print ("""  Oops! Try picking 1-4.
+================ """)
                 continue
         except:
-            print ("  Oops! Try picking 1-4.")
+            print ("""  Oops! Try picking 1-4.
+================ """)
             continue
     
     if coachChoice == 1:
-        print("""  Here are your current stats.
+        print("""================ 
+
+  Here are your current stats.
 """)
         team.printStats()
         return False
     if coachChoice == 2:
-        print(f"""  Here are {rival.teamName}'s current stats.
+        print(f"""================
+
+  Here are {rival.teamName}'s current stats.
 """)
         rival.printStats()
         return False
@@ -282,12 +461,13 @@ def coachMenu (team, rival):
                 return True
     if coachChoice == 4:
         return True
+
 def coachMenu2 (team, rival):
-    while True:
+    while True: #######
         try:
             coachChoice = int(input(f"""================  
 
-  MENU 2 What would you like to do?
+  What would you like to do?
 
   1. Check my stats
   2. Check {rival.teamName}'s stats
@@ -313,45 +493,16 @@ def coachMenu2 (team, rival):
 """)
         rival.printStats()
     if coachChoice == 3:
-        playGame(team,rival)
+        Georgia.playGame(rival)
         return True
     if coachChoice == 4:
         return True
 
-def playGame (team,rival):
-    print (f"""  It's game day! {team.teamName} and {rival.teamName} are facing off.
-    """)
-    print("will put more text here..... ")
-    teamHalf1 = team.getScore(rival) 
-    rivalHalf1 = rival.getScore(team)      
-    print (f"""
-  HALFTIME SCORE:
-  {team.teamName} - {teamHalf1}
-  {rival.teamName} - {rivalHalf1}
-    """)
-    #HALF TIME ADJUSTMENTS HERE < -- class func 
-    print ("will put more text here..... ")
-    teamHalf2 = team.getScore(rival) 
-    rivalHalf2 = rival.getScore(team)
-    print (f"""
-  FINAL SCORE:
-  {team.teamName} - {(teamHalf1 + teamHalf2)}
-  {rival.teamName} - {(rivalHalf1 + rivalHalf2)}
-    """)
-    if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
-        print (f"""  {team.teamName} wins!!!""")
-        team.wins = team.wins + 1
-        team.experience = team.experience + 1
-        print (f"""  {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
-        print (f""" You also gained +1 experience! """)
-        return True
-    if (teamHalf1 + teamHalf2) < (rivalHalf1 + rivalHalf2):
-        print (f"""  {rival.teamName} wins.""")
-        team.losses = team.losses + 1
-        print (f"""  {team.teamName}'s Current Record: {team.wins} - {team.losses} """)
-    return True
+
+
 #GAME LOOP
 while True:
+    Georgia = Team("Georgia","", 20 , 20, 0, 0, 0)
     mainChoice = mainMenu()
     if mainChoice == 2:
         print ("  Goodbye!")
@@ -365,11 +516,13 @@ while True:
                 if flag:
                     break
             if Georgia.wins == 1:
-                    print(f"""  Congratulations on the victory, Coach {Georgia.coachName}.""")
-                    print(f"""  Your next opponent is Tennessee.""")
+                    print(f"""
+  Congratulations on the victory, Coach {Georgia.coachName}.""")
+                    print(f"""  Your next opponent is Tennessee.
+""")
             else:
-                    print(f""" Tough luck against Oregon, Coach {Georgia.coachName}.
-        but here is your chance to redeem yourself!""")
+                    print(f"""  Tough luck against Oregon, Coach {Georgia.coachName}.
+  But here is your chance to redeem yourself!""")
                     print(f"""  Your next opponent is Tennessee.""")
             while (Georgia.wins + Georgia.losses) == 1 :
                 flag = coachMenu(Georgia,Tennessee)
@@ -384,7 +537,7 @@ while True:
                 if flag:
                     break
             while (Georgia.wins + Georgia.losses) == 4 :
-                flag = coachMenu(Georgia, GeorgiaTech)
+                flag = coachMenu(Georgia, GeorgiaTech) #####
                 if flag:
                     break
             while (Georgia.wins + Georgia.losses) == 5 :
@@ -396,7 +549,7 @@ while True:
                     print("""  The season is over! 
   You did not get enough wins to advance to the SEC Championship.
   Maybe next time! """)
-                    break
+                    break ###add in playoff 
             break
             
             
