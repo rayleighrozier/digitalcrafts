@@ -284,6 +284,7 @@ Auburn = Team ("Auburn", "Bryan Harsin", 50, 20, 4, 2, 1)
 GeorgiaTech = Team("Georgia Tech", "Geoff Collins", 50, 10, 4, 1, 3)
 Alabama = Team ("Alabama", "Nick Saban", 80, 100, 7, 5, 0)
 NotreDame = Team("Notre Dame", "Marcus Freeman", 100 , 60, 0, 6, 0)
+Alabama2 = Team ("Alabama 2", "Nick Saban", 100, 100, 10, 6, 1)
 
 winTracker = []
 
@@ -530,16 +531,17 @@ while True:
                 flag = coachMenu(Georgia, Oregon)
                 if flag:
                     break
+            #After Oregon 
             if "Oregon" in winTracker:
                     print(f"""
-  Congratulations on the victory, Coach {Georgia.coachName}.""")
-                    print(f"""  Your next opponent is Tennessee.
-""")
+  Congratulations on the victory, Coach {Georgia.coachName}.
+  Now, we're moving into SEC play.
+  """)
             else:
                     print(f"""  
   Tough luck against Oregon, Coach {Georgia.coachName}.
   But here is your chance to redeem yourself!""")
-                    print(f"""  Your next opponent is Tennessee.
+            print(f"""  Your next opponent is Tennessee.
 """)
             while (Georgia.wins + Georgia.losses) == 1 :
                 flag = coachMenu(Georgia,Tennessee)
@@ -550,32 +552,80 @@ while True:
   Way to beat Big Orange, Coach {Georgia.coachName}.
   But there's another ugly orange rival right around the corner.
   """)
-                    print(f"""  Next, you're taking on Florida.
-    It's the World's Largest Outdoor Cocktail Party! 
-""")
             else:
+                print(f"""
+  Big Orange got the best of you, Coach {Georgia.coachName}.
+  And now there's another ugly orange rival right around the corner.
+  """)
+            print(f"""  Your next opponent is Florida.
+  It's the World's Largest Outdoor Cocktail Party! 
+""")
             while (Georgia.wins + Georgia.losses) == 2 :
                 flag = coachMenu(Georgia, Florida)
                 if flag:
                     break
+            print(f"""           
+  The Gators have gone back to the swamp, and you're
+  over halfway through the season Coach {Georgia.coachName}!""") 
+            print("""  
+  But the Deep South's Oldest Rivalry is just a week away. """)
+            print (f"""  
+  Your next opponent is Auburn.""")
             while (Georgia.wins + Georgia.losses) == 3 :
                 flag = coachMenu(Georgia, Auburn)
                 if flag:
                     break
+            if Auburn in winTracker:
+                print(f"""
+  Down go the tigers! That's the end of SEC play.
+  There's just one game left in the regular season.
+  """)
+            else:
+                print(f"""
+  Auburn gets lucky again! That's the end of SEC play.
+  There's just one game left in the regular season.
+  """)
+            print(f"""  Your next opponent is that
+    tiny trade school down the road, Georgia Tech.
+  """)
             while (Georgia.wins + Georgia.losses) == 4 :
                 flag = coachMenu(Georgia, GeorgiaTech) 
                 if flag:
                     break
             while (Georgia.wins + Georgia.losses) == 5 :
-                if Georgia.wins >= 3: 
+                if Georgia.wins >= 3:
+                    print(f"""
+  Congratulations Coach {Georgia.coachName}! At the end of the regular season,
+  your record is {Georgia.wins} - {Georgia.losses}.                           
+""") 
+                    print(f"""  You are on top of the SEC East, and now you have a
+  chance to play for an SEC title. 
+""")
+                    print(f"""  As always, your opponent is Alabama. 
+""")
                     flag = coachMenu(Georgia, Alabama)
                     if flag:
                         break
                 else:
-                    print("""  The season is over! 
-  You did not get enough wins to advance to the SEC Championship.
-  Maybe next time! """)
-                    break ###add in playoff 
+                    print(f"""  That's the end of the regular season! 
+  Unfortunately, Coach {Georgia.coachName}, you did not get enough wins 
+  to advance to the SEC Championship.
+""")   
+                    print(f"""  Your final record is {Georgia.wins} - {Georgia.losses}.
+   Not a bad first season! Try again to see if you can lead the dawgs to a national
+   championship.""")
+                    break
+            while (Georgia.wins + Georgia.losses) == 6 :
+                    if "Alabama" in winTracker:
+                        flag = coachMenu(Georgia, NotreDame)
+                        if flag:
+                            break
+            while (Georgia.wins + Georgia.losses) == 7 :
+                    if "Notre Dame" in winTracker:
+                        flag = coachMenu(Georgia, Alabama2)
+                        if flag:
+                            break
+                
             break
             
             
