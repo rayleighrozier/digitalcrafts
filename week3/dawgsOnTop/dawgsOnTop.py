@@ -1,6 +1,4 @@
-#Fix tie situations , too many 6s and 8s 
-#uncomment the sleeps
-#fix text in playgame()
+ #uncomment the sleeps
 #for every menu put line at bottom 
 # one space for answers 
 
@@ -56,9 +54,13 @@ class Team:
         if choice == 1:
             boost = random.randint(5,15)
             self.offense = self.offense + boost
-            print(f"""  They'll never see it coming! Your offense was boosted by {boost}.
+            print(f"""================ 
+
+  They'll never see it coming! Your offense was boosted by {boost}.
   """) 
-            print ("""  Here are your updated stats:
+            print ("""================ 
+  
+  Here are your updated stats:
 """)      
             self.printStats()
         if choice == 2:
@@ -70,7 +72,8 @@ class Team:
   """) 
             print ("""================ 
 
-  Here are your updated stats:""")      
+  Here are your updated stats:
+""")      
             self.printStats()
         if choice == 3:
             self.experience = self.experience + 1
@@ -78,7 +81,10 @@ class Team:
 
   Studying pays off! Your experience was boosted by 1.
 """) 
-            print ("""  Here are your updated stats:""") 
+            print ("""================ 
+
+  Here are your updated stats:
+  """) 
             self.printStats()
     
     def getScore(self, rival): 
@@ -182,7 +188,7 @@ class Team:
             print ("""  Here are your updated stats:""") 
             self.printStats()
 
-    def playGame (self, rival):
+    def playGame(self, rival):
         print (f"""================
 
   It's game day! {self.teamName} and {rival.teamName} are facing off.
@@ -223,7 +229,7 @@ class Team:
         rivalHalf2 = rival.getScore(self)
         #tie condition
         if (teamHalf1 + teamHalf2) == (rivalHalf1 + rivalHalf2):
-            coinflip = random.choice(1,2)
+            coinflip = random.choice([1,2])
             if coinflip == 1:
                 teamHalf2 = teamHalf2 + 1 
             if coinflip == 2:
@@ -236,7 +242,7 @@ class Team:
             print (f"""  That was a close one! Georgia squeaks out
   a victory against {rival.teamName}. """)
         elif teamFinal > rivalFinal:
-             print (f""" Another W for the dawgs! Georgia takes down {rival.teamName}. """)
+             print (f"""  A W for the dawgs! Georgia takes down {rival.teamName}. """)
         elif teamFinal < rivalFinal and (rivalFinal - teamFinal) > 14:
              print (f"""  Oof! {rival.teamName} had your number today.
   Dawgs lose and it wasn't pretty. """)
@@ -244,7 +250,7 @@ class Team:
             print (f"""  What a heartbreaker! Georgia comes up just short.
   {rival.teamName} wins. """)
         else:
-             print (f""" Sometimes it's just not your day. {rival.teamName} wins. """)
+             print (f"""  Sometimes it's just not your day. {rival.teamName} wins. """)
         print (f"""
   FINAL SCORE:
   {self.teamName} - {teamFinal}
@@ -253,6 +259,7 @@ class Team:
         if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
             self.wins = self.wins + 1
             self.experience = self.experience + 1
+            winTracker.append(rival.teamName)
             print (f"""  {self.teamName}'s Current Record: {self.wins} - {self.losses} """)
             print (f"""  You also gained +1 experience! 
             
@@ -268,14 +275,17 @@ class Team:
 
 #BUILT-IN CLASS OBJECTS
 #### Add in team stats
+## offense defense experience wins losses
 Georgia = Team("Georgia","", 20 , 20, 0, 0, 0)
 Oregon = Team("Oregon", "Dan Lanning", 15, 20, 0, 0, 0)
-Tennessee = Team("Tennessee", "Josh Heupel", 0, 0, 0, 0, 0)
-Florida = Team("Florida", "Billy Napier", 0, 0, 0, 0, 0)
-Auburn = Team ("Auburn", "Bryan Harsin", 0, 0 , 0, 0, 0)
-GeorgiaTech = Team("Georgia Tech", "Geoff Collins", 0, 0, 0, 0, 0)
-Alabama = Team ("Alabama", "Nick Saban", 0, 0, 0, 0, 0)
-NotreDame = Team("Notre Dame", "Marcus Freeman", 0, 0, 0, 0, 0)
+Tennessee = Team("Tennessee", "Josh Heupel", 30, 10, 2, 0, 1)
+Florida = Team("Florida", "Billy Napier", 30, 40, 3, 2, 0)
+Auburn = Team ("Auburn", "Bryan Harsin", 50, 20, 4, 2, 1)
+GeorgiaTech = Team("Georgia Tech", "Geoff Collins", 50, 10, 4, 1, 3)
+Alabama = Team ("Alabama", "Nick Saban", 80, 100, 7, 5, 0)
+NotreDame = Team("Notre Dame", "Marcus Freeman", 100 , 60, 0, 6, 0)
+
+winTracker = []
 
 #FUNCTIONS 
 def mainMenu():
@@ -485,11 +495,15 @@ def coachMenu2 (team, rival):
             print ("  Oops! Try picking 1-4.")
             continue
     if coachChoice == 1:
-        print("""  Here are your current stats.
+        print("""================    
+  
+  Here are your current stats.
 """)
         team.printStats()
     if coachChoice == 2:
-        print(f"""  Here are {rival.teamName}'s current stats.
+        print(f"""================
+  
+  Here are {rival.teamName}'s current stats.
 """)
         rival.printStats()
     if coachChoice == 3:
@@ -503,6 +517,7 @@ def coachMenu2 (team, rival):
 #GAME LOOP
 while True:
     Georgia = Team("Georgia","", 20 , 20, 0, 0, 0)
+    winTracker = []
     mainChoice = mainMenu()
     if mainChoice == 2:
         print ("  Goodbye!")
@@ -515,19 +530,30 @@ while True:
                 flag = coachMenu(Georgia, Oregon)
                 if flag:
                     break
-            if Georgia.wins == 1:
+            if "Oregon" in winTracker:
                     print(f"""
   Congratulations on the victory, Coach {Georgia.coachName}.""")
                     print(f"""  Your next opponent is Tennessee.
 """)
             else:
-                    print(f"""  Tough luck against Oregon, Coach {Georgia.coachName}.
+                    print(f"""  
+  Tough luck against Oregon, Coach {Georgia.coachName}.
   But here is your chance to redeem yourself!""")
-                    print(f"""  Your next opponent is Tennessee.""")
+                    print(f"""  Your next opponent is Tennessee.
+""")
             while (Georgia.wins + Georgia.losses) == 1 :
                 flag = coachMenu(Georgia,Tennessee)
                 if flag:
                     break
+            if "Tennessee" in winTracker:
+                print(f"""
+  Way to beat Big Orange, Coach {Georgia.coachName}.
+  But there's another ugly orange rival right around the corner.
+  """)
+                    print(f"""  Next, you're taking on Florida.
+    It's the World's Largest Outdoor Cocktail Party! 
+""")
+            else:
             while (Georgia.wins + Georgia.losses) == 2 :
                 flag = coachMenu(Georgia, Florida)
                 if flag:
@@ -537,7 +563,7 @@ while True:
                 if flag:
                     break
             while (Georgia.wins + Georgia.losses) == 4 :
-                flag = coachMenu(Georgia, GeorgiaTech) #####
+                flag = coachMenu(Georgia, GeorgiaTech) 
                 if flag:
                     break
             while (Georgia.wins + Georgia.losses) == 5 :
