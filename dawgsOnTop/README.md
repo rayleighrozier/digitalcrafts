@@ -10,7 +10,7 @@ After a championship season, you have been chosen as the next head coach of the 
 
 ---
 
-- Clone this repository
+- Clone my `digitalcrafts` repository
 - Download and install [Python](https://www.python.org/downloads/)
 - Navigate to `digitalcrafts/dawgsOnTop` in your terminal
 - Run the following code: `python3 dawgsOnTop.py`
@@ -19,4 +19,4 @@ After a championship season, you have been chosen as the next head coach of the 
 
 ---
 
-I wrote about the process of making `Dawgs on Top` on DEV. You can read it here.
+I wrote about the process of making `Dawgs on Top` on DEV. You can read it [here](https://dev.to/rayleighrozier/dawgs-on-top-celebrating-georgias-national-championship-with-python-kod).
