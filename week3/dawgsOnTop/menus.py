@@ -138,7 +138,7 @@ def baseStats(team):
 """)
     return team
 
-def coachMenu(team, rival):
+def coachMenu(team, rival, list):
     while True:
         try:
             coachChoice = int(input(f"""================  
@@ -180,13 +180,13 @@ def coachMenu(team, rival):
     if coachChoice == 3:
         team.prepareTeam()
         while True:
-            menu2flag = coachMenu2(team, rival)
+            menu2flag = coachMenu2(team, rival, list)
             if menu2flag:
                 return True
     if coachChoice == 4:
         return True
 
-def coachMenu2 (team, rival):
+def coachMenu2 (team, rival,list):
     while True:
         try:
             coachChoice = int(input(f"""================  
@@ -221,7 +221,7 @@ def coachMenu2 (team, rival):
 """)
         rival.printStats()
     if coachChoice == 3:
-        team.playGame(rival)
+        team.playGame(rival,list)
         return True
     if coachChoice == 4:
         return True

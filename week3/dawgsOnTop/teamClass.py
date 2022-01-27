@@ -182,7 +182,7 @@ class Team:
             print ("""  Here are your updated stats:""") 
             self.printStats()
 
-    def playGame(self, rival):
+    def playGame(self, rival, list):
         print (f"""================
 
   It's game day! {self.teamName} and {rival.teamName} are facing off.
@@ -211,7 +211,7 @@ class Team:
   {self.teamName} - {teamHalf1}
   {rival.teamName} - {rivalHalf1}
         """)
-        Georgia.halftimeAdjustment() 
+        self.halftimeAdjustment() 
         print ("""  Time for the second half.
 """)
         print("  Gooooooo..... ")
@@ -253,7 +253,7 @@ class Team:
         if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
             self.wins = self.wins + 1
             self.experience = self.experience + 1
-            winTracker.append(rival.teamName)
+            list.append(rival.teamName)
             print (f"""  {self.teamName}'s Current Record: {self.wins} - {self.losses} """)
             print (f"""  You also gained +1 experience! 
             

@@ -6,7 +6,6 @@ import menus
 import storyText
 
 #BUILT-IN CLASS OBJECTS/VARIABLES
-Georgia = teamClass.Team("Georgia","", 20 , 20, 0, 0, 0)
 Oregon = teamClass.Team("Oregon", "Dan Lanning", 15, 20, 0, 0, 0)
 Tennessee = teamClass.Team("Tennessee", "Josh Heupel", 30, 10, 2, 0, 1)
 Florida = teamClass.Team("Florida", "Billy Napier", 30, 40, 3, 2, 0)
@@ -15,8 +14,6 @@ GeorgiaTech = teamClass.Team("Georgia Tech", "Geoff Collins", 50, 10, 4, 1, 3)
 Alabama = teamClass.Team("Alabama", "Nick Saban", 80, 100, 7, 5, 0)
 NotreDame = teamClass.Team("Notre Dame", "Marcus Freeman", 100 , 60, 0, 6, 0)
 Alabama2 = teamClass.Team("Alabama 2", "Nick Saban", 100, 100, 10, 6, 1)
-
-winTracker = []
 
 #GAME LOOP
 while True:
@@ -31,37 +28,37 @@ while True:
         menus.baseStats(Georgia)
         while True:
             while (Georgia.wins + Georgia.losses) == 0 :
-                flag = menus.coachMenu(Georgia, Oregon)
+                flag = menus.coachMenu(Georgia, Oregon, winTracker)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 1 :
                 storyText.postOregon(winTracker,Georgia)
             while (Georgia.wins + Georgia.losses) == 1 :
-                flag = menus.coachMenu(Georgia,Tennessee)
+                flag = menus.coachMenu(Georgia,Tennessee, winTracker)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 2 :
                 storyText.postTennessee(winTracker,Georgia)
             while (Georgia.wins + Georgia.losses) == 2 :
-                flag = menus.coachMenu(Georgia, Florida)
+                flag = menus.coachMenu(Georgia, Florida, winTracker)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 3 :
                 storyText.postFlorida(Georgia)
             while (Georgia.wins + Georgia.losses) == 3 :
-                flag = menus.coachMenu(Georgia, Auburn)
+                flag = menus.coachMenu(Georgia, Auburn, winTracker)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 4 : 
                 storyText.postAuburn(winTracker)
             while (Georgia.wins + Georgia.losses) == 4 :
-                flag = menus.coachMenu(Georgia, GeorgiaTech) 
+                flag = menus.coachMenu(Georgia, GeorgiaTech, winTracker) 
                 if flag:
                     break
             if Georgia.wins >= 3:
                 storyText.SECBound(Georgia)
                 while (Georgia.wins + Georgia.losses) == 5 :
-                    flag = menus.coachMenu(Georgia, Alabama)
+                    flag = menus.coachMenu(Georgia, Alabama, winTracker)
                     if flag:
                         break
             elif (Georgia.wins + Georgia.losses) == 5 and Georgia.wins < 3:
@@ -70,7 +67,7 @@ while True:
             if "Alabama" in winTracker:
                 storyText.playoff()
                 while (Georgia.wins + Georgia.losses) == 6 :
-                    flag = menus.coachMenu(Georgia, NotreDame)
+                    flag = menus.coachMenu(Georgia, NotreDame, winTracker)
                     if flag:
                         break
             elif (Georgia.wins + Georgia.losses) == 6:
@@ -79,7 +76,7 @@ while True:
             if "Notre Dame" in winTracker:
                 storyText.championship(Georgia)
                 while (Georgia.wins + Georgia.losses) == 7 :
-                    flag = menus.coachMenu(Georgia, Alabama2)
+                    flag = menus.coachMenu(Georgia, Alabama2, winTracker)
                     if flag:
                         break
             elif (Georgia.wins + Georgia.losses) == 7:
