@@ -1,3 +1,7 @@
+# menus and setup/intro functions
+
+from time import sleep
+
 def mainMenu():
     print ("""================
     """)
