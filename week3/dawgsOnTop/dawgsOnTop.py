@@ -575,7 +575,7 @@ while True:
                 flag = coachMenu(Georgia, Auburn)
                 if flag:
                     break
-            if Auburn in winTracker:
+            if "Auburn" in winTracker:
                 print(f"""
   Down go the tigers! That's the end of SEC play.
   There's just one game left in the regular season.
@@ -585,8 +585,8 @@ while True:
   Auburn gets lucky again! That's the end of SEC play.
   There's just one game left in the regular season.
   """)
-            print(f"""  Your next opponent is that
-    tiny trade school down the road, Georgia Tech.
+            print(f"""  Your next opponent is that tiny
+  trade school down the road, Georgia Tech.
   """)
             while (Georgia.wins + Georgia.losses) == 4 :
                 flag = coachMenu(Georgia, GeorgiaTech) 
@@ -617,15 +617,68 @@ while True:
                     break
             while (Georgia.wins + Georgia.losses) == 6 :
                     if "Alabama" in winTracker:
+                        print(f"""  Dawgs on top! You took down the Crimson Tide,
+  and now Georgia is headed to the playoffs.
+""")                    
+                        print(f"""  Your first round opponent is Notre Dame.
+  Win this, and you'll have a shot at the championship!  
+""")
                         flag = coachMenu(Georgia, NotreDame)
                         if flag:
                             break
+                    else:
+                        print(f"""  Your final record is {Georgia.wins} - {Georgia.losses}.
+   Not a bad first season! Try again to see if you can lead the dawgs to a national
+   championship.""")
+                        break
             while (Georgia.wins + Georgia.losses) == 7 :
                     if "Notre Dame" in winTracker:
+                        print(f"""  It all comes down to this.
+""")                    
+                        print(f"""  In your first season as head coach, 
+you've led the dawgs all the way to the national championship game.  
+""")
+                        print(f"""  I bet you're wondering who you'll be playing...
+""")
+                        print(f"""  But you already know the answer. 
+""")
+                        print(f"""  ........... 
+""")
+                        print(f"""  ........... 
+""")
+                        print(f"""  ........... 
+""")
+                        print(f"""  It's freaking Alabama. Again. 
+""")
                         flag = coachMenu(Georgia, Alabama2)
                         if flag:
                             break
-                
+                    else:
+                        print(f"""  Your final record is {Georgia.wins} - {Georgia.losses}.
+   Not a bad first season! Try again to see if you can lead the dawgs to a national
+   championship.""")
+                        break
+                    if "Alabama 2" in winTracker:
+                        print(f"""  Glory, Glory to ol' Georgia!
+""")                    
+                        print(f"""  Glory, Glory to ol' Georgia!
+""")                    
+                        print(f"""  Glory, Glory to ol' Georgia!
+""")                    
+                        print(f"""  And to hell with Alabama! 
+""")                    
+                        print(f"""  Congratulations Coach {Georgia.coachName}!
+  In your first season as head coach, you led Georgia to a national title! 
+""")
+                        print(f"""  How 'bout them dawgs!
+""")                    
+                        print ("""  You can play again or quit from the main menu.""")
+                        break  
+                    else:
+                        print(f"""  Freaking Alabama. Your final record is {Georgia.wins} - {Georgia.losses}.
+   Not a bad first season! Try again to see if you can lead the dawgs to a national
+   championship.""")
+                        break
             break
             
             
