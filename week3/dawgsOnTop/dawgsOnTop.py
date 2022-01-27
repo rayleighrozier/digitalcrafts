@@ -1,7 +1,7 @@
 #SLEEPS
 #PROOFREAD
 #MORE PRE GAME DECISIONS TO IMPACT RIVAL
-
+import menus
 import storyText
 import random
 from time import sleep
@@ -289,229 +289,12 @@ Alabama2 = Team ("Alabama 2", "Nick Saban", 100, 100, 10, 6, 1)
 winTracker = []
 
 #FUNCTIONS 
-def mainMenu():
-    print ("""================
-    """)
-    # sleep(1)
-    print ("""  DAWGS
-    """)
-    # sleep(1)
-    print ("""  ON
-    """)
-    # sleep(1)
-    print ("""  TOP
-    """)
-    # sleep(1)
-    print ("""================
-    """)
-    # sleep(1)
-    while True:
-        try:
-            mainChoice = int(input("""  What would you like to do?
 
-  1. Start a new game
-  2. Quit
 
-================
-  """))
-            if mainChoice == 1 or mainChoice ==2:
-                break
-            else:
-                print ("""  Oops! Try picking 1 or 2.
 
-================ """)
-                continue
-        except:
-            print ("""  Oops! Try picking 1 or 2.
 
-================ """)
-            continue
-    return mainChoice
 
-def getCoachName():
-    # sleep (1)
-    print ("""================
-""")
-    print ("""  Glory Glory to ol' Georgia!
-  """)
-    # sleep(2)
-    print ("""  After a historic championship season...
-  Kirby Smart has retired as head coach of the Georgia Bulldogs.
-  """)
-    # sleep(3)
-    print ("""  The coaching search was long and tedious...
-  but UGA has selected YOU to lead the team.
-  """)
-    # sleep(3)
-    print ("""  Will you coach the Dawgs to another trophy?
-  """)
-    # sleep(3)
-    print ("""  Or stumble against your most hated rivals?
-  """)
-    # sleep(3)
-    print ("""  The road to the natty starts now! 
-  """)
-    # sleep(3)
-    print ("""================
-""")
-    # sleep(2)
-    coach = input("""  What is your name? """).capitalize()
-    # sleep(0.5)
-    print (f"""
-================ 
 
-  Welcome Coach {coach}! 
-  Let's find out what kind of coach you are.
-
-================ """)
-    return coach
-
-def getBaseStats(team):
-    while True:
-        try:
-            baseStats = int (input("""  
-  Which number best describes your coaching style?
-
-  1. Go big or go home (+offense , - defense)
-  2. Focused on the fundamentals (+ defense, - offense)
-  3. Balanced approach is best (equal offense and defense)
-
-================ 
-  """))
-            if baseStats == 1 or baseStats == 2 or baseStats == 3:
-                break
-            else:
-                print ("""  Oops! Try picking 1-3.
-
-================ """)
-                continue
-        except:
-            print ("""  Oops! Try picking 1-3.
-
-================ """)
-            continue  
-    if baseStats == 1:
-        team.offense = 30
-        team.defense = 10
-        print ("""================ 
-
-  Now that's a powerhouse offense! Here are your starting stats.
-  """)
-        team.printStats()
-    if baseStats == 2:
-        team.offense = 10
-        team.defense = 30
-        print ("""================ 
-
-  Defense all the way! Here are your starting stats.
-  """)
-        team.printStats()
-    if baseStats == 3:
-        print ("""================ 
-
-  Best of both worlds! Here are your starting stats.
-  """)
-        team.printStats()  
-        
-    print("""================   
-  
-  The choices you make as coach will impact your stats 
-  and affect your chances of winning games. 
-""")
-    print("""  There are 5 games in the regular season. 
-  Win 3 of them, and you'll have a shot at a title. 
-""")
-    print("""  To kickoff the season, the Dawgs are taking on Oregon in Atlanta.
-""")
-    return team
-
-def coachMenu (team, rival):
-    while True:
-        try:
-            coachChoice = int(input(f"""================  
-
-  What would you like to do?
-
-  1. Check my stats
-  2. Check {rival.teamName}'s stats
-  3. Prepare for {rival.teamName} 
-  4. Go back to Main Menu 
-
-================
-    """))
-            if coachChoice == 1 or coachChoice ==2 or coachChoice ==3 or coachChoice ==4:
-                break
-            else:
-                print ("""  Oops! Try picking 1-4.
-================ """)
-                continue
-        except:
-            print ("""  Oops! Try picking 1-4.
-================ """)
-            continue
-    
-    if coachChoice == 1:
-        print("""================ 
-
-  Here are your current stats.
-""")
-        team.printStats()
-        return False
-    if coachChoice == 2:
-        print(f"""================
-
-  Here are {rival.teamName}'s current stats.
-""")
-        rival.printStats()
-        return False
-    if coachChoice == 3:
-        team.prepareTeam()
-        while True:
-            menu2flag = coachMenu2 (team, rival)
-            if menu2flag:
-                return True
-    if coachChoice == 4:
-        return True
-
-def coachMenu2 (team, rival):
-    while True: #######
-        try:
-            coachChoice = int(input(f"""================  
-
-  What would you like to do?
-
-  1. Check my stats
-  2. Check {rival.teamName}'s stats
-  3. Play game against {rival.teamName} 
-  4. Go back to Main Menu 
-
-================
-    """))
-            if coachChoice == 1 or coachChoice ==2 or coachChoice ==3 or coachChoice ==4:
-                break
-            else:
-                print ("  Oops! Try picking 1-4.")
-                continue
-        except:
-            print ("  Oops! Try picking 1-4.")
-            continue
-    if coachChoice == 1:
-        print("""================    
-  
-  Here are your current stats.
-""")
-        team.printStats()
-    if coachChoice == 2:
-        print(f"""================
-  
-  Here are {rival.teamName}'s current stats.
-""")
-        rival.printStats()
-    if coachChoice == 3:
-        Georgia.playGame(rival)
-        return True
-    if coachChoice == 4:
-        return True
 
 
 
@@ -519,46 +302,46 @@ def coachMenu2 (team, rival):
 while True:
     Georgia = Team("Georgia","", 20 , 20, 0, 0, 0)
     winTracker = []
-    mainChoice = mainMenu()
+    mainChoice = menus.mainMenu()
     if mainChoice == 2:
         print ("  Goodbye!")
         break
     if mainChoice == 1:
-        Georgia.coachName = getCoachName()
-        getBaseStats(Georgia)
+        Georgia.coachName = menus.coachName()
+        menus.baseStats(Georgia)
         while True:
             while (Georgia.wins + Georgia.losses) == 0 :
-                flag = coachMenu(Georgia, Oregon)
+                flag = menus.coachMenu(Georgia, Oregon)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 1 :
                 storyText.postOregon(winTracker,Georgia)
             while (Georgia.wins + Georgia.losses) == 1 :
-                flag = coachMenu(Georgia,Tennessee)
+                flag = menus.coachMenu(Georgia,Tennessee)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 2 :
                 storyText.postTennessee(winTracker,Georgia)
             while (Georgia.wins + Georgia.losses) == 2 :
-                flag = coachMenu(Georgia, Florida)
+                flag = menus.coachMenu(Georgia, Florida)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 3 :
                 storyText.postFlorida(Georgia)
             while (Georgia.wins + Georgia.losses) == 3 :
-                flag = coachMenu(Georgia, Auburn)
+                flag = menus.coachMenu(Georgia, Auburn)
                 if flag:
                     break
             if (Georgia.wins + Georgia.losses) == 4 : 
                 storyText.postAuburn(winTracker)
             while (Georgia.wins + Georgia.losses) == 4 :
-                flag = coachMenu(Georgia, GeorgiaTech) 
+                flag = menus.coachMenu(Georgia, GeorgiaTech) 
                 if flag:
                     break
             if Georgia.wins >= 3:
                 storyText.SECBound(Georgia)
                 while (Georgia.wins + Georgia.losses) == 5 :
-                    flag = coachMenu(Georgia, Alabama)
+                    flag = menus.coachMenu(Georgia, Alabama)
                     if flag:
                         break
             elif (Georgia.wins + Georgia.losses) == 5 and Georgia.wins < 3:
@@ -567,7 +350,7 @@ while True:
             if "Alabama" in winTracker:
                 storyText.playoff()
                 while (Georgia.wins + Georgia.losses) == 6 :
-                    flag = coachMenu(Georgia, NotreDame)
+                    flag = menus.coachMenu(Georgia, NotreDame)
                     if flag:
                         break
             elif (Georgia.wins + Georgia.losses) == 6:
@@ -576,7 +359,7 @@ while True:
             if "Notre Dame" in winTracker:
                 storyText.championship(Georgia)
                 while (Georgia.wins + Georgia.losses) == 7 :
-                    flag = coachMenu(Georgia, Alabama2)
+                    flag = menus.coachMenu(Georgia, Alabama2)
                     if flag:
                         break
             elif (Georgia.wins + Georgia.losses) == 7:
