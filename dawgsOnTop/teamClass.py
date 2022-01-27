@@ -1,5 +1,7 @@
 #defines Team class and all of its methods
 import random
+from time import sleep
+
 class Team:
     def __init__(self, teamName, coachName, offense = 20 , defense = 20, experience = 0, wins =0 , losses = 0):
         self.teamName = teamName
@@ -20,7 +22,7 @@ class Team:
   Losses : {self.losses}
   """)
 
-    def prepareTeam(self): #update with other options (ex. QB)
+    def prepareTeam(self): 
         while True:
             try:
                 choice = int(input("""================
@@ -48,8 +50,9 @@ class Team:
         if choice == 1:
             boost = random.randint(5,15)
             self.offense = self.offense + boost
-            print(f"""================ 
-
+            print ("""================""")
+            sleep(2)
+            print(f"""
   They'll never see it coming! Your offense was boosted by {boost}.
   """) 
             print ("""================ 
@@ -60,8 +63,9 @@ class Team:
         if choice == 2:
             boost = random.randint(5,15)
             self.defense = self.defense + boost
-            print(f"""================ 
-  
+            print ("""================""")
+            sleep(2)
+            print(f"""
   No pain no gain! Your defense was boosted by {boost}.
   """) 
             print ("""================ 
@@ -71,8 +75,9 @@ class Team:
             self.printStats()
         if choice == 3:
             self.experience = self.experience + 1
-            print(f"""================ 
-
+            print ("""================""")
+            sleep(2)
+            print(f"""
   Studying pays off! Your experience was boosted by 1.
 """) 
             print ("""================ 
@@ -125,7 +130,7 @@ class Team:
             rival.defense = rival.defense - drop
             print(f"""================ 
   
-  Your QB is throwing bombs! 
+  Your QB will be throwing bombs! 
   {rival.teamName}'s defense decreased by {drop}.
   """) 
             print (f"""================ 

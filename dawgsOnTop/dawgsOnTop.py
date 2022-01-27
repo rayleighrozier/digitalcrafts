@@ -1,5 +1,5 @@
 #SLEEPS
-#PROOFREAD
+
 
 import teamClass
 import menus
@@ -88,7 +88,11 @@ while True:
             else:
                 break
     if mainChoice == 2:
-        print ("  Goodbye!")
+        print ("""================
+        
+  Goodbye! 
+
+================""")
         break    
             
            

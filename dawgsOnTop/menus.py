@@ -5,19 +5,19 @@ from time import sleep
 def mainMenu():
     print ("""================
     """)
-    # sleep(1)
+    sleep(1)
     print ("""  DAWGS
     """)
-    # sleep(1)
+    sleep(1)
     print ("""  ON
     """)
-    # sleep(1)
+    sleep(1)
     print ("""  TOP
     """)
-    # sleep(1)
+    sleep(1)
     print ("""================
     """)
-    # sleep(1)
+    sleep(1)
     while True:
         try:
             mainChoice = int(input("""  What would you like to do?
@@ -42,48 +42,48 @@ def mainMenu():
     return mainChoice
 
 def coachName():
-    # sleep (1)
     print ("""================
 """)
+    sleep (2.5)
     print ("""  Glory Glory to ol' Georgia!
   """)
-    # sleep(2)
+    sleep(3)
     print ("""  After a historic championship season...
   Kirby Smart has retired as head coach of the Georgia Bulldogs.
   """)
-    # sleep(3)
+    sleep(3)
     print ("""  The coaching search was long and tedious...
   but UGA has selected YOU to lead the team.
   """)
-    # sleep(3)
+    sleep(3)
     print ("""  Will you coach the Dawgs to another trophy?
   """)
-    # sleep(3)
+    sleep(3)
     print ("""  Or stumble against your most hated rivals?
   """)
-    # sleep(3)
+    sleep(3)
     print ("""  The road to the natty starts now! 
   """)
-    # sleep(3)
     print ("""================
 """)
-    # sleep(2)
+    sleep(3)
     coach = input("""  What is your name? """).capitalize()
-    # sleep(0.5)
     print (f"""
 ================ 
-
-  Welcome Coach {coach}! 
-  Let's find out what kind of coach you are.
-
-================ """)
+""")
+    sleep(2)
+    print (f"""  Welcome Coach {coach}! 
+  Let's find out what kind of coach you are. """)
+    print (f"""
+================ 
+""")
     return coach
 
 def baseStats(team):
     while True:
         try:
-            baseStats = int (input("""  
-  Which number best describes your coaching style?
+            sleep(2)
+            baseStats = int (input("""  Which number best describes your coaching style?
 
   1. Go big or go home (+offense , - defense)
   2. Focused on the fundamentals (+ defense, - offense)
@@ -106,28 +106,31 @@ def baseStats(team):
     if baseStats == 1:
         team.offense = 30
         team.defense = 10
-        print ("""================ 
-
+        print ("""================""")
+        sleep(2)
+        print ("""
   Now that's a powerhouse offense! Here are your starting stats.
   """)
         team.printStats()
     if baseStats == 2:
         team.offense = 10
         team.defense = 30
-        print ("""================ 
-
+        print ("""================""")
+        sleep(2)
+        print (""" 
   Defense all the way! Here are your starting stats.
   """)
         team.printStats()
     if baseStats == 3:
-        print ("""================ 
-
+        print ("""================""")
+        sleep(2)
+        print ("""
   Best of both worlds! Here are your starting stats.
   """)
         team.printStats()  
-        
-    print("""================   
-  
+    sleep(4)
+    print ("""================""")    
+    print("""
   The choices you make as coach will impact your stats 
   and affect your chances of winning games. 
 """)
@@ -136,6 +139,7 @@ def baseStats(team):
 """)
     print("""  To kickoff the season, the Dawgs are taking on Oregon in Atlanta.
 """)
+    sleep(10) 
     return team
 
 def coachMenu(team, rival, list):
@@ -164,21 +168,25 @@ def coachMenu(team, rival, list):
             continue
     
     if coachChoice == 1:
-        print("""================ 
-
+        print ("""================""")
+        sleep(1)
+        print("""
   Here are your current stats.
 """)
         team.printStats()
         return False
     if coachChoice == 2:
-        print(f"""================
-
+        print ("""================""")
+        sleep(1)
+        print(f"""
   Here are {rival.teamName}'s current stats.
 """)
         rival.printStats()
         return False
     if coachChoice == 3:
+        sleep(1)
         team.prepareTeam()
+        sleep(3)
         team.gamePlan(rival)
         while True:
             menu2flag = coachMenu2(team, rival, list)
@@ -205,25 +213,28 @@ def coachMenu2 (team, rival,list):
                 break
             else:
                 print ("""  Oops! Try picking 1-4.
-""")
+================ """)
                 continue
         except:
             print ("""  Oops! Try picking 1-4.
-""")
+================ """)
             continue
     if coachChoice == 1:
-        print("""================    
-  
+        print ("""================""")
+        sleep(1)
+        print("""  
   Here are your current stats.
 """)
         team.printStats()
     if coachChoice == 2:
-        print(f"""================
-  
+        print ("""================""")
+        sleep(1)
+        print(f"""
   Here are {rival.teamName}'s current stats.
 """)
         rival.printStats()
     if coachChoice == 3:
+        sleep(1)
         team.playGame(rival,list)
         return True
     if coachChoice == 4:
