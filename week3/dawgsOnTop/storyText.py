@@ -7,11 +7,12 @@ def postOregon(list, team):
         print(f"""
   Congratulations on the victory, Coach {team.coachName}.
   Now, we're moving into SEC play.
-  """)
+""")
     else:
         print(f"""  
   Tough luck against Oregon, Coach {team.coachName}.
-  But here is your chance to redeem yourself!""")
+  But here is your chance to redeem yourself!
+""")
         print(f"""  Your next opponent is Tennessee.
 """)
 
@@ -20,39 +21,40 @@ def postTennessee(list,team):
         print(f"""
   Way to beat Big Orange, Coach {team.coachName}.
   But there's another ugly orange rival right around the corner.
-  """)
+""")
     else:
         print(f"""
   Big Orange got the best of you, Coach {team.coachName}.
   And now there's another ugly orange rival right around the corner.
-  """)
+""")
     print(f"""  Your next opponent is Florida.
   It's the World's Largest Outdoor Cocktail Party!
-  """) 
+""") 
 
 def postFlorida(team):
     print(f"""           
   The Gators have gone back to the swamp, and you're
-  over halfway through the season Coach {team.coachName}!""") 
-    print("""  
-  But the Deep South's Oldest Rivalry is just a week away. """)
-    print (f"""  
-  Your next opponent is Auburn.""")
+  over halfway through the season Coach {team.coachName}!
+""") 
+    print("""  But the Deep South's Oldest Rivalry is just a week away. 
+""")
+    print (f"""  Your next opponent is Auburn.
+""")
 
 def postAuburn(list):
     if "Auburn" in list:
         print(f"""
   Down go the tigers! That's the end of SEC play.
   There's just one game left in the regular season.
-  """)
+""")
     else:
         print(f"""
   Auburn gets lucky again! That's the end of SEC play.
   There's just one game left in the regular season.
-  """)
-    print(f"""  Your next opponent is that tiny
-  trade school down the road, Georgia Tech.
-  """)
+""")
+    print(f"""  Your next opponent is that tiny trade school
+  down the road, Georgia Tech.
+""")
 
 def SECBound(team):
     print(f"""
@@ -75,7 +77,8 @@ def noSEC(team):
    championship.""")
 
 def playoff():
-        print(f"""  Dawgs on top! You took down the Crimson Tide,
+        print(f"""  
+  Dawgs on top! You took down the Crimson Tide,
   and now Georgia is headed to the playoffs.
 """)                    
         print(f"""  Your first round opponent is Notre Dame.
@@ -83,7 +86,8 @@ def playoff():
 """)
 
 def championship(team):
-    print(f"""  It all comes down to this, Coach {team.coachName}.
+    print(f"""  
+  It all comes down to this, Coach {team.coachName}.
 """)                    
     print(f"""  In your very first season as head coach, 
 you've led the dawgs all the way to the national championship game.  
@@ -107,7 +111,8 @@ def tryAgain(team):
   championship.""")
 
 def dawgsWin(team):
-    print(f"""  Glory, Glory to ol' Georgia!
+    print(f"""  
+  Glory, Glory to ol' Georgia!
 """)                    
     print(f"""  Glory, Glory to ol' Georgia!
 """)                    
@@ -123,6 +128,8 @@ def dawgsWin(team):
     print ("""  You can play again or quit from the main menu.""")
 
 def tideWins (team):
-    print(f"""  Freaking Alabama. Your final record is {team.wins} - {team.losses}.
-   Not a bad first season! Try again to see if you can lead the dawgs to a national
+    print(f"""
+  Freaking Alabama. Your final record is {team.wins} - {team.losses}.
+""")
+    print(f"""  Not a bad first season! Try again to see if you can lead the dawgs to a national
    championship.""")

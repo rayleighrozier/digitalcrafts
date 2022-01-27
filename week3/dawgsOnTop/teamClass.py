@@ -27,8 +27,8 @@ class Team:
 
   How will your team prepare this week?
 
-  1. Practice trick plays (+ random offense boost)
-  2. Run a ton of drills (+ random defense boost)
+  1. Practice trick plays (+ offense boost)
+  2. Run a ton of drills (+ defense boost)
   3. Study the film (+1 experience)
 
 ================ 
@@ -80,7 +80,72 @@ class Team:
   Here are your updated stats:
   """) 
             self.printStats()
-    
+
+    def gamePlan(self, rival):
+        while True:
+            try:
+                choice = int(input(f"""================
+
+  What is your game plan for {rival.teamName}?
+
+  1. Wear them down with defense (- offense drop for {rival.teamName})   
+  2. Throw lots of passes and score quickly (- defense drop for {rival.teamName})
+  3. Run a scheme they haven't seen before (- 1 {rival.teamName}'s experience)
+
+================ 
+  """))
+                if choice == 1 or choice ==2 or choice ==3:
+                    break
+                else:
+                    print ("""================
+
+  Oops! Try picking 1-3.
+""")
+                    continue
+            except:
+                print ("""================ 
+  Oops! Try picking 1-3.                 
+""")
+                continue
+        if choice == 1:
+            drop = random.randint(5,15)
+            rival.offense = rival.offense - drop
+            print(f"""================ 
+
+  Their offense is no match for your defense! 
+  {rival.teamName}'s offense decreased by {drop}.
+  """) 
+            print (f"""================ 
+  
+  Here are {rival.teamName}'s updated stats:
+""")      
+            rival.printStats()
+        if choice == 2:
+            drop = random.randint(5,15)
+            rival.defense = rival.defense - drop
+            print(f"""================ 
+  
+  Your QB is throwing bombs! 
+  {rival.teamName}'s defense decreased by {drop}.
+  """) 
+            print (f"""================ 
+  
+  Here are {rival.teamName}'s updated stats:
+""")      
+            rival.printStats()
+        if choice == 3 and rival.experience > 0:
+            rival.experience = rival.experience - 1
+            print(f"""================
+
+  Catch them off guard!
+  {rival.teamName}'s experience decreased by 1.
+""") 
+            print (f"""================ 
+
+  Here are {rival.teamName}'s updated stats:
+""")      
+            rival.printStats()
+
     def getScore(self, rival): 
         def getBoost (stat):
             points = stat
@@ -118,16 +183,16 @@ class Team:
             score = score +2
             return score
 
-    def halftimeAdjustment(self): ###
+    def halftimeAdjustment(self): 
         while True:
             try:
                 choice = int(input("""================
 
   Which halftime adjustment will you make?
 
-  1. Change quarterbacks (+ random offense boost)
-  2. Retool the defense (+ random defense boost)
-  3. Give inspirational locker room speech (+1 experience and small random stat boost)
+  1. Change quarterbacks (+ offense boost)
+  2. Retool the defense (+ defense boost)
+  3. Give inspirational locker room speech (+1 experience and random stat boost)
 
 ================ 
   """))
@@ -150,7 +215,9 @@ class Team:
 
   The backup is ALWAYS better than the starter. Your offense was boosted by {boost}.
   """) 
-            print ("""  Here are your updated stats:
+            print ("""================
+  
+  Here are your updated stats:
 """)      
             self.printStats()
         if choice == 2:
@@ -179,7 +246,10 @@ class Team:
   Your experience was boosted by 1 and your 
   {tinyBoost} was boosted by {boost}.
 """) 
-            print ("""  Here are your updated stats:""") 
+            print ("""================
+
+  Here are your updated stats:
+  """) 
             self.printStats()
 
     def playGame(self, rival, list):
@@ -206,13 +276,16 @@ class Team:
             print(f"""  It's anybody's game! 
   The teams are tied going into the second half.
   """)
-        print (f"""
+        print (f"""================
+
   HALFTIME SCORE:
   {self.teamName} - {teamHalf1}
   {rival.teamName} - {rivalHalf1}
         """)
         self.halftimeAdjustment() 
-        print ("""  Time for the second half.
+        print ("""================
+
+  Time for the second half.
 """)
         print("  Gooooooo..... ")
         print("  Dawgs! ")
@@ -231,25 +304,34 @@ class Team:
         teamFinal = teamHalf1 + teamHalf2
         rivalFinal = rivalHalf1 + rivalHalf2
         if teamFinal > rivalFinal and (teamFinal - rivalFinal) > 14:
-            print (f"""  It's a blowout! The dawgs handle {rival.teamName} easily. """)
+            print (f"""  It's a blowout! The dawgs handle {rival.teamName} easily. 
+""")
         elif teamFinal > rivalFinal and (teamFinal - rivalFinal) < 3:
             print (f"""  That was a close one! Georgia squeaks out
-  a victory against {rival.teamName}. """)
+  a victory against {rival.teamName}. 
+""")
         elif teamFinal > rivalFinal:
-             print (f"""  A W for the dawgs! Georgia takes down {rival.teamName}. """)
+             print (f"""  A W for the dawgs! Georgia takes down {rival.teamName}. 
+""")
         elif teamFinal < rivalFinal and (rivalFinal - teamFinal) > 14:
              print (f"""  Oof! {rival.teamName} had your number today.
-  Dawgs lose and it wasn't pretty. """)
+  Dawgs lose and it wasn't pretty. 
+""")
         elif teamFinal < rivalFinal and (rivalFinal - teamFinal) < 3:
             print (f"""  What a heartbreaker! Georgia comes up just short.
-  {rival.teamName} wins. """)
+  {rival.teamName} wins.
+""")
         else:
-             print (f"""  Sometimes it's just not your day. {rival.teamName} wins. """)
-        print (f"""
+             print (f"""  Sometimes it's just not your day. {rival.teamName} wins. 
+""")
+        print (f"""================
+
   FINAL SCORE:
   {self.teamName} - {teamFinal}
   {rival.teamName} - {rivalFinal}
-        """)
+
+================
+""")
         if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
             self.wins = self.wins + 1
             self.experience = self.experience + 1

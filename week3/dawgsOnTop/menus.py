@@ -179,6 +179,7 @@ def coachMenu(team, rival, list):
         return False
     if coachChoice == 3:
         team.prepareTeam()
+        team.gamePlan(rival)
         while True:
             menu2flag = coachMenu2(team, rival, list)
             if menu2flag:
@@ -199,14 +200,16 @@ def coachMenu2 (team, rival,list):
   4. Go back to Main Menu 
 
 ================
-    """))
+"""))
             if coachChoice == 1 or coachChoice ==2 or coachChoice ==3 or coachChoice ==4:
                 break
             else:
-                print ("  Oops! Try picking 1-4.")
+                print ("""  Oops! Try picking 1-4.
+""")
                 continue
         except:
-            print ("  Oops! Try picking 1-4.")
+            print ("""  Oops! Try picking 1-4.
+""")
             continue
     if coachChoice == 1:
         print("""================    
