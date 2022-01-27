@@ -532,100 +532,65 @@ while True:
                 flag = coachMenu(Georgia, Oregon)
                 if flag:
                     break
-            storyText.postOregon(winTracker,Georgia)
+            if (Georgia.wins + Georgia.losses) == 1 :
+                storyText.postOregon(winTracker,Georgia)
             while (Georgia.wins + Georgia.losses) == 1 :
                 flag = coachMenu(Georgia,Tennessee)
                 if flag:
                     break
-            storyText.postTennessee(winTracker,Georgia)
+            if (Georgia.wins + Georgia.losses) == 2 :
+                storyText.postTennessee(winTracker,Georgia)
             while (Georgia.wins + Georgia.losses) == 2 :
                 flag = coachMenu(Georgia, Florida)
                 if flag:
                     break
-            storyText.postFlorida(Georgia)
+            if (Georgia.wins + Georgia.losses) == 3 :
+                storyText.postFlorida(Georgia)
             while (Georgia.wins + Georgia.losses) == 3 :
                 flag = coachMenu(Georgia, Auburn)
                 if flag:
                     break
-            storyText.postAuburn(winTracker)
+            if (Georgia.wins + Georgia.losses) == 4 : 
+                storyText.postAuburn(winTracker)
             while (Georgia.wins + Georgia.losses) == 4 :
                 flag = coachMenu(Georgia, GeorgiaTech) 
                 if flag:
                     break
-            while (Georgia.wins + Georgia.losses) == 5 :
-                if Georgia.wins >= 3:
-                    storyText.SECBound(Georgia)
+            if Georgia.wins >= 3:
+                storyText.SECBound(Georgia)
+                while (Georgia.wins + Georgia.losses) == 5 :
                     flag = coachMenu(Georgia, Alabama)
                     if flag:
                         break
-                else:
-                    storyText.noSEC(Georgia) #### LEFT OFF HERE
-                    break
-            while (Georgia.wins + Georgia.losses) == 6 :
-                    if "Alabama" in winTracker:
-                        print(f"""  Dawgs on top! You took down the Crimson Tide,
-  and now Georgia is headed to the playoffs.
-""")                    
-                        print(f"""  Your first round opponent is Notre Dame.
-  Win this, and you'll have a shot at the championship!  
-""")
-                        flag = coachMenu(Georgia, NotreDame)
-                        if flag:
-                            break
-                    else:
-                        print(f"""  Your final record is {Georgia.wins} - {Georgia.losses}.
-   Not a bad first season! Try again to see if you can lead the dawgs to a national
-   championship.""")
+            elif (Georgia.wins + Georgia.losses) == 5 and Georgia.wins < 3:
+                storyText.noSEC(Georgia)
+                break
+            if "Alabama" in winTracker:
+                storyText.playoff()
+                while (Georgia.wins + Georgia.losses) == 6 :
+                    flag = coachMenu(Georgia, NotreDame)
+                    if flag:
                         break
-            while (Georgia.wins + Georgia.losses) == 7 :
-                    if "Notre Dame" in winTracker:
-                        print(f"""  It all comes down to this.
-""")                    
-                        print(f"""  In your first season as head coach, 
-you've led the dawgs all the way to the national championship game.  
-""")
-                        print(f"""  I bet you're wondering who you'll be playing...
-""")
-                        print(f"""  But you already know the answer. 
-""")
-                        print(f"""  ........... 
-""")
-                        print(f"""  ........... 
-""")
-                        print(f"""  ........... 
-""")
-                        print(f"""  It's freaking Alabama. Again. 
-""")
-                        flag = coachMenu(Georgia, Alabama2)
-                        if flag:
-                            break
-                    else:
-                        print(f"""  Your final record is {Georgia.wins} - {Georgia.losses}.
-   Not a bad first season! Try again to see if you can lead the dawgs to a national
-   championship.""")
+            elif (Georgia.wins + Georgia.losses) == 6:
+                storyText.tryAgain(Georgia)
+                break
+            if "Notre Dame" in winTracker:
+                storyText.championship(Georgia)
+                while (Georgia.wins + Georgia.losses) == 7 :
+                    flag = coachMenu(Georgia, Alabama2)
+                    if flag:
                         break
-                    if "Alabama 2" in winTracker:
-                        print(f"""  Glory, Glory to ol' Georgia!
-""")                    
-                        print(f"""  Glory, Glory to ol' Georgia!
-""")                    
-                        print(f"""  Glory, Glory to ol' Georgia!
-""")                    
-                        print(f"""  And to hell with Alabama! 
-""")                    
-                        print(f"""  Congratulations Coach {Georgia.coachName}!
-  In your first season as head coach, you led Georgia to a national title! 
-""")
-                        print(f"""  How 'bout them dawgs!
-""")                    
-                        print ("""  You can play again or quit from the main menu.""")
-                        break  
-                    else:
-                        print(f"""  Freaking Alabama. Your final record is {Georgia.wins} - {Georgia.losses}.
-   Not a bad first season! Try again to see if you can lead the dawgs to a national
-   championship.""")
-                        break
-            break
+            elif (Georgia.wins + Georgia.losses) == 7:
+                storyText.tryAgain(Georgia)
+                break
+            if "Alabama 2" in winTracker:
+                storyText.dawgsWin(Georgia)
+                break  
+            elif (Georgia.wins + Georgia.losses) == 8:
+                storyText.tideWins(Georgia)
+                break
+            else:
+                break
             
             
            

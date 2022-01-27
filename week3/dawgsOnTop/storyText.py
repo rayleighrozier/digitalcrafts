@@ -1,3 +1,5 @@
+from time import sleep
+
 def postOregon (list, team):
     if "Oregon" in list:
         print(f"""
@@ -67,5 +69,58 @@ def noSEC(team):
   to advance to the SEC Championship.
 """)   
     print(f"""  Your final record is {team.wins} - {team.losses}.
+   Not a bad first season! Try again to see if you can lead the dawgs to a national
+   championship.""")
+
+def playoff():
+        print(f"""  Dawgs on top! You took down the Crimson Tide,
+  and now Georgia is headed to the playoffs.
+""")                    
+        print(f"""  Your first round opponent is Notre Dame.
+  Win this, and you'll have a shot at the championship!  
+""")
+
+def championship(team):
+    print(f"""  It all comes down to this, Coach {team.coachName}.
+""")                    
+    print(f"""  In your very first season as head coach, 
+you've led the dawgs all the way to the national championship game.  
+""")
+    print(f"""  I bet you're wondering who you'll be playing...
+""")
+    print(f"""  But you already know the answer. 
+""")
+    print(f"""  ........... 
+""")
+    print(f"""  ........... 
+""")
+    print(f"""  ........... 
+""")
+    print(f"""  It's freaking Alabama. Again. 
+""")
+
+def tryAgain(team):
+    print(f"""  Your final record is {team.wins} - {team.losses}.
+  Not a bad first season! Try again to see if you can lead the dawgs to a national
+  championship.""")
+
+def dawgsWin(team):
+    print(f"""  Glory, Glory to ol' Georgia!
+""")                    
+    print(f"""  Glory, Glory to ol' Georgia!
+""")                    
+    print(f"""  Glory, Glory to ol' Georgia!
+""")                    
+    print(f"""  And to hell with Alabama! 
+""")                    
+    print(f"""  Congratulations Coach {team.coachName}!
+  In your first season as head coach, you led Georgia to a national title! 
+""")
+    print(f"""  How 'bout them dawgs!
+""")                    
+    print ("""  You can play again or quit from the main menu.""")
+
+def tideWins (team):
+    print(f"""  Freaking Alabama. Your final record is {team.wins} - {team.losses}.
    Not a bad first season! Try again to see if you can lead the dawgs to a national
    championship.""")
