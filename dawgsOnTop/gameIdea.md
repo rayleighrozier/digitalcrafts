@@ -10,18 +10,21 @@ Start ->
 - Your experience = 0, and you'll earn a point for each game/choices you make along the way
 
 Main Game Menu ->
-# What would you like to do?
-  1. Check my stats
-  2. Check opponents stats
-  3. Prepare for the game 
-  4. Quit 
 
-  (after you prepare for the game )
-  1. Check my stats
-  2. Check opponents stats
-  3. Take on {rival}
-  4. Quit 
-Gameplay ->
+# What would you like to do?
+
+1. Check my stats
+2. Check opponents stats
+3. Prepare for the game
+4. Quit
+
+(after you prepare for the game )
+
+1. Check my stats
+2. Check opponents stats
+3. Take on {rival}
+4. Quit
+   Gameplay ->
 
 - PRINT Stats about this week's opponent
 - MENU: How will your team prepare?

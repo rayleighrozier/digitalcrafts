@@ -19,4 +19,4 @@ After a championship season, you have been chosen as the next head coach of the 
 
 ---
 
-I wrote about the process of making `Dawgs on Top` here.
+I wrote about the process of making `Dawgs on Top` on DEV. You can read it here.
