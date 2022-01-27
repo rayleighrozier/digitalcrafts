@@ -1,6 +1,6 @@
 from time import sleep
 
-def postOregon (list, team):
+def postOregon(list, team):
     if "Oregon" in list:
         print(f"""
   Congratulations on the victory, Coach {team.coachName}.
@@ -13,7 +13,7 @@ def postOregon (list, team):
         print(f"""  Your next opponent is Tennessee.
 """)
 
-def postTennessee (list,team):
+def postTennessee(list,team):
     if "Tennessee" in list:
         print(f"""
   Way to beat Big Orange, Coach {team.coachName}.
@@ -28,7 +28,7 @@ def postTennessee (list,team):
   It's the World's Largest Outdoor Cocktail Party!
   """) 
 
-def postFlorida (team):
+def postFlorida(team):
     print(f"""           
   The Gators have gone back to the swamp, and you're
   over halfway through the season Coach {team.coachName}!""") 
@@ -37,7 +37,7 @@ def postFlorida (team):
     print (f"""  
   Your next opponent is Auburn.""")
 
-def postAuburn (list):
+def postAuburn(list):
     if "Auburn" in list:
         print(f"""
   Down go the tigers! That's the end of SEC play.

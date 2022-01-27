@@ -1,6 +1,7 @@
- #uncomment the sleeps
-#for every menu put line at bottom 
-# one space for answers 
+#SLEEPS
+#PROOFREAD
+#MORE PRE GAME DECISIONS TO IMPACT RIVAL
+
 import storyText
 import random
 from time import sleep
@@ -274,9 +275,7 @@ class Team:
 ================""")
 
 
-#BUILT-IN CLASS OBJECTS
-#### Add in team stats
-## offense defense experience wins losses
+#BUILT-IN CLASS OBJECTS/VARIABLES
 Georgia = Team("Georgia","", 20 , 20, 0, 0, 0)
 Oregon = Team("Oregon", "Dan Lanning", 15, 20, 0, 0, 0)
 Tennessee = Team("Tennessee", "Josh Heupel", 30, 10, 2, 0, 1)
