@@ -185,7 +185,7 @@ class Team:
             score = score +2
             return score
 
-    def halftimeAdjustment(self): ### HERE
+    def halftimeAdjustment(self): 
         while True:
             try:
                 choice = int(input("""================

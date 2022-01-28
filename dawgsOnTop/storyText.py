@@ -140,6 +140,7 @@ def dawgsWin(team):
 """)
     sleep(4)                    
     print ("""  You can play again or quit from the main menu.""")
+
 def tideWins ():
     print(f"""
   You can beat Alabama once, but you just can't beat 'em twice.
