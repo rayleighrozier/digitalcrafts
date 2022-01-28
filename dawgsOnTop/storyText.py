@@ -13,7 +13,7 @@ def postOregon(list, team):
   Tough luck against Oregon, Coach {team.coachName}.
   But here is your chance to redeem yourself!
 """)
-        print(f"""  Your next opponent is Tennessee.
+    print(f"""  Your next opponent is Tennessee.
 """)
 
 def postTennessee(list,team):
@@ -72,8 +72,7 @@ def noSEC(team):
   Unfortunately, Coach {team.coachName}, you did not get enough wins 
   to advance to the SEC Championship.
 """)   
-    print(f"""  Your final record is {team.wins} - {team.losses}.
-   Not a bad first season! Try again to see if you can lead the dawgs to a national
+    print(f"""  Not a bad first season! Try again to see if you can lead the dawgs to a national
    championship.""")
 
 def playoff():
@@ -88,48 +87,63 @@ def playoff():
 def championship(team):
     print(f"""  
   It all comes down to this, Coach {team.coachName}.
-""")                    
+""")   
+    sleep(3)                 
     print(f"""  In your very first season as head coach, 
 you've led the dawgs all the way to the national championship game.  
 """)
+    sleep(3)
     print(f"""  I bet you're wondering who you'll be playing...
 """)
+    sleep(3)
     print(f"""  But you already know the answer. 
 """)
+    sleep(2)
     print(f"""  ........... 
 """)
+    sleep(2)
     print(f"""  ........... 
 """)
+    sleep(2)
     print(f"""  ........... 
 """)
+    sleep(3)
     print(f"""  It's freaking Alabama. Again. 
 """)
 
 def tryAgain(team):
-    print(f"""  Your final record is {team.wins} - {team.losses}.
+    print(f"""  
   Not a bad first season! Try again to see if you can lead the dawgs to a national
   championship.""")
 
 def dawgsWin(team):
+    sleep(2)
     print(f"""  
   Glory, Glory to ol' Georgia!
-""")                    
+""")
+    sleep(2)                    
     print(f"""  Glory, Glory to ol' Georgia!
-""")                    
+""")
+    sleep(2)                    
     print(f"""  Glory, Glory to ol' Georgia!
-""")                    
+""")
+    sleep(2)                    
     print(f"""  And to hell with Alabama! 
-""")                    
+""")
+    sleep(2)               
     print(f"""  Congratulations Coach {team.coachName}!
   In your first season as head coach, you led Georgia to a national title! 
 """)
+
     print(f"""  How 'bout them dawgs!
 """)                    
     print ("""  You can play again or quit from the main menu.""")
 
 def tideWins (team):
     print(f"""
-  Freaking Alabama. Your final record is {team.wins} - {team.losses}.
-""")
-    print(f"""  Not a bad first season! Try again to see if you can lead the dawgs to a national
-   championship.""")
+  You can beat Alabama once, but you just can't beat 'em twice.
+  You came up just short against the Crimson Tide.
+
+  Overall, it was a great first season, coach! Try again 
+  to see if you can lead the dawgs to a national
+  championship.""")

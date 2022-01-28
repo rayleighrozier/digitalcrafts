@@ -40,18 +40,17 @@ class Team:
                 else:
                     print ("""  Oops! Try picking 1-3.
 
-================ """)
+ """)
                     continue
             except:
                 print ("""  Oops! Try picking 1-3.
                     
-================ """)
+""")
                 continue
         if choice == 1:
             boost = random.randint(5,15)
             self.offense = self.offense + boost
             print ("""================""")
-            sleep(2)
             print(f"""
   They'll never see it coming! Your offense was boosted by {boost}.
   """) 
@@ -64,7 +63,6 @@ class Team:
             boost = random.randint(5,15)
             self.defense = self.defense + boost
             print ("""================""")
-            sleep(2)
             print(f"""
   No pain no gain! Your defense was boosted by {boost}.
   """) 
@@ -76,7 +74,6 @@ class Team:
         if choice == 3:
             self.experience = self.experience + 1
             print ("""================""")
-            sleep(2)
             print(f"""
   Studying pays off! Your experience was boosted by 1.
 """) 
@@ -109,14 +106,15 @@ class Team:
                     continue
             except:
                 print ("""================ 
+
   Oops! Try picking 1-3.                 
 """)
                 continue
         if choice == 1:
             drop = random.randint(5,15)
             rival.offense = rival.offense - drop
-            print(f"""================ 
-
+            print ("""================""")
+            print(f""" 
   Their offense is no match for your defense! 
   {rival.teamName}'s offense decreased by {drop}.
   """) 
@@ -128,8 +126,8 @@ class Team:
         if choice == 2:
             drop = random.randint(5,15)
             rival.defense = rival.defense - drop
-            print(f"""================ 
-  
+            print ("""================""")
+            print(f"""
   Your QB will be throwing bombs! 
   {rival.teamName}'s defense decreased by {drop}.
   """) 
@@ -138,10 +136,10 @@ class Team:
   Here are {rival.teamName}'s updated stats:
 """)      
             rival.printStats()
-        if choice == 3 and rival.experience > 0:
+        if choice == 3:
             rival.experience = rival.experience - 1
-            print(f"""================
-
+            print ("""================""")
+            print(f"""
   Catch them off guard!
   {rival.teamName}'s experience decreased by 1.
 """) 
@@ -165,7 +163,7 @@ class Team:
         offMax = 7 + (3 * offBoost) 
         score = random.randint(offMin, offMax)
         def defenseRoll (rival):
-            probability = [True,False,False,False,False,False,False,False,False,False] # min at start is 1 in 10
+            probability = [True,False,False,False,False,False,False,False,] 
             counter = rival.experience
             while counter > 0 and len(probability) > 2:
                 probability.pop()
@@ -188,7 +186,7 @@ class Team:
             score = score +2
             return score
 
-    def halftimeAdjustment(self): 
+    def halftimeAdjustment(self): ### HERE
         while True:
             try:
                 choice = int(input("""================
@@ -216,9 +214,11 @@ class Team:
         if choice == 1:
             boost = random.randint(5,15)
             self.offense = self.offense + boost
-            print(f"""================
-
-  The backup is ALWAYS better than the starter. Your offense was boosted by {boost}.
+            print(f"""================""")
+            sleep(1)
+            print(f"""
+  The backup is ALWAYS better than the starter. 
+  Your offense was boosted by {boost}.
   """) 
             print ("""================
   
@@ -228,8 +228,9 @@ class Team:
         if choice == 2:
             boost = random.randint(5,15)
             self.defense = self.defense + boost
-            print(f"""================ 
-  
+            print(f"""================""")
+            sleep(1)
+            print(f"""
   Defense wins championships! Your defense was boosted by {boost}.
   """) 
             print ("""================ 
@@ -245,8 +246,9 @@ class Team:
                 self.offense = self.offense + boost
             if tinyBoost == "defense":
                 self.defense = self.defense + boost
-            print(f"""================ 
-
+            print(f"""================""")
+            sleep(1)
+            print(f"""
   What a speech! Is that linebacker crying? 
   Your experience was boosted by 1 and your 
   {tinyBoost} was boosted by {boost}.
@@ -262,11 +264,16 @@ class Team:
 
   It's game day! {self.teamName} and {rival.teamName} are facing off.
 """)
+        sleep(3)
         print("  Gooooooo..... ")
+        sleep(2)
         print("  Dawgs! ")
+        sleep(0.75)
         print("  Sic 'em! ")
+        sleep(0.75)
         print("""  Woof woof woof woof!  
 """)
+        sleep(2)
         teamHalf1 = self.getScore(rival) 
         rivalHalf1 = rival.getScore(self)
         if teamHalf1 > rivalHalf1:
@@ -287,16 +294,23 @@ class Team:
   {self.teamName} - {teamHalf1}
   {rival.teamName} - {rivalHalf1}
         """)
-        self.halftimeAdjustment() 
+        sleep(5)
+        self.halftimeAdjustment()
+        sleep(7)
         print ("""================
 
   Time for the second half.
 """)
+        sleep(3)
         print("  Gooooooo..... ")
+        sleep(2)
         print("  Dawgs! ")
+        sleep (0.75)
         print("  Sic 'em! ")
+        sleep(0.75)
         print("""  Woof woof woof woof!  
 """)
+        sleep(3)
         teamHalf2 = self.getScore(rival) 
         rivalHalf2 = rival.getScore(self)
         #tie condition
@@ -308,7 +322,11 @@ class Team:
                 rivalHalf2 = rivalHalf2 + 1
         teamFinal = teamHalf1 + teamHalf2
         rivalFinal = rivalHalf1 + rivalHalf2
-        if teamFinal > rivalFinal and (teamFinal - rivalFinal) > 14:
+        if teamFinal ==1 or teamFinal == 4:
+            teamFinal = teamFinal +2
+        if rivalFinal == 1 or rivalFinal == 4:
+            rivalFinal == rivalFinal+2
+        if teamFinal > rivalFinal and (teamFinal - rivalFinal) > 17:
             print (f"""  It's a blowout! The dawgs handle {rival.teamName} easily. 
 """)
         elif teamFinal > rivalFinal and (teamFinal - rivalFinal) < 3:
@@ -329,6 +347,7 @@ class Team:
         else:
              print (f"""  Sometimes it's just not your day. {rival.teamName} wins. 
 """)
+        sleep(2)
         print (f"""================
 
   FINAL SCORE:
@@ -337,18 +356,14 @@ class Team:
 
 ================
 """)
+        sleep(2)
         if (teamHalf1 + teamHalf2) > (rivalHalf1 + rivalHalf2):
             self.wins = self.wins + 1
-            self.experience = self.experience + 1
             list.append(rival.teamName)
-            print (f"""  {self.teamName}'s Current Record: {self.wins} - {self.losses} """)
-            print (f"""  You also gained +1 experience! 
+            sleep(2)
+            print (f"""  {self.teamName}'s Record: {self.wins} - {self.losses}
             
 ================""")
         if (teamHalf1 + teamHalf2) < (rivalHalf1 + rivalHalf2):
             self.losses = self.losses + 1
-            self.experience = self.experience + 1
-            print (f"""  {self.teamName}'s Current Record: {self.wins} - {self.losses} """)
-            print (f"""  You still gained +1 experience! 
-            
-================""")
+            print (f"""  {self.teamName}'s Record: {self.wins} - {self.losses} """)

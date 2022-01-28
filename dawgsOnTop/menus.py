@@ -44,18 +44,18 @@ def mainMenu():
 def coachName():
     print ("""================
 """)
-    sleep (2.5)
+    sleep (2)
     print ("""  Glory Glory to ol' Georgia!
   """)
     sleep(3)
     print ("""  After a historic championship season...
   Kirby Smart has retired as head coach of the Georgia Bulldogs.
   """)
-    sleep(3)
+    sleep(4)
     print ("""  The coaching search was long and tedious...
   but UGA has selected YOU to lead the team.
   """)
-    sleep(3)
+    sleep(4)
     print ("""  Will you coach the Dawgs to another trophy?
   """)
     sleep(3)
@@ -71,7 +71,7 @@ def coachName():
     print (f"""
 ================ 
 """)
-    sleep(2)
+    sleep(1)
     print (f"""  Welcome Coach {coach}! 
   Let's find out what kind of coach you are. """)
     print (f"""
@@ -107,7 +107,7 @@ def baseStats(team):
         team.offense = 30
         team.defense = 10
         print ("""================""")
-        sleep(2)
+        sleep(1)
         print ("""
   Now that's a powerhouse offense! Here are your starting stats.
   """)
@@ -116,14 +116,14 @@ def baseStats(team):
         team.offense = 10
         team.defense = 30
         print ("""================""")
-        sleep(2)
+        sleep(1)
         print (""" 
   Defense all the way! Here are your starting stats.
   """)
         team.printStats()
     if baseStats == 3:
         print ("""================""")
-        sleep(2)
+        sleep(1)
         print ("""
   Best of both worlds! Here are your starting stats.
   """)
@@ -135,11 +135,11 @@ def baseStats(team):
   and affect your chances of winning games. 
 """)
     print("""  There are 5 games in the regular season. 
-  Win 3 of them, and you'll have a shot at a title. 
+  Win 3, and you'll have a shot at a title. 
 """)
     print("""  To kickoff the season, the Dawgs are taking on Oregon in Atlanta.
 """)
-    sleep(10) 
+    sleep(7) 
     return team
 
 def coachMenu(team, rival, list):
@@ -160,16 +160,15 @@ def coachMenu(team, rival, list):
                 break
             else:
                 print ("""  Oops! Try picking 1-4.
-================ """)
+""")
                 continue
         except:
             print ("""  Oops! Try picking 1-4.
-================ """)
+""")
             continue
     
     if coachChoice == 1:
         print ("""================""")
-        sleep(1)
         print("""
   Here are your current stats.
 """)
@@ -177,16 +176,13 @@ def coachMenu(team, rival, list):
         return False
     if coachChoice == 2:
         print ("""================""")
-        sleep(1)
         print(f"""
   Here are {rival.teamName}'s current stats.
 """)
         rival.printStats()
         return False
     if coachChoice == 3:
-        sleep(1)
         team.prepareTeam()
-        sleep(3)
         team.gamePlan(rival)
         while True:
             menu2flag = coachMenu2(team, rival, list)
@@ -213,28 +209,25 @@ def coachMenu2 (team, rival,list):
                 break
             else:
                 print ("""  Oops! Try picking 1-4.
-================ """)
+""")
                 continue
         except:
             print ("""  Oops! Try picking 1-4.
-================ """)
+""")
             continue
     if coachChoice == 1:
         print ("""================""")
-        sleep(1)
         print("""  
   Here are your current stats.
 """)
         team.printStats()
     if coachChoice == 2:
         print ("""================""")
-        sleep(1)
         print(f"""
   Here are {rival.teamName}'s current stats.
 """)
         rival.printStats()
     if coachChoice == 3:
-        sleep(1)
         team.playGame(rival,list)
         return True
     if coachChoice == 4:
