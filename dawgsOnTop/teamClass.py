@@ -162,7 +162,7 @@ class Team:
         offMax = 7 + (3 * offBoost) 
         score = random.randint(offMin, offMax)
         def defenseRoll (rival):
-            probability = [True,False,False,False,False,False,False] 
+            probability = [True,False,False,False,False,False,False,False] 
             counter = rival.experience
             while counter > 0 and len(probability) > 2:
                 probability.pop()
@@ -335,7 +335,7 @@ class Team:
         elif teamFinal > rivalFinal:
              print (f"""  A W for the dawgs! Georgia takes down {rival.teamName}. 
 """)
-        elif teamFinal < rivalFinal and (rivalFinal - teamFinal) > 14:
+        elif teamFinal < rivalFinal and (rivalFinal - teamFinal) > 17:
              print (f"""  Oof! {rival.teamName} had your number today.
   Dawgs lose and it wasn't pretty. 
 """)

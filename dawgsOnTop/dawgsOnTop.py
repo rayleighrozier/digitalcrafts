@@ -93,17 +93,17 @@ while True:
             elif (Georgia.wins + Georgia.losses) == 7:
                 sleep(3)
                 storyText.tryAgain(Georgia)
-                sleep(2)
+                sleep(4)
                 break
             if winTracker.count("Alabama") == 2:
                 sleep(3)
                 storyText.dawgsWin(Georgia)
-                sleep(8)
+                sleep(4)
                 break  
             elif (Georgia.wins + Georgia.losses) == 8:
                 sleep(3)
                 storyText.tideWins()
-                sleep(2)
+                sleep(4)
                 break
             else:
                 break
