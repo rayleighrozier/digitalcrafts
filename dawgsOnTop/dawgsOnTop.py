@@ -102,7 +102,7 @@ while True:
             if winTracker.count("Alabama") == 2:
                 sleep(3)
                 storyText.dawgsWin(Georgia)
-                sleep(2)
+                sleep(8)
                 break  
             elif (Georgia.wins + Georgia.losses) == 8:
                 sleep(3)

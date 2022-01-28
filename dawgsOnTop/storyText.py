@@ -90,7 +90,8 @@ def championship(team):
 """)   
     sleep(3)                 
     print(f"""  In your very first season as head coach, 
-you've led the dawgs all the way to the national championship game.  
+  you've led the dawgs all the way 
+  to the national championship game.  
 """)
     sleep(3)
     print(f"""  I bet you're wondering who you'll be playing...
@@ -121,24 +122,24 @@ def dawgsWin(team):
     print(f"""  
   Glory, Glory to ol' Georgia!
 """)
-    sleep(2)                    
+    sleep(3.5)                    
     print(f"""  Glory, Glory to ol' Georgia!
 """)
-    sleep(2)                    
+    sleep(3.5)                    
     print(f"""  Glory, Glory to ol' Georgia!
 """)
-    sleep(2)                    
+    sleep(3.5)                    
     print(f"""  And to hell with Alabama! 
 """)
-    sleep(2)               
+    sleep(4)               
     print(f"""  Congratulations Coach {team.coachName}!
   In your first season as head coach, you led Georgia to a national title! 
 """)
 
     print(f"""  How 'bout them dawgs!
-""")                    
+""")
+    sleep(3)                    
     print ("""  You can play again or quit from the main menu.""")
-
 def tideWins (team):
     print(f"""
   You can beat Alabama once, but you just can't beat 'em twice.

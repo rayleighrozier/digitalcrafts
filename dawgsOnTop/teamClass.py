@@ -163,7 +163,7 @@ class Team:
         offMax = 7 + (3 * offBoost) 
         score = random.randint(offMin, offMax)
         def defenseRoll (rival):
-            probability = [True,False,False,False,False,False,False,False,] 
+            probability = [True,False,False,False,False,False,False] 
             counter = rival.experience
             while counter > 0 and len(probability) > 2:
                 probability.pop()
