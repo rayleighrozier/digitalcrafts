@@ -1,12 +1,8 @@
-#SLEEPS
-
-
 import teamClass
 import menus
 import storyText
 from time import sleep
 
-#RIVALS
 Oregon = teamClass.Team("Oregon", "Dan Lanning", 15, 30, 1, 0, 0)
 Tennessee = teamClass.Team("Tennessee", "Josh Heupel", 30, 20, 2, 0, 1)
 Florida = teamClass.Team("Florida", "Billy Napier", 40, 50, 3, 2, 0)
@@ -16,7 +12,7 @@ Alabama = teamClass.Team("Alabama", "Nick Saban", 80, 100, 5, 5, 0)
 NotreDame = teamClass.Team("Notre Dame", "Marcus Freeman", 100 , 60, 5, 6, 0)
 Alabama2 = teamClass.Team("Alabama", "Nick Saban", 100, 100, 7, 6, 1)
 
-#GAME LOOP
+###
 while True:
     Georgia = teamClass.Team("Georgia","", 20 , 20, 0, 0, 0)
     winTracker = []
@@ -84,7 +80,7 @@ while True:
                         break
             elif (Georgia.wins + Georgia.losses) == 6:
                 sleep(3)
-                storyText.tryAgain(Georgia)
+                storyText.tryAgain()
                 break
             if "Notre Dame" in winTracker:
                 sleep(3)
@@ -106,7 +102,7 @@ while True:
                 break  
             elif (Georgia.wins + Georgia.losses) == 8:
                 sleep(3)
-                storyText.tideWins(Georgia)
+                storyText.tideWins()
                 sleep(2)
                 break
             else:

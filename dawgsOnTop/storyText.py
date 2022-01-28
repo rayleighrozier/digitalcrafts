@@ -112,7 +112,7 @@ def championship(team):
     print(f"""  It's freaking Alabama. Again. 
 """)
 
-def tryAgain(team):
+def tryAgain():
     print(f"""  
   Not a bad first season! Try again to see if you can lead the dawgs to a national
   championship.""")
@@ -140,7 +140,7 @@ def dawgsWin(team):
 """)
     sleep(3)                    
     print ("""  You can play again or quit from the main menu.""")
-def tideWins (team):
+def tideWins ():
     print(f"""
   You can beat Alabama once, but you just can't beat 'em twice.
   You came up just short against the Crimson Tide.

@@ -1,4 +1,3 @@
-#defines Team class and all of its methods
 import random
 from time import sleep
 
