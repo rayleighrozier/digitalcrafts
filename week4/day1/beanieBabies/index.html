@@ -11,13 +11,14 @@
       html {
         background: url("bbBackground.jpeg");
         background-repeat: repeat;
+        animation: animate 1.25s infinite;
       }
       body {
         font-family: "Comic Sans MS", "Comic Sans", cursive;
         color: blue;
         text-align: center;
         margin: auto;
-        width: 70%;
+        width: 50%;
       }
       a {
         color: red;
@@ -34,14 +35,55 @@
         box-sizing: border-box;
         width: 100%;
       }
+
+      @keyframes animate {
+        0% {
+          cursor: url("tm1.gif"), auto;
+        }
+        10% {
+          cursor: url("tm2.gif"), auto;
+        }
+        20% {
+          cursor: url("tm3.gif"), auto;
+        }
+        30% {
+          cursor: url("tm4.gif"), auto;
+        }
+        40% {
+          cursor: url("tm5.gif"), auto;
+        }
+        50% {
+          cursor: url("tm6.gif"), auto;
+        }
+        60% {
+          cursor: url("tm7.gif"), auto;
+        }
+        70% {
+          cursor: url("tm8.gif"), auto;
+        }
+        80% {
+          cursor: url("tm9.gif"), auto;
+        }
+        90% {
+          cursor: url("tm10.gif"), auto;
+        }
+        100% {
+          cursor: url("tm1.gif"), auto;
+        }
+      }
     </style>
-    <!-- COME BACK FOR MONKEY CURSOR -->
     <title>Ty Inc. - The Official Homepage of the Beanie Babies</title>
   </head>
   <body>
     <div>
       <h1>Welcome to the OFFICIAL website of:</h1>
       <img src="tyLogo.gif" />
+      <img
+        src="http://web.archive.org/web/19961228114553im_/http://comm1.digits.com/wc/-d/6/-f/ff0000/bongo"
+        width="90"
+        height="20"
+        style="display: block; margin: auto"
+      />
       <p>Ty's official website is best viewed with:</p>
       <button>
         <a
@@ -52,10 +94,12 @@
       </button>
       <p>Copyright Ty Inc.</p>
       <p>All rights reserved</p>
-      <p>
+      <a
+        href="http://web.archive.org/web/19961228114553/http://ty.com/legal.html"
+      >
         Click here to read the terms and conditions that apply to your use of Ty
         Inc's website.
-      </p>
+      </a>
       <p>
         USE OF THIS SITE SIGNIFIES YOUR AGREEMENT TO OUR TERMS AND CONDITIONS.
       </p>
@@ -108,7 +152,7 @@
     <div>
       <table>
         <tr>
-          <td colspan="2" style="text-align: center">MAIN MENU</td>
+          <td colspan="2" style="text-align: center"><h2>MAIN MENU</h2></td>
         </tr>
         <tr>
           <td colspan="2">
