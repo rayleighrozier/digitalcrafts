@@ -6,19 +6,17 @@ img {
   width: 100%;
   height: auto;
   justify-content: center;
+  align-self: start;
   margin: 5px;
 }
 .tall {
   grid-row: span 2 / auto;
 }
-.wide {
-  grid-column: span 2 / auto;
-}
+
 .container {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  grid-auto-rows: 200px;
   width: 100%;
   column-gap: 10px;
   row-gap: 0px;
@@ -28,7 +26,6 @@ img {
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 200px;
     justify-items: center;
     width: 100%;
     column-gap: 10px;
@@ -39,7 +36,6 @@ img {
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-rows: 200px;
     column-gap: 10px;
     row-gap: 0px;
     justify-items: center;
