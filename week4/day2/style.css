@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.favFood {
+  height: 300px;
+  background-color: orange;
+  margin: 100px;
+}
+
+#pizza1 {
+  height: 50px;
+}
+#pizza2 {
+  height: 100px;
+}
+#pizza3 {
+  height: 200px;
+}
