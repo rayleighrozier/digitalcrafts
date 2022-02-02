@@ -1,0 +1,56 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  max-width: 800px;
+  height: 100vh;
+  margin: auto;
+  display: grid;
+  grid-template-areas:
+    "head head head"
+    "main main side"
+    "main main side"
+    "main main side"
+    "main main side"
+    "foot foot foot";
+}
+.header {
+  background-color: lightgray;
+  grid-area: head;
+  display: grid;
+  grid-template-areas: "h m ";
+  align-content: center;
+  justify-content: space-between;
+  height: 80px;
+  margin: 10px 0px 10px 0px;
+}
+h1 {
+  margin: 40px 0 0 40px;
+  line-height: 1em;
+}
+.topmenu {
+  display: flex;
+  margin: 40px 40px 20px 0;
+}
+.menuitem {
+  padding: 10px;
+}
+.maincontent {
+  grid-area: main;
+  height: 1fr;
+  padding: 20px;
+}
+.sidebar {
+  grid-area: side;
+  height: 1fr;
+  padding: 20px;
+}
+.footer {
+  background-color: lightgray;
+  grid-area: foot;
+  height: 80px;
+  text-align: center;
+  align-content: center;
+  margin: 10px 0px 10px 0px;
+}
