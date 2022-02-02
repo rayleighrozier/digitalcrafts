@@ -1,0 +1,54 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "s1 s2 s3"
+    "s4 s5 s6"
+    "s7 s8 s9 ";
+  height: auto;
+  width: 150px;
+}
+.square {
+  grid-area: s;
+  height: 50px;
+  width: 50px;
+  border: 3px solid black;
+  text-align: center;
+  align-content: center;
+}
+.white {
+  background-color: pink;
+  padding: 0px;
+  margin: 0px;
+}
+.black {
+  background-color: hotpink;
+  padding: 0px;
+  margin: 0px;
+}
+#s1 {
+  grid-area: s1;
+}
+#s2 {
+  grid-area: s2;
+}
+#s3 {
+  grid-area: s3;
+}
+#s4 {
+  grid-area: s4;
+}
+#s5 {
+  grid-area: s5;
+}
+#s6 {
+  grid-area: s6;
+}
+#s7 {
+  grid-area: s7;
+}
+#s8 {
+  grid-area: s8;
+}
+#s9 {
+  grid-area: s9;
+}

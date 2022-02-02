@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  color: whitesmoke;
+}
+.greeting {
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.greet {
+  background-color: mediumslateblue;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+}
+/* grid default is column (stacks them up) */
+/* display always goes in a DIV container or body (the parent of what you want) */
+/* flex default is row  */
+
+.layout {
+  color: mediumseagreen;
+  display: grid;
+  grid-template-areas:
+    "menu header header"
+    "menu body body"
+    "menu footer footer";
+  gap: 10px;
+}
+.header {
+  grid-area: header;
+}
+.footer {
+  grid-area: footer;
+}
+
+.body {
+  height: 200px;
+  width: 100%;
+  background-color: mediumseagreen;
+  grid-area: body;
+}
+.menu {
+  grid-area: menu;
+  width: 200px;
+}
