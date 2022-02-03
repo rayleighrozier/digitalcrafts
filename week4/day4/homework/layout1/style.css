@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+p {
+  font-family: "Zen Kurenaido", sans-serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: white;
+  margin: auto;
+  text-align: center;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background-color: lightpink;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.middle {
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+  margin: 0 10px;
+}
+.side {
+  background-color: paleturquoise;
+  width: 300px;
+  height: 450px;
+  margin-right: 10px;
+}
+.content {
+  background-color: plum;
+  height: 400px;
+  width: 100%;
+}
+.footer {
+  background-color: palegoldenrod;
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+}
