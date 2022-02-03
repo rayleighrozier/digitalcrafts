@@ -1,9 +1,44 @@
-.body {
+body {
   padding: 0;
   margin: 0;
+  color: black;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-family: "Zen Kurenaido", sans-serif;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+  grid-area: menu;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 20px;
+}
+
+div:first-of-type {
+  grid-area: title;
+  padding-left: 20px;
+  padding-bottom: 1px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+li {
+  margin: 5px;
 }
 .nav-bar {
-  background-color: lightskyblue;
-  color: white;
+  background-color: whitesmoke;
+  height: 50px;
   width: 100%;
+  display: grid;
+  grid-template-areas: "title menu";
+  align-items: center;
+  padding-bottom: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+@media only screen and (max-width: 768px) {
 }
