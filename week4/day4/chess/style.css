@@ -1,0 +1,34 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 240px;
+}
+.square {
+  height: 30px;
+  width: 30px;
+}
+.r1:nth-child(even),
+.r3:nth-child(even),
+.r5:nth-child(even),
+.r7:nth-child(even),
+.r2:nth-child(odd),
+.r4:nth-child(odd),
+.r6:nth-child(odd),
+.r8:nth-child(odd) {
+  background-color: #d18a46;
+}
+
+.r1:nth-child(odd),
+.r3:nth-child(odd),
+.r5:nth-child(odd),
+.r7:nth-child(odd),
+.r2:nth-child(even),
+.r4:nth-child(even),
+.r6:nth-child(even),
+.r8:nth-child(even) {
+  background-color: #ffce9e;
+}
