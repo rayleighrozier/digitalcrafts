@@ -1,0 +1,15 @@
+.desktop {
+  background-color: chocolate;
+}
+.tablet {
+  background-color: palegreen;
+}
+.phone {
+  background-color: lightcoral;
+}
+
+@media only screen and (max-width: 600px) {
+  .desktop {
+    background-color: lightskyblue;
+  }
+}
