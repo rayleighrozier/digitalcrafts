@@ -1,0 +1,25 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.column {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.one {
+  background-color: salmon;
+}
+.two {
+  background-color: dodgerblue;
+}
+.three {
+  background-color: lightgoldenrodyellow;
+}
