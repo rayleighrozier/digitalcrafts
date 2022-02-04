@@ -35,7 +35,6 @@ h1 {
     rgba(0, 212, 255, 1) 100%
   );
   display: grid;
-  place-items: center;
   /* centers vertical and horizontal */
 }
 .content {

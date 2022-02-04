@@ -1,0 +1,75 @@
+/* mobile default */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background-color: lightpink;
+  height: 50px;
+}
+.nav {
+  background-color: palegoldenrod;
+  height: 50px;
+}
+.main {
+  background-color: palegreen;
+  flex-grow: 1;
+}
+.side {
+  background-color: paleturquoise;
+  height: 50px;
+}
+.ad {
+  background-color: lightsalmon;
+  height: 50px;
+}
+.footer {
+  background-color: palevioletred;
+  height: 50px;
+}
+
+/* Tablet */
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-rows: 50px 50px 1fr 50px;
+    grid-template-areas:
+      "h h h h"
+      "n n n n"
+      "s m m m"
+      "a f f f";
+  }
+  .header {
+    grid-area: h;
+    height: 50px;
+  }
+  .main {
+    grid-area: m;
+    height: 100%;
+  }
+  .nav {
+    grid-area: n;
+    height: 50px;
+  }
+  .side {
+    grid-area: s;
+    height: 100%;
+  }
+  .ad {
+    grid-area: a;
+    height: 50px;
+  }
+  .footer {
+    grid-area: f;
+    height: 50px;
+  }
+}
+/* # Desktop
+only screen and (min-width:769px) */

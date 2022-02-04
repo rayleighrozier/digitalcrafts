@@ -37,7 +37,7 @@ p {
 .content {
   background-color: plum;
   height: 400px;
-  width: 100%;
+  flex-grow: 1;
 }
 .footer {
   background-color: palegoldenrod;
