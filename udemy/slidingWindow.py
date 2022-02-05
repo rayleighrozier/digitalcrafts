@@ -27,7 +27,8 @@ def maxSubArraySum(arr, num):
     print(maxSum)
 
 maxSubArraySum([-1,2,6,9,1,8,55,10,-7],3) #returns 73
-
+maxSubArraySum([40,1,50,-9,100],2) #returns 91
+maxSubArraySum([1],2) #returns none
 
 
 
