@@ -1,0 +1,22 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+.nav {
+  height: 62px;
+  background-color: white;
+  display: flex;
+}
+
+#logo {
+  height: 28px;
+  background-color: mediumpurple;
+  padding: 17px 22px 17px 22px;
+}
+
+.nav div {
+  background-color: aqua;
+  height: 62px;
+  width: 50px;
+}
