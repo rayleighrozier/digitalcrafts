@@ -1,0 +1,12 @@
+#magicbutton {
+  background-color: mediumorchid;
+  color: white;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+}
+.container {
+  height: 200px;
+  width: 200px;
+  background-color: palegoldenrod;
+}
