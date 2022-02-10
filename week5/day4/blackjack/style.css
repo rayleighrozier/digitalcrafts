@@ -1,0 +1,16 @@
+.playerCards,
+.dealerCards {
+  display: grid;
+  place-items: center;
+  border: solid 3px black;
+  width: 70px;
+  height: 80px;
+}
+
+.player,
+.dealer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
