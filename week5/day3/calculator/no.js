@@ -73,3 +73,24 @@ for (i = 0; i < buttons.length; i++) {
     }
   });
 }
+//#### This is the code we were working on to make double digit numbers. does not work yet. ###
+    // firstValue = "";
+    // secondValue = "";
+    // for (i = 0; i < buttonsPressed.length; i++) {
+    //   //   if array item is a number
+    //   if (
+    //     buttonsPressed[i] !== "+" &&
+    //     buttonsPressed[i] !== "-" &&
+    //     buttonsPressed[i] !== "*" &&
+    //     buttonsPressed[i] !== "/"
+    //   ) {
+    //     firstValue = firstValue + buttonsPressed[i];
+    //     console.log("adding to first value", firstValue);
+    //   }
+    //   //   if array item is not a number
+    //   else {
+    //     let operation = buttonsPressed[i];
+    //     console.log("this is the operation", operation);
+    //   }
+    // }
+    //### End of double digit number code

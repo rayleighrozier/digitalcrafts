@@ -1,74 +1,91 @@
 let buttons = document.querySelectorAll(".buttons");
 let buttonsPressed = [];
+let display = document.querySelector("#display");
+let num1 = "";
+let num2 = "";
+
+// function that combines numbers before the operator to make num1 and
+//combines numbers after operator to make num2
+function setVariables(index) {
+  for (i = 0; i < index; i++) {
+    num1 = num1 + buttonsPressed[i];
+  }
+  console.log("here is our num 1 variable", num1);
+  for (i = index + 1; i < buttonsPressed.length; i++) {
+    num2 = num2 + buttonsPressed[i];
+  }
+  console.log("here is our num 2 variable", num2);
+}
 
 function getValue(e) {
-  //   user presses clear button
+  //  if user presses clear button
   if (e.target.innerText === "C") {
     buttonsPressed = [];
+    num1 = "";
+    num2 = "";
     console.log("empty no buttons pressed", buttonsPressed);
+    display.innerText = "";
   }
 
-  //   user presses number or +-/*
+  //   else if user presses number or +-/*
   else if (e.target.innerText != "=") {
     value = e.target.innerText;
     buttonsPressed.push(value);
+    display.innerText = display.innerText + e.target.innerText;
     console.log("here are the buttons we pressed:", buttonsPressed);
   }
-  //   user presses equal button
+  //   else if user presses equal button
   else {
-    //#### This is the code we were working on to make double digit numbers. does not work yet. ###
-    // firstValue = "";
-    // secondValue = "";
-    // for (i = 0; i < buttonsPressed.length; i++) {
-    //   //   if array item is a number
-    //   if (
-    //     buttonsPressed[i] !== "+" &&
-    //     buttonsPressed[i] !== "-" &&
-    //     buttonsPressed[i] !== "*" &&
-    //     buttonsPressed[i] !== "/"
-    //   ) {
-    //     firstValue = firstValue + buttonsPressed[i];
-    //     console.log("adding to first value", firstValue);
-    //   }
-    //   //   if array item is not a number
-    //   else {
-    //     let operation = buttonsPressed[i];
-    //     console.log("this is the operation", operation);
-    //   }
-    // }
-    //### End of double digit number code
-
-    operation = buttonsPressed[1];
-    if (operation === "+") {
+    let plusIndex = buttonsPressed.indexOf("+");
+    let minusIndex = buttonsPressed.indexOf("-");
+    let multiplyIndex = buttonsPressed.indexOf("*");
+    let divideIndex = buttonsPressed.indexOf("/");
+    console.log(
+      " Check for operator (-1 means there isn't one) >> plus index:",
+      plusIndex,
+      "minus index:",
+      minusIndex,
+      "multiply index:",
+      multiplyIndex,
+      "divide index:",
+      divideIndex
+    );
+    //if there is a plus in your array
+    if (plusIndex != -1) {
+      setVariables(plusIndex);
       console.log(
         "here is the addition result",
-        parseInt(buttonsPressed[0]) + parseInt(buttonsPressed[2])
+        parseInt(num1) + parseInt(num2)
       );
-      return parseInt(buttonsPressed[0]) + parseInt(buttonsPressed[2]);
+      display.innerText = parseInt(num1) + parseInt(num2);
     }
-    if (operation === "-") {
+    if (minusIndex != -1) {
+      setVariables(minusIndex);
       console.log(
         "here is the subtraction result",
-        parseInt(buttonsPressed[0]) - parseInt(buttonsPressed[2])
+        parseInt(num1) - parseInt(num2)
       );
-      return parseInt(buttonsPressed[0]) - parseInt(buttonsPressed[2]);
+      display.innerText = parseInt(num1) - parseInt(num2);
     }
-    if (operation === "*") {
+    if (multiplyIndex != -1) {
+      setVariables(multiplyIndex);
       console.log(
         "here is the multiplication result",
-        parseInt(buttonsPressed[0]) * parseInt(buttonsPressed[2])
+        parseInt(num1) * parseInt(num2)
       );
-      return parseInt(buttonsPressed[0]) * parseInt(buttonsPressed[2]);
+      display.innerText = parseInt(num1) * parseInt(num2);
     }
-    if (operation === "/") {
+    if (divideIndex != -1) {
+      setVariables(divideIndex);
       console.log(
         "here is the division result",
-        parseInt(buttonsPressed[0]) / parseInt(buttonsPressed[2])
+        parseInt(num1) / parseInt(num2)
       );
-      return parseInt(buttonsPressed[0]) / parseInt(buttonsPressed[2]);
+      display.innerText = parseInt(num1) / parseInt(num2);
     }
   }
 }
+
 for (i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", (e) => {
     getValue(e);

@@ -1,0 +1,42 @@
+.buttons {
+  height: 50px;
+  width: 50px;
+  background-color: plum;
+  color: white;
+  border-radius: 8px;
+  border: white solid 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  /* font-family: "Roboto", sans-serif;
+  font-weight: 400; */
+}
+.container {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.displayContainer {
+  background-color: plum;
+  width: 200px;
+  height: 40px;
+  color: white;
+  border-radius: 8px;
+  border: white solid 2px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#display {
+  text-align: right;
+  padding-right: 10px;
+  font-size: 25px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  background-color: white;
+}
