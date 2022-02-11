@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="container">
+    <input id="input" type="text" />
+    <button id="button">Enter</button>
+  </body>
+  <script>
+    let input = document.querySelector("#input");
+    let button = document.querySelector("#button");
+    let container = document.querySelector(".container");
+
+    button.addEventListener("click", () => {
+      let inputValue = document.querySelector("#input").value;
+      console.log(inputValue);
+      listItem = document.createElement("li");
+      listItem.innerText = inputValue;
+      container.append(listItem);
+      document.querySelector("#input").value = "";
+    });
+  </script>
+</html>

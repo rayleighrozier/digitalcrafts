@@ -7,8 +7,10 @@ const player = document.querySelector(".player");
 const dealer = document.querySelector(".dealer");
 const playerScoreDisplay = document.querySelector("#player-score");
 const dealerScoreDisplay = document.querySelector("#dealer-score");
-const playerAllCards = [];
-const dealerAllCards = [];
+const buttonContainer = document.querySelector(".button-container");
+// const playerAllCards = []; << may need later
+// const dealerAllCards = [];
+const result = document.querySelector(".result");
 let playerScore = 0;
 let dealerScore = 0;
 const cardList = [
@@ -28,7 +30,7 @@ const cardList = [
 ];
 const cardSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
 
-function dealCards() {
+const dealCards = () => {
   const currentCard = {
     suit: "",
     value: "",
@@ -36,18 +38,15 @@ function dealCards() {
   const randomSuit = Math.floor(Math.random() * cardSuits.length);
   const randomCardList = Math.floor(Math.random() * cardList.length);
   currentCard.suit = cardSuits[randomSuit];
-  //   add your conditional
   currentCard.value = cardList[randomCardList];
   return currentCard;
-}
-
-//separate new card into dealer and player
+};
 
 const newCard = (user) => {
   const handElement = document.createElement("img");
   const hand = dealCards();
   if (user === "dealer") {
-    dealerAllCards.push(hand);
+    // dealerAllCards.push(hand);<< may need later
     if (
       hand.value != "King" &&
       hand.value != "Queen" &&
@@ -56,7 +55,12 @@ const newCard = (user) => {
     ) {
       dealerScore = dealerScore + parseInt(hand.value);
     } else if (hand.value == "Ace") {
-      dealerScore = dealerScore + 11;
+      //ace logic
+      if (dealerScore + 11 > 21) {
+        dealerScore = dealerScore + 1;
+      } else {
+        dealerScore = dealerScore + 11;
+      }
     } else {
       dealerScore = dealerScore + 10;
     }
@@ -69,7 +73,7 @@ const newCard = (user) => {
   }
 
   if (user === "player") {
-    playerAllCards.push(hand);
+    // playerAllCards.push(hand); << may need later
     if (
       hand.value != "King" &&
       hand.value != "Queen" &&
@@ -78,7 +82,11 @@ const newCard = (user) => {
     ) {
       playerScore = playerScore + parseInt(hand.value);
     } else if (hand.value == "Ace") {
-      playerScore = playerScore + 11;
+      if (playerScore + 11 > 21) {
+        playerScore = playerScore + 1;
+      } else {
+        playerScore = playerScore + 11;
+      }
     } else {
       playerScore = playerScore + 10;
     }
@@ -91,48 +99,66 @@ const newCard = (user) => {
   }
 };
 
+const printResult = (str) => {
+  let resultText = document.createElement("h3");
+  resultText.innerText = `${str}`;
+  resultText.className = "current-result";
+  result.append(resultText);
+};
+
 dealButton.addEventListener("click", () => {
+  player.innerText = "";
+  dealer.innerText = "";
+  dealerScore = 0;
+  playerScore = 0;
+  if (result.contains(document.querySelector(".current-result"))) {
+    result.removeChild(document.querySelector(".current-result"));
+  }
   newCard("dealer");
   newCard("dealer");
   newCard("player");
   newCard("player");
   if (dealerScore == 21) {
-    window.alert("Dealer wins with 21!");
+    printResult("Dealer wins with 21! Press 'Deal' to play again!");
   }
   if (playerScore == 21) {
-    window.alert("21! You win!");
+    printResult("21! You win! Press 'Deal' to play again!");
   }
 });
 
 hitButton.addEventListener("click", () => {
-  if (playerScore < 21) {
+  if (playerScore < 21 && !document.querySelector(".current-result")) {
     newCard("player");
-    if (playerScore > 21) {
-      window.alert("Bust! Dealer wins.");
+    if (playerScore > 21 && !document.querySelector(".current-result")) {
+      printResult("Bust! Dealer wins. Press 'Deal' to play again!");
     }
-    if (playerScore == 21) {
-      window.alert("21! You win!");
+    if (playerScore == 21 && !document.querySelector(".current-result")) {
+      printResult("21! You win!Press 'Deal' to play again!");
     }
   }
 });
 
 standButton.addEventListener("click", () => {
-  while (dealerScore < 17) {
+  while (dealerScore < 16 && !document.querySelector(".current-result")) {
     newCard("dealer");
   }
-  if (dealerScore == 21) {
-    window.alert("Dealer wins with 21.");
+  if (dealerScore == 21 && !document.querySelector(".current-result")) {
+    printResult("Dealer wins with 21. Press 'Deal' to play again!");
   }
-  if (dealerScore > 21) {
-    window.alert("Dealer busts! You win.");
+  if (dealerScore > 21 && !document.querySelector(".current-result")) {
+    printResult("Dealer busts! You win. Press 'Deal' to play again!");
   }
-  if (dealerScore >= 17 && dealerScore < 21) {
+  if (
+    dealerScore >= 17 &&
+    dealerScore < 21 &&
+    !document.querySelector(".current-result")
+  ) {
     if (dealerScore > playerScore) {
-      window.alert("Dealer wins.");
+      printResult("Dealer wins. Press 'Deal' to play again!");
     } else if (dealerScore < playerScore) {
-      window.alert("You win!");
+      printResult("You win! Press 'Deal' to play again!");
     } else {
-      window.alert("It's a tie.");
+      printResult("It's a tie. Press 'Deal' to play again!");
     }
   }
 });

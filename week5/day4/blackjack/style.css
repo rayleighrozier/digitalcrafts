@@ -1,16 +1,74 @@
+/* font-family: 'Bungee', cursive;
+font-family: 'Bungee Shade', cursive;
+font-family: 'Roboto', sans-serif; */
+body {
+  font-family: "Roboto", sans-serif;
+}
+#blackjack-title {
+  font-family: "Bungee Shade", cursive;
+  text-align: center;
+  font-size: 42px;
+  margin: 20px 10px;
+}
+.result {
+  text-align: center;
+  height: 50px;
+  font-size: 20px;
+  margin: 5px;
+  color: red;
+}
+.player-title {
+  font-family: "Bungee", cursive;
+  margin-left: 30px;
+}
+#player-score,
+#dealer-score {
+  margin-left: 20px;
+}
 .playerCards,
 .dealerCards {
   display: grid;
   place-items: center;
   border: solid 3px black;
+  border-radius: 8px;
   width: 70px;
   height: 80px;
+  margin: 0px 10px;
 }
 
 .player,
 .dealer {
   display: flex;
-  width: 100%;
+  width: 1fr;
+  margin: 0px 30px;
+  padding: 10px;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-self: center;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: darkgreen;
+  border-radius: 8px;
+  height: 100px;
+}
+.player-container {
+  display: flex;
+  align-items: center;
+}
+.main-container {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  height: 72vh;
+  width: 75vw;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+button {
+  margin: 10px;
 }
