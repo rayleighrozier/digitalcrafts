@@ -1,5 +1,4 @@
-//figure out how to get ace logic
-//figure out how to make window alerts play after the card displays
+//grabbing everything
 const dealButton = document.querySelector("#deal-button");
 const hitButton = document.querySelector("#hit-button");
 const standButton = document.querySelector("#stand-button");
@@ -8,11 +7,9 @@ const dealer = document.querySelector(".dealer");
 const playerScoreDisplay = document.querySelector("#player-score");
 const dealerScoreDisplay = document.querySelector("#dealer-score");
 const buttonContainer = document.querySelector(".button-container");
-// const playerAllCards = []; << may need later
-// const dealerAllCards = [];
 const result = document.querySelector(".result");
-let playerScore = 0;
-let dealerScore = 0;
+
+//misc variables
 const cardList = [
   "Ace",
   "2",
@@ -29,7 +26,11 @@ const cardList = [
   "King",
 ];
 const cardSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
+let playerScore = 0;
+let dealerScore = 0;
+let mysteryCard = {};
 
+//functions
 const dealCards = () => {
   const currentCard = {
     suit: "",
@@ -45,8 +46,9 @@ const dealCards = () => {
 const newCard = (user) => {
   const handElement = document.createElement("img");
   const hand = dealCards();
+
+  //dealer version
   if (user === "dealer") {
-    // dealerAllCards.push(hand);<< may need later
     if (
       hand.value != "King" &&
       hand.value != "Queen" &&
@@ -55,11 +57,11 @@ const newCard = (user) => {
     ) {
       dealerScore = dealerScore + parseInt(hand.value);
     } else if (hand.value == "Ace") {
-      //ace logic
       if (dealerScore + 11 > 21) {
         dealerScore = dealerScore + 1;
       } else {
         dealerScore = dealerScore + 11;
+        dealerHasAce = true;
       }
     } else {
       dealerScore = dealerScore + 10;
@@ -72,8 +74,8 @@ const newCard = (user) => {
     dealer.append(handElement);
   }
 
+  //player version
   if (user === "player") {
-    // playerAllCards.push(hand); << may need later
     if (
       hand.value != "King" &&
       hand.value != "Queen" &&
@@ -86,6 +88,7 @@ const newCard = (user) => {
         playerScore = playerScore + 1;
       } else {
         playerScore = playerScore + 11;
+        playerHasAce = true;
       }
     } else {
       playerScore = playerScore + 10;
@@ -99,66 +102,136 @@ const newCard = (user) => {
   }
 };
 
+const newMysteryCard = () => {
+  const handElement = document.createElement("img");
+  const hand = dealCards();
+  mysteryCard.suit = hand.suit;
+  mysteryCard.value = hand.value;
+  if (
+    hand.value != "King" &&
+    hand.value != "Queen" &&
+    hand.value != "Jack" &&
+    hand.value != "Ace"
+  ) {
+    dealerScore = dealerScore + parseInt(hand.value);
+  } else if (hand.value == "Ace") {
+    if (dealerScore + 11 > 21) {
+      dealerScore = dealerScore + 1;
+    } else {
+      dealerScore = dealerScore + 11;
+    }
+  } else {
+    dealerScore = dealerScore + 10;
+    dealerHasAce = true;
+  }
+  dealerScoreDisplay.innerText = "Score: ???";
+  handElement.className = "dealerCards";
+  handElement.setAttribute("id", "mystery");
+  handElement.src = "./images/card_back.png";
+  dealer.append(handElement);
+};
+
+const revealMysteryCard = () => {
+  mysteryPic = document.getElementById("mystery");
+  mysteryPic.src = `./images/${
+    mysteryCard.value
+  }_of_${mysteryCard.suit.toLowerCase()}.png`;
+  dealerScoreDisplay.innerText = `Score: ${dealerScore}`;
+};
+
 const printResult = (str) => {
   let resultText = document.createElement("h3");
   resultText.innerText = `${str}`;
-  resultText.className = "current-result";
+  resultText.className = "result-message";
   result.append(resultText);
 };
 
+const compareScores = () => {
+  if (dealerScore > playerScore) {
+    printResult("Dealer wins. Press 'Deal' to play again!");
+  } else if (dealerScore < playerScore) {
+    printResult("You win! Press 'Deal' to play again!");
+  } else {
+    printResult("It's a tie. Press 'Deal' to play again!");
+  }
+};
+
+//when you click deal
 dealButton.addEventListener("click", () => {
+  //reset everything
   player.innerText = "";
   dealer.innerText = "";
   dealerScore = 0;
   playerScore = 0;
-  if (result.contains(document.querySelector(".current-result"))) {
-    result.removeChild(document.querySelector(".current-result"));
+  playerHasAce = false;
+  dealerHasAce = false;
+  if (result.contains(document.querySelector(".result-message"))) {
+    result.removeChild(document.querySelector(".result-message"));
   }
-  newCard("dealer");
-  newCard("dealer");
+  // deal cards
   newCard("player");
   newCard("player");
-  if (dealerScore == 21) {
-    printResult("Dealer wins with 21! Press 'Deal' to play again!");
-  }
+  newCard("dealer");
+  // deal flipped over card
+  newMysteryCard();
+  // if automatic 21
   if (playerScore == 21) {
     printResult("21! You win! Press 'Deal' to play again!");
   }
 });
 
+//when you click hit
 hitButton.addEventListener("click", () => {
-  if (playerScore < 21 && !document.querySelector(".current-result")) {
+  //give a new card unless you bust/game is already over
+  if (playerScore < 21 && !document.querySelector(".result-message")) {
     newCard("player");
-    if (playerScore > 21 && !document.querySelector(".current-result")) {
-      printResult("Bust! Dealer wins. Press 'Deal' to play again!");
+    // if you are about to bust but have an Ace, change Ace value to 1
+    if (playerScore > 21 && !document.querySelector(".result-message")) {
+      if (playerHasAce === true) {
+        playerScore = playerScore - 10;
+        playerScoreDisplay.innerText = `Score: ${playerScore}`;
+        playerHasAce = !playerHasAce;
+      } else {
+        printResult("Bust! Dealer wins. Press 'Deal' to play again!");
+      }
     }
-    if (playerScore == 21 && !document.querySelector(".current-result")) {
-      printResult("21! You win!Press 'Deal' to play again!");
+    //if new card gives you 21 exactly
+    if (playerScore == 21 && !document.querySelector(".result-message")) {
+      printResult("21! You win! Press 'Deal' to play again!");
     }
   }
 });
 
+//when you click stand
 standButton.addEventListener("click", () => {
-  while (dealerScore < 16 && !document.querySelector(".current-result")) {
+  //reveal flipped card/score
+  revealMysteryCard();
+  //add dealer cards until you hit 17 or over
+  while (dealerScore < 17 && !document.querySelector(".result-message")) {
     newCard("dealer");
   }
-  if (dealerScore == 21 && !document.querySelector(".current-result")) {
+  if (dealerScore == 21 && !document.querySelector(".result-message")) {
     printResult("Dealer wins with 21. Press 'Deal' to play again!");
   }
-  if (dealerScore > 21 && !document.querySelector(".current-result")) {
-    printResult("Dealer busts! You win. Press 'Deal' to play again!");
+  if (dealerScore > 21 && !document.querySelector(".result-message")) {
+    //if dealer us about to bust but they have an Ace, change Ace value to 1
+    if (dealerHasAce === true) {
+      dealerScore = dealerScore - 10;
+      dealerScoreDisplay.innerText = `Score: ${dealerScore}`;
+      dealerHasAce = !dealerHasAce;
+      while (dealerScore < 16) {
+        newCard("dealer");
+      }
+      compareScores();
+    } else {
+      printResult("Dealer busts! You win. Press 'Deal' to play again!");
+    }
   }
   if (
     dealerScore >= 17 &&
     dealerScore < 21 &&
-    !document.querySelector(".current-result")
+    !document.querySelector(".result-message")
   ) {
-    if (dealerScore > playerScore) {
-      printResult("Dealer wins. Press 'Deal' to play again!");
-    } else if (dealerScore < playerScore) {
-      printResult("You win! Press 'Deal' to play again!");
-    } else {
-      printResult("It's a tie. Press 'Deal' to play again!");
-    }
+    compareScores();
   }
 });

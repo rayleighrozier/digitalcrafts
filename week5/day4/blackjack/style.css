@@ -4,11 +4,69 @@ font-family: 'Roboto', sans-serif; */
 body {
   font-family: "Roboto", sans-serif;
 }
-#blackjack-title {
-  font-family: "Bungee Shade", cursive;
-  text-align: center;
-  font-size: 42px;
-  margin: 20px 10px;
+button {
+  margin: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 5px 8px 5px 8px;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: black;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+button:hover {
+  background-color: red;
+}
+button:active {
+  box-shadow: inset 0px 0px 5px #6e0000;
+}
+.main-container {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 75vh;
+  width: 75vw;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.player-container {
+  display: flex;
+  align-items: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.playerCards,
+.dealerCards {
+  display: grid;
+  place-items: center;
+  border: solid 3px black;
+  border-radius: 8px;
+  width: 70px;
+  height: 80px;
+  margin: 0px 10px;
+}
+.player,
+.dealer {
+  display: flex;
+  width: 1fr;
+  margin: 0px 30px;
+  padding: 10px;
+  justify-self: center;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: darkgreen;
+  border-radius: 8px;
+  height: 100px;
 }
 .result {
   text-align: center;
@@ -21,54 +79,13 @@ body {
   font-family: "Bungee", cursive;
   margin-left: 30px;
 }
+#blackjack-title {
+  font-family: "Bungee Shade", cursive;
+  text-align: center;
+  font-size: 42px;
+  margin: 20px 10px;
+}
 #player-score,
 #dealer-score {
   margin-left: 20px;
-}
-.playerCards,
-.dealerCards {
-  display: grid;
-  place-items: center;
-  border: solid 3px black;
-  border-radius: 8px;
-  width: 70px;
-  height: 80px;
-  margin: 0px 10px;
-}
-
-.player,
-.dealer {
-  display: flex;
-  width: 1fr;
-  margin: 0px 30px;
-  padding: 10px;
-  flex-wrap: wrap;
-  justify-self: center;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: darkgreen;
-  border-radius: 8px;
-  height: 100px;
-}
-.player-container {
-  display: flex;
-  align-items: center;
-}
-.main-container {
-  background-color: green;
-  display: flex;
-  flex-direction: column;
-  height: 72vh;
-  width: 75vw;
-  margin: auto;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-button {
-  margin: 10px;
 }
