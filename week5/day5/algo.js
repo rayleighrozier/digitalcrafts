@@ -9,6 +9,8 @@
 //   let previouslySeen = [];
 
 //   for (i = 0; i < arr.length; i++) {
+
+//can't do this in javascript, needs to be an object
 //     if (arr[i] in previouslySeen) {
 //       newArray.push(arr[i]);
 //     }
