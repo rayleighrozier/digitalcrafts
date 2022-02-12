@@ -1,10 +1,10 @@
-console.log("hi");
-
+//grab
 const inputBox = document.querySelector("#input-box");
 const addButton = document.querySelector("#add-button");
 const pendingContainer = document.querySelector("#pending-container");
 const completedContainer = document.querySelector("#completed-container");
 
+//functions
 const moveTask = (e) => {
   if (e.path[0].checked) {
     completedContainer.append(e.path[1]);
@@ -13,23 +13,31 @@ const moveTask = (e) => {
   }
 };
 
+const deleteTask = (e) => {
+  if (e.path[2].id == "pending-container") {
+    pendingContainer.removeChild(e.path[1]);
+  }
+  if (e.path[2].id == "completed-container") {
+    completedContainer.removeChild(e.path[1]);
+  }
+};
+
 addButton.addEventListener("click", () => {
   let userInput = inputBox.value;
+  inputBox.value = "";
 
   //create div
   newTask = document.createElement("div");
-  newTask.className = "pending-task";
-  newTask.className += " all-tasks";
+  newTask.className = "task";
 
   //create checkbox
   newCheckBox = document.createElement("input");
   newCheckBox.type = "checkBox";
   newCheckBox.className = "check-box";
-  //move between pending and completed
+  //move task when checked/unchecked
   newCheckBox.addEventListener("change", (e) => moveTask(e));
 
   // create p
-  //newText is the p -- NOT THE ACTUAL TEXT
   newText = document.createElement("p");
   newText.innerText = userInput;
 
@@ -37,8 +45,10 @@ addButton.addEventListener("click", () => {
   newRemove = document.createElement("button");
   newRemove.innerText = "Remove";
   newRemove.className = "remove-button";
+  //remove task on click
+  newRemove.addEventListener("click", (e) => deleteTask(e));
 
-  //appending
+  //append
   newTask.append(newCheckBox);
   newTask.append(newText);
   newTask.append(newRemove);
