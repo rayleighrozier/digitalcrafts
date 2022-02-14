@@ -119,6 +119,7 @@ const newMysteryCard = () => {
       dealerScore = dealerScore + 1;
     } else {
       dealerScore = dealerScore + 11;
+      dealerHasAce = true;
     }
   } else {
     dealerScore = dealerScore + 10;
