@@ -31,6 +31,21 @@ const [x,y] = array1;
 
 //loops 
 //for of ... arrays
-for (let student of array) {}
+for (let student of array) {console.log("hi");}
 //for in ... objects
-for (let student in object) {}
+for (let student in object) {console.log("hi");}
+
+//default values 
+
+const printArray = (arr=[]) => {
+console.log(arr[0]);
+}
+
+//typeof
+if (typeof value !== "object") {} 
+// << "object" is used for objects *and arrays
+
+//one line functions
+
+const functionName = () => "hi";
+//return and {} are  implied
