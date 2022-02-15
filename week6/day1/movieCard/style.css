@@ -1,0 +1,118 @@
+.card {
+  background: rgb(254, 252, 253);
+  background: linear-gradient(
+    180deg,
+    rgba(254, 252, 253, 1) -1%,
+    rgba(254, 243, 249, 1) 8%,
+    rgba(254, 205, 230, 1) 28%,
+    rgba(255, 156, 209, 1) 49%,
+    rgba(254, 133, 200, 1) 59%,
+    rgba(251, 91, 179, 1) 81%,
+    rgba(254, 64, 167, 1) 100%
+  );
+  height: 337.5px;
+  width: 600px;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: rgb(232 0 126);
+}
+
+h2 {
+  font-weight: 100;
+}
+
+.poster {
+  height: 337.5px;
+  border-radius: 8px 0px 0px 8px;
+  margin: 0px 10px;
+}
+
+.plot {
+  font-size: 1.1rem;
+  margin: 30px 0px 0px 0px;
+  font-weight: 100;
+  color: rgb(252, 41, 153);
+}
+.details {
+  display: flex;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 15px 0px;
+
+  letter-spacing: 0.07rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 20px;
+  height: auto;
+  width: auto;
+  flex-grow: 1;
+  margin: 0px 30px 0px 40px;
+  justify-content: center;
+}
+
+.icons {
+  height: 22px;
+  filter: grayscale(100%);
+  filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(250deg)
+    brightness(113%) contrast(100%);
+  align-self: center;
+  margin: 2px;
+}
+
+.rating {
+  color: white;
+  display: flex;
+  gap: 5px;
+}
+
+.ratings {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.7rem;
+  margin: 0px;
+}
+
+.cover-visible {
+  display: block;
+  object-fit: cover;
+  position: absolute;
+  width: 600px;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.cover-hidden {
+  display: none;
+}
+.button {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-weight: 100;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  border: white solid 2px;
+  background-color: #fb57b0;
+  width: 120px;
+  height: 40px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.button:hover {
+  background-color: white;
+  color: #fb57b0;
+}

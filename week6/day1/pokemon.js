@@ -99,9 +99,8 @@ const printPokemon = (arr) => {
     } else {
       newPokemonImage.src = `https://urpgstatic.com/img_library/pokemon_sprites//0${i}.png`;
     }
-    newPokemon.append(newPokemonName);
-    newPokemon.append(newPokemonURL);
-    newPokemon.append(newPokemonImage);
+    //can be done with ternary operator >> ?
+    newPokemon.append(newPokemonName, newPokemonURL, newPokemonImage);
     container.append(newPokemon);
     i++;
   }
