@@ -3,16 +3,19 @@ const button = document.querySelector("button");
 const weatherContainer = document.querySelector(".weather-container");
 
 button.addEventListener("click", () => {
-  console.log("hi");
   searchWeather();
 });
 
 const searchWeather = async () => {
-  const url = `http://api.openweathermap.org/data/2.5/weather?id=524901&appid=05407dc4254bea406be637af43796a6a&units=imperial&zip=${input.value}`;
-  console.log({ url });
+  const getURL = () => {
+    return parseInt(input.value)
+      ? `http://api.openweathermap.org/data/2.5/weather?id=524901&appid=05407dc4254bea406be637af43796a6a&units=imperial&zip=${input.value}`
+      : `http://api.openweathermap.org/data/2.5/weather?id=524901&appid=05407dc4254bea406be637af43796a6a&units=imperial&q=${input.value}`;
+  };
+  const url = getURL();
+  console.log(url);
   const getWeather = await fetch(url);
   const weatherJson = await getWeather.json();
-  console.log(weatherJson);
   const title = weatherJson.name;
   const weatherType = weatherJson.weather[0].main;
   const temp = `${Math.round(weatherJson.main.temp)}°`;
@@ -47,4 +50,8 @@ const searchWeather = async () => {
   cardTop.append(cardTitle, cardTopDisplay);
   card.append(cardTop, cardBody);
   weatherContainer.append(card);
+};
+
+const isCity = (input) => {
+  return /^[\.a-zA-Z, ]*$/.test(input);
 };
