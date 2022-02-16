@@ -94,7 +94,6 @@ function createCard(movie) {
   movieInfo.append(movieRatings);
   const movieButton = document.createElement("button");
   movieButton.className = "button";
-
   movieButton.innerText = "Watch Now";
   movieInfo.append(movieButton);
 

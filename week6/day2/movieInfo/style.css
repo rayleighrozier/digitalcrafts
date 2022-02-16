@@ -1,0 +1,40 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+h2 {
+  font-size: 22px;
+}
+
+.form {
+  margin: 10px;
+}
+.movie-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 80vh;
+}
+/* .card {
+  height: 120px;
+  width: 200px;
+  background-color: #20282e;
+  color: white;
+  display: flex;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 8px;
+  align-items: center;
+} */
+
+.poster {
+  height: 120px;
+  width: 81px;
+  object-fit: cover;
+  border-radius: 8px 0px 0px 8px;
+}
+
+h2 {
+  font-size: 14px;
+  margin: 10px;
+  font-weight: 100;
+}

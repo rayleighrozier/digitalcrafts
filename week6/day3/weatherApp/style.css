@@ -1,0 +1,92 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  background-color: var(--light);
+  color: var(--dark-blue);
+  --dark-blue: #333652;
+  --light-blue: #90adc6;
+  --yellow: #fad02c;
+  --light: #f3f2f1;
+  --white-filter: invert(91%) sepia(93%) saturate(28%) hue-rotate(253deg)
+    brightness(107%) contrast(100%);
+}
+
+input {
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+button {
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  color: white;
+  background-color: var(--dark-blue);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-container {
+  display: flex;
+  gap: 5px;
+}
+.weather-container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.light-blue-bg {
+  background-color: var(--light-blue);
+}
+.dark-blue-bg {
+  background-color: var(--dark-blue);
+}
+.yellow-bg {
+  background-color: var(--yellow);
+}
+.card {
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  font-family: inherit;
+  color: var(--dark-blue);
+  background-color: white;
+}
+
+.card-top {
+  border-radius: 8px 8px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.card-top-display {
+  margin: 16px 0px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.card-title {
+  margin: 16px 0px 0px 0px;
+  text-align: center;
+  font-size: 24px;
+}
+.card-temp {
+  margin: 0;
+  align-self: baseline;
+  font-size: 48px;
+}
+
+.card-icon {
+  height: 50px;
+  margin: 0px 0px 0px 0px;
+  filter: var(--white-filter);
+}
