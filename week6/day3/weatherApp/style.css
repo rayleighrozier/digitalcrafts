@@ -11,6 +11,12 @@ body {
   --gray: #cecccb;
   --white-filter: invert(91%) sepia(93%) saturate(28%) hue-rotate(253deg)
     brightness(107%) contrast(100%);
+  --dark-blue-filter: invert(20%) sepia(9%) saturate(2253%) hue-rotate(197deg)
+    brightness(93%) contrast(92%);
+  --light-blue-filter: invert(68%) sepia(24%) saturate(342%) hue-rotate(166deg)
+    brightness(95%) contrast(90%);
+  --yellow-filter: invert(79%) sepia(38%) saturate(859%) hue-rotate(355deg)
+    brightness(102%) contrast(96%);
 }
 
 input {
@@ -54,7 +60,8 @@ button {
   background-color: var(--yellow);
 }
 .card {
-  width: 200px;
+  width: 250px;
+  height: 330px;
   border-radius: 8px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -106,12 +113,6 @@ button {
   margin: 0;
 }
 
-.card-end {
-  border-bottom: none;
-  padding: none;
-  text-align: center;
-}
-
 .card-button {
   font-family: inherit;
   background-color: var(--gray);
@@ -122,4 +123,57 @@ button {
   padding: 16px 0px;
   width: 100%;
   border-radius: 0px 0px 8px 8px;
+}
+.forecast-card {
+  width: 250px;
+  height: 330px;
+  z-index: 1;
+  background-color: var(--dark-blue);
+  color: var(--dark-blue);
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.forecast-day {
+  display: flex;
+  border-bottom: 2px solid var(--gray);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: white;
+}
+.forecast-day-end {
+  display: flex;
+  border-bottom: none;
+  border-radius: 0px 0px 8px 8px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: white;
+}
+.forecast-icon {
+  margin: 5px 5px;
+  height: 20px;
+  filter: var(--dark-blue-filter);
+}
+.forecast-element {
+  margin: 5px;
+  text-align: left;
+}
+.forecast-card-button {
+  font-family: inherit;
+  background-color: var(--gray);
+  color: white;
+  border: none;
+  fill: none;
+  font-size: 16px;
+  padding: 16px 0px;
+  width: 100%;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.forecast-card-hide {
+  display: none;
 }

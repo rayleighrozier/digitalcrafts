@@ -57,8 +57,8 @@ const searchWeather = async () => {
   let forecastArray = [];
   for (forecast of forecastJson.daily) {
     let obj = {};
-    obj["low"] = forecast.temp.min;
-    obj["high"] = forecast.temp.max;
+    obj["low"] = `${Math.round(forecast.temp.min)}°`;
+    obj["high"] = `${Math.round(forecast.temp.max)}°`;
     obj["weatherType"] = forecast.weather[0].main;
     obj["conditions"] = titleCase(forecast.weather[0].description);
     forecastArray.push(obj);
@@ -118,11 +118,20 @@ const searchWeather = async () => {
   cardButton.innerText = "7-Day Forecast";
   cardButton.addEventListener("click", () => {
     console.log("click");
+    forecastCard.classList = "forecast-card";
   });
 
   //make forecast card
   const forecastCard = document.createElement("div");
-  forecastCard.class = "forecast-card";
+  forecastCard.className = "forecast-card-hide";
+  forecastButton = document.createElement("button");
+  forecastButton.className = "forecast-card-button";
+  forecastButton.innerText = "7-Day Forecast";
+  forecastCard.append(forecastButton);
+  forecastButton.addEventListener("click", () => {
+    forecastCard.classList = "forecast-card-hide";
+  });
+
   for (obj of forecastArray) {
     const forecastDay = document.createElement("div");
     forecastDay.className = "forecast-day";
@@ -143,13 +152,13 @@ const searchWeather = async () => {
 
     const forecastHighLow = document.createElement("p");
     forecastHighLow.className = "forecast-element";
-    forecastHighLow.innerText = `H: ${obj.high} L:${obj.low}`;
+    forecastHighLow.innerText = `${obj.high}/${obj.low}`;
 
     forecastDay.append(forecastIcon, forecastConditions, forecastHighLow);
     forecastCard.append(forecastDay);
   }
-  ///FIX THIS LATER
-  weatherContainer.append(forecastCard);
+  forecastCard.lastChild.classList = "forecast-day-end";
+  card.append(forecastCard);
 
   //append
   cardTopDisplay.append(cardIcon, cardTemp);
