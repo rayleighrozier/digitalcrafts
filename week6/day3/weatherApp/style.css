@@ -8,6 +8,7 @@ body {
   --light-blue: #90adc6;
   --yellow: #fad02c;
   --light: #f3f2f1;
+  --gray: #cecccb;
   --white-filter: invert(91%) sepia(93%) saturate(28%) hue-rotate(253deg)
     brightness(107%) contrast(100%);
 }
@@ -36,7 +37,7 @@ button {
   gap: 5px;
 }
 .weather-container {
-  margin: 20px;
+  margin: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,14 +80,46 @@ button {
   text-align: center;
   font-size: 24px;
 }
+.card-icon {
+  height: 50px;
+  margin: 0px 0px 0px 0px;
+  filter: var(--white-filter);
+}
 .card-temp {
   margin: 0;
   align-self: baseline;
   font-size: 48px;
 }
 
-.card-icon {
-  height: 50px;
-  margin: 0px 0px 0px 0px;
-  filter: var(--white-filter);
+.card-body-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.card-body {
+  text-align: center;
+  border-bottom: 2px solid var(--gray);
+  padding: 16px 0px;
+  width: 100%;
+  margin: 0;
+}
+
+.card-end {
+  border-bottom: none;
+  padding: none;
+  text-align: center;
+}
+
+.card-button {
+  font-family: inherit;
+  background-color: var(--gray);
+  color: white;
+  border: none;
+  fill: none;
+  font-size: 16px;
+  padding: 16px 0px;
+  width: 100%;
+  border-radius: 0px 0px 8px 8px;
 }
