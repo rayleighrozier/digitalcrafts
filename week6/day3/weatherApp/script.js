@@ -35,10 +35,8 @@ const searchWeather = async () => {
   const url = getURL();
   const getWeather = await fetch(url);
   const weatherJson = await getWeather.json();
-  console.log(weatherJson);
   const title = weatherJson.name;
   const weatherType = weatherJson.weather[0].main;
-  console.log(weatherType);
   const temp = `${Math.round(weatherJson.main.temp)}°`;
   const feelsLike = `${Math.round(weatherJson.main.feels_like)}°`;
   const high = `${Math.round(weatherJson.main.temp_max)}°`;
@@ -53,7 +51,6 @@ const searchWeather = async () => {
   const forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current&units=imperial&appid=05407dc4254bea406be637af43796a6a`;
   const getForecast = await fetch(forecastURL);
   const forecastJson = await getForecast.json();
-  console.log(forecastJson);
   let forecastArray = [];
   for (forecast of forecastJson.daily) {
     let obj = {};
@@ -64,7 +61,6 @@ const searchWeather = async () => {
     forecastArray.push(obj);
   }
   forecastArray.pop();
-  console.log(forecastArray);
 
   //make
   const card = document.createElement("div");
@@ -117,7 +113,6 @@ const searchWeather = async () => {
   cardButton.className = "card-button";
   cardButton.innerText = "7-Day Forecast";
   cardButton.addEventListener("click", () => {
-    console.log("click");
     if (checkedTime === "night") {
       forecastCard.classList = "forecast-card dark-blue-bg";
     } else if (checkedTime === "day" && weatherType === "Clear") {
