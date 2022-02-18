@@ -119,13 +119,10 @@ const searchWeather = async () => {
   cardButton.addEventListener("click", () => {
     console.log("click");
     if (checkedTime === "night") {
-      console.log("night!");
       forecastCard.classList = "forecast-card dark-blue-bg";
     } else if (checkedTime === "day" && weatherType === "Clear") {
-      console.log("day!");
       forecastCard.classList = "forecast-card yellow-bg";
     } else {
-      console.log("lb!");
       forecastCard.classList = "forecast-card light-blue-bg";
     }
     cardTop.classList = "card-top-hide";
@@ -145,13 +142,10 @@ const searchWeather = async () => {
   forecastButton.addEventListener("click", () => {
     forecastCard.classList = "forecast-card-hide";
     if (checkedTime === "night") {
-      console.log("night!");
       cardTop.classList = "card-top dark-blue-bg";
     } else if (checkedTime === "day" && weatherType === "Clear") {
-      console.log("day!");
       cardTop.classList = "card-top yellow-bg";
     } else {
-      console.log("lb!");
       cardTop.classList = "card-top light-blue-bg";
     }
     cardBody.classList = "card-body-display";
@@ -162,10 +156,10 @@ const searchWeather = async () => {
     forecastDay.className = "forecast-day";
     const forecastIcon = document.createElement("img");
     forecastIcon.className = "forecast-icon";
-    if (forecast.weatherType != "Clear") {
+    if (obj.weatherType != "Clear") {
       forecastIcon.src = `icons/${obj.weatherType}.svg`;
     } else {
-      if (checkedTime === "day") {
+      if (checkedTime == "day") {
         forecastIcon.src = `icons/Day.svg`;
       } else {
         forecastIcon.src = `icons/Night.svg`;
