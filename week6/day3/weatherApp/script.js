@@ -129,6 +129,12 @@ const searchWeather = async () => {
     cardBody.classList = "card-body-hide";
   });
 
+  //append
+  cardTopDisplay.append(cardIcon, cardTemp);
+  cardTop.append(cardTitle, cardTopDisplay);
+  cardBody.append(cardConditions, cardFeelsLike, cardHighLow, cardButton);
+  card.append(cardTop, cardBody);
+  weatherContainer.append(card);
   //make forecast card
   const forecastCard = document.createElement("div");
   forecastCard.className = "forecast-card-hide";
@@ -159,11 +165,7 @@ const searchWeather = async () => {
     if (obj.weatherType != "Clear") {
       forecastIcon.src = `icons/${obj.weatherType}.svg`;
     } else {
-      if (checkedTime == "day") {
-        forecastIcon.src = `icons/Day.svg`;
-      } else {
-        forecastIcon.src = `icons/Night.svg`;
-      }
+      forecastIcon.src = `icons/Day.svg`;
     }
     const forecastConditions = document.createElement("p");
     forecastConditions.className = "forecast-element";
@@ -178,13 +180,6 @@ const searchWeather = async () => {
   }
   forecastCard.lastChild.classList = "forecast-day-end";
   card.append(forecastCard);
-
-  //append
-  cardTopDisplay.append(cardIcon, cardTemp);
-  cardTop.append(cardTitle, cardTopDisplay);
-  cardBody.append(cardConditions, cardFeelsLike, cardHighLow, cardButton);
-  card.append(cardTop, cardBody);
-  weatherContainer.append(card);
 };
 
 //button event
