@@ -68,7 +68,7 @@ const searchWeather = async () => {
 
   //make
   const card = document.createElement("div");
-  card.className = "card";
+  card.classList = "card grow";
 
   const cardTop = document.createElement("div");
   if (checkedTime === "night") {

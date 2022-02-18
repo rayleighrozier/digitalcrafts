@@ -39,6 +39,9 @@ button {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+.search-button:active {
+  transform: scale(0.9);
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -49,12 +52,12 @@ button {
   gap: 5px;
 }
 .weather-container {
-  margin: 30px;
+  margin: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
 }
 .light-blue-bg {
   background-color: var(--light-blue);
@@ -195,4 +198,12 @@ button {
 
 .forecast-card-hide {
   display: none;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.05);
 }
