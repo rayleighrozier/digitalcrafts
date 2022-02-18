@@ -76,6 +76,9 @@ button {
   flex-direction: column;
   color: white;
 }
+.card-top-hide {
+  display: none;
+}
 .card-top-display {
   margin: 16px 0px;
   display: flex;
@@ -112,6 +115,9 @@ button {
   width: 100%;
   margin: 0;
 }
+.card-body-hide {
+  display: none;
+}
 
 .card-button {
   font-family: inherit;
@@ -128,7 +134,6 @@ button {
   width: 250px;
   height: 330px;
   z-index: 1;
-  background-color: var(--dark-blue);
   color: var(--dark-blue);
   border-radius: 8px;
   font-size: 14px;
@@ -137,6 +142,13 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  color: var(--dark-blue);
+}
+.forecast-card-title {
+  margin: auto;
+  color: white;
+  text-align: center;
+  font-size: 24px;
 }
 .forecast-day {
   display: flex;

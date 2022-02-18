@@ -103,7 +103,7 @@ const searchWeather = async () => {
   cardTemp.innerText = temp;
 
   const cardBody = document.createElement("div");
-  cardBody.ClassName = "card-body-display";
+  cardBody.className = "card-body-display";
   const cardConditions = document.createElement("p");
   cardConditions.className = "card-body";
   cardConditions.innerText = conditions;
@@ -118,18 +118,43 @@ const searchWeather = async () => {
   cardButton.innerText = "7-Day Forecast";
   cardButton.addEventListener("click", () => {
     console.log("click");
-    forecastCard.classList = "forecast-card";
+    if (checkedTime === "night") {
+      console.log("night!");
+      forecastCard.classList = "forecast-card dark-blue-bg";
+    } else if (checkedTime === "day" && weatherType === "Clear") {
+      console.log("day!");
+      forecastCard.classList = "forecast-card yellow-bg";
+    } else {
+      console.log("lb!");
+      forecastCard.classList = "forecast-card light-blue-bg";
+    }
+    cardTop.classList = "card-top-hide";
+    cardBody.classList = "card-body-hide";
   });
 
   //make forecast card
   const forecastCard = document.createElement("div");
   forecastCard.className = "forecast-card-hide";
+  const forecastTitle = document.createElement("p");
+  forecastTitle.className = "forecast-card-title";
+  forecastTitle.innerText = title;
   forecastButton = document.createElement("button");
   forecastButton.className = "forecast-card-button";
   forecastButton.innerText = "7-Day Forecast";
-  forecastCard.append(forecastButton);
+  forecastCard.append(forecastTitle, forecastButton);
   forecastButton.addEventListener("click", () => {
     forecastCard.classList = "forecast-card-hide";
+    if (checkedTime === "night") {
+      console.log("night!");
+      cardTop.classList = "card-top dark-blue-bg";
+    } else if (checkedTime === "day" && weatherType === "Clear") {
+      console.log("day!");
+      cardTop.classList = "card-top yellow-bg";
+    } else {
+      console.log("lb!");
+      cardTop.classList = "card-top light-blue-bg";
+    }
+    cardBody.classList = "card-body-display";
   });
 
   for (obj of forecastArray) {
