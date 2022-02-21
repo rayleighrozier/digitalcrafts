@@ -1,15 +1,35 @@
 const container = document.querySelector(".container");
-
-const playlists = [
-  { name: "Happy Hits!", mood: "happy", id: "37i9dQZF1DXdPec7aLTmlC" },
-  { name: "Happy Mix", mood: "happy", id: "37i9dQZF1EVJSvZp5AOML2" },
-  { name: "Wake Up Happy", mood: "happy", id: "37i9dQZF1DX0UrRvztWcAU" },
-  { name: "Happy Favorites", mood: "happy", id: "37i9dQZF1DWZKuerrwoAGz" },
-  { name: "Happy Pop", mood: "happy", id: "37i9dQZF1DX1H4LbvY4OJi" },
-  { name: "Good Vibes", mood: "happy", id: "37i9dQZF1DWYBO1MoTDhZI" },
-  { name: "Mood Booster", mood: "happy", id: "37i9dQZF1DX3rxVfibe1L0" },
-];
-
+const happyButton = document.querySelector("#happy");
+const sadButton = document.querySelector("#sad");
+const partyButton = document.querySelector("#party");
+const playlists = {
+  happy: [
+    "37i9dQZF1DXdPec7aLTmlC",
+    "37i9dQZF1EVJSvZp5AOML2",
+    "37i9dQZF1DX0UrRvztWcAU",
+    "37i9dQZF1DWZKuerrwoAGz",
+    "37i9dQZF1DX1H4LbvY4OJi",
+    "37i9dQZF1DWYBO1MoTDhZI",
+    "37i9dQZF1DX3rxVfibe1L0",
+  ],
+  sad: [
+    "37i9dQZF1DWZUAeYvs88zc",
+    "37i9dQZF1DX7qK8ma5wgG1",
+    "37i9dQZF1DWVV27DiNWxkR",
+    "37i9dQZF1DWZFicI79sEj9",
+    "37i9dQZF1DWSqBruwoIXkA",
+    "37i9dQZF1DXa39zZwdBPSN",
+  ],
+  party: [
+    "37i9dQZF1DXa2PvUpywmrr",
+    "37i9dQZF1DWXti3N4Wp5xy",
+    "37i9dQZF1DX7e8TjkFNKWH",
+    "37i9dQZF1DWWylYLMvjuRG",
+    "37i9dQZF1DXdo6A3mWpdWx",
+    "37i9dQZF1DXaXB8fQg7xif",
+  ],
+};
+let mood = "";
 const getToken = async () => {
   const result = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -58,6 +78,7 @@ const getToken = async () => {
 // // getPlaylists("workout");
 
 const getSong = async (playlistID) => {
+  container.innerHTML = "";
   const token = await getToken();
   const result = await fetch(
     `https://api.spotify.com/v1/playlists/${playlistID}/tracks`,
@@ -90,11 +111,8 @@ const getSong = async (playlistID) => {
   cardCover.className = "card-cover";
   cardCover.src = cover;
   let spotifyEmbed = document.createElement("iframe");
-  spotifyEmbed.style = "border-radius:12px";
   spotifyEmbed.src = `https://open.spotify.com/embed/track/${song.id}?utm_source=generator`;
-  spotifyEmbed.width = "100%";
-  spotifyEmbed.height = "380";
-  spotifyEmbed.frameBorder = "0";
+  spotifyEmbed.className = "spotify-embed";
   spotifyEmbed.allowfullscreen = "";
   spotifyEmbed.allow =
     "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
@@ -102,8 +120,20 @@ const getSong = async (playlistID) => {
   container.append(songCard);
   return data;
 };
-randomPlaylist = playlists[Math.floor(Math.random() * playlists.length)];
-console.log(randomPlaylist);
-getSong(randomPlaylist.id);
+// randomPlaylist = playlists[Math.floor(Math.random() * playlists.length)];
+// console.log(randomPlaylist);
+// getSong(randomPlaylist.id);
 
-//<iframe style="border-radius:12px"
+const getMood = (button) => {
+  button.addEventListener("click", () => {
+    mood = button.innerText;
+    console.log(playlists[mood]);
+    getSong(
+      playlists[mood][Math.floor(Math.random() * playlists[mood].length)]
+    );
+  });
+};
+
+getMood(happy);
+getMood(sad);
+getMood(party);
