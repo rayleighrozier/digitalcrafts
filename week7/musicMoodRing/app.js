@@ -1,5 +1,15 @@
 const container = document.querySelector(".container");
 
+const playlists = [
+  { name: "Happy Hits!", mood: "happy", id: "37i9dQZF1DXdPec7aLTmlC" },
+  { name: "Happy Mix", mood: "happy", id: "37i9dQZF1EVJSvZp5AOML2" },
+  { name: "Wake Up Happy", mood: "happy", id: "37i9dQZF1DX0UrRvztWcAU" },
+  { name: "Happy Favorites", mood: "happy", id: "37i9dQZF1DWZKuerrwoAGz" },
+  { name: "Happy Pop", mood: "happy", id: "37i9dQZF1DX1H4LbvY4OJi" },
+  { name: "Good Vibes", mood: "happy", id: "37i9dQZF1DWYBO1MoTDhZI" },
+  { name: "Mood Booster", mood: "happy", id: "37i9dQZF1DX3rxVfibe1L0" },
+];
+
 const getToken = async () => {
   const result = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -12,6 +22,40 @@ const getToken = async () => {
   const data = await result.json();
   return data.access_token;
 };
+
+// const getCategories = async () => {
+//   const token = await getToken();
+//   const result = await fetch(`https://api.spotify.com/v1/browse/categories`, {
+//     method: "GET",
+//     headers: { Authorization: "Bearer " + token },
+//   });
+//   const data = await result.json();
+//   console.log(data.categories.items);
+//   for (category of data.categories.items) {
+//     console.log(category.name, category.id);
+//   }
+// };
+
+// getCategories();
+
+// const getPlaylists = async (categoryID) => {
+//   const token = await getToken();
+//   const result = await fetch(
+//     `https://api.spotify.com/v1/browse/categories/${categoryID}/playlists`,
+//     {
+//       method: "GET",
+//       headers: { Authorization: "Bearer " + token },
+//     }
+//   );
+//   const data = await result.json();
+//   console.log(data.playlists.items);
+//   for (playlist of data.playlists.items) {
+//     console.log(playlist.name, playlist.id);
+//   }
+// };
+// // getPlaylists("chill");
+// // getPlaylists("party");
+// // getPlaylists("workout");
 
 const getSong = async (playlistID) => {
   const token = await getToken();
@@ -51,6 +95,6 @@ const getSong = async (playlistID) => {
   container.append(songCard);
   return data;
 };
-getSong("37i9dQZF1DXdPec7aLTmlC");
-
-// getPlaylist("37i9dQZF1DX6VdMW310YC7");
+randomPlaylist = playlists[Math.floor(Math.random() * playlists.length)];
+console.log(randomPlaylist);
+getSong(randomPlaylist.id);
