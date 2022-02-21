@@ -89,12 +89,21 @@ const getSong = async (playlistID) => {
   let cardCover = document.createElement("img");
   cardCover.className = "card-cover";
   cardCover.src = cover;
-  let cardButton = document.createElement("button");
-  cardButton.innerText = "Listen on Spotify";
-  songCard.append(cardCover, cardName, cardArtists, cardButton);
+  let spotifyEmbed = document.createElement("iframe");
+  spotifyEmbed.style = "border-radius:12px";
+  spotifyEmbed.src = `https://open.spotify.com/embed/track/${song.id}?utm_source=generator`;
+  spotifyEmbed.width = "100%";
+  spotifyEmbed.height = "380";
+  spotifyEmbed.frameBorder = "0";
+  spotifyEmbed.allowfullscreen = "";
+  spotifyEmbed.allow =
+    "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+  songCard.append(cardCover, cardName, cardArtists, spotifyEmbed);
   container.append(songCard);
   return data;
 };
 randomPlaylist = playlists[Math.floor(Math.random() * playlists.length)];
 console.log(randomPlaylist);
 getSong(randomPlaylist.id);
+
+//<iframe style="border-radius:12px"
