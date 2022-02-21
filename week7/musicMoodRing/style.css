@@ -1,3 +1,36 @@
+/* hot pink: #fe147f */
+/* purple: #4d0cc4 */
+
+body {
+  padding: 0;
+  margin: 0;
+  color: white;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+
+  /* font-family: "Monofett", cursive; */
+  font-family: "Staatliches", cursive;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  font-size: 6rem;
+  letter-spacing: 0.8rem;
+  text-align: center;
+}
 .card-cover {
   height: 50px;
 }

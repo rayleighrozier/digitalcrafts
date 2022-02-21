@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+
 const happyButton = document.querySelector("#happy");
 const sadButton = document.querySelector("#sad");
 const partyButton = document.querySelector("#party");
