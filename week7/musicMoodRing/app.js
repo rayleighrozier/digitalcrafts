@@ -1,35 +1,10 @@
+import { playlists } from "./playlists.js";
 const container = document.querySelector(".song-container");
 
 const happyButton = document.querySelector("#happy");
 const sadButton = document.querySelector("#sad");
 const partyButton = document.querySelector("#party");
-const playlists = {
-  happy: [
-    "37i9dQZF1DXdPec7aLTmlC",
-    "37i9dQZF1EVJSvZp5AOML2",
-    "37i9dQZF1DX0UrRvztWcAU",
-    "37i9dQZF1DWZKuerrwoAGz",
-    "37i9dQZF1DX1H4LbvY4OJi",
-    "37i9dQZF1DWYBO1MoTDhZI",
-    "37i9dQZF1DX3rxVfibe1L0",
-  ],
-  sad: [
-    "37i9dQZF1DWZUAeYvs88zc",
-    "37i9dQZF1DX7qK8ma5wgG1",
-    "37i9dQZF1DWVV27DiNWxkR",
-    "37i9dQZF1DWZFicI79sEj9",
-    "37i9dQZF1DWSqBruwoIXkA",
-    "37i9dQZF1DXa39zZwdBPSN",
-  ],
-  party: [
-    "37i9dQZF1DXa2PvUpywmrr",
-    "37i9dQZF1DWXti3N4Wp5xy",
-    "37i9dQZF1DX7e8TjkFNKWH",
-    "37i9dQZF1DWWylYLMvjuRG",
-    "37i9dQZF1DXdo6A3mWpdWx",
-    "37i9dQZF1DXaXB8fQg7xif",
-  ],
-};
+
 let mood = "";
 const getToken = async () => {
   const result = await fetch("https://accounts.spotify.com/api/token", {
