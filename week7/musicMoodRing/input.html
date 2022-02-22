@@ -5,13 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="input.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monofett&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <title>Music Mood Ring</title>
   </head>
   <body>
-    <button id="happy">happy</button>
-    <button id="sad">sad</button>
-    <button id="party">party</button>
-    <div class="container"></div>
+    <div class="mood-container">
+      <p class="mood-title">&#10024; Pick your mood &#10024;</p>
+      <div class="button-container">
+        <button id="happy">&#128522</button>
+        <button id="sleepy">&#128564</button>
+        <button id="pumped">&#128170</button>
+        <button id="angry">&#128545</button>
+        <button id="heartbroken">&#128148</button>
+        <button id="chill">&#128526</button>
+        <button id="focused">&#129488</button>
+        <button id="fire">&#128293</button>
+        <button id="meh">&#128528</button>
+        <button id="loved">&#129392</button>
+        <button id="sad">&#128546</button>
+        <button id="party">&#129395</button>
+    </div>
+    </div>
+    <div class="song-container"></div>
   </body>
+
+  <!-- <div class="menu-container">
+    <img id="menu-bar" src="images/bars-solid.svg" />
+  </div> -->
   <script src="app.js"></script>
 </html>

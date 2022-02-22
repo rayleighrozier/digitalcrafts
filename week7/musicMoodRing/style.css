@@ -1,17 +1,14 @@
-/* hot pink: #fe147f */
-/* purple: #4d0cc4 */
-
 body {
   padding: 0;
   margin: 0;
   color: white;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  background-size: 200% 200%;
+  animation: gradient 25s ease infinite;
   height: 100vh;
-
-  /* font-family: "Monofett", cursive; */
   font-family: "Staatliches", cursive;
+  --white-filter: invert(94%) sepia(94%) saturate(22%) hue-rotate(331deg)
+    brightness(105%) contrast(105%);
 }
 
 @keyframes gradient {
@@ -27,9 +24,10 @@ body {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 6.5rem;
   letter-spacing: 0.8rem;
   text-align: center;
+  margin: 0;
 }
 .card-cover {
   height: 50px;
@@ -39,4 +37,54 @@ h1 {
   height: 380px;
   border: none;
   border-radius: 12px;
+}
+
+#menu-bar {
+  height: 50px;
+  width: 50px;
+  filter: var(--white-filter);
+  margin: 30px auto;
+}
+#menu-bar:hover {
+  opacity: 0;
+}
+.main-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.main-container p {
+  font-size: 3rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 85%;
+}
+.header-container p {
+  margin: 0;
+}
+.menu-container {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#header-arrow {
+  height: 50px;
+  width: 50px;
+  filter: var(--white-filter);
+  margin: 30px auto;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  margin: 0;
+}
+.link-container p {
+  margin: 0;
 }

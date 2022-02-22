@@ -1,0 +1,45 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.song-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* .card-cover {
+  height: 50px;
+} */
+.spotify-embed {
+  width: 50%;
+  height: 380px;
+  border: none;
+  border-radius: 12px;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 3rem;
+}
+button:hover {
+}
+
+.mood-title {
+  font-size: 3rem;
+  letter-spacing: 0.4rem;
+  margin: 10px 0px 5px 0px;
+}
+.mood-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.button-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px;
+}

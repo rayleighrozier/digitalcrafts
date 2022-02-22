@@ -1,4 +1,4 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".song-container");
 
 const happyButton = document.querySelector("#happy");
 const sadButton = document.querySelector("#sad");
@@ -101,24 +101,24 @@ const getSong = async (playlistID) => {
     }
   }
   console.log(artists);
-  let cover = song.album.images[0].url;
-  let songCard = document.createElement("div");
-  songCard.className = "song-card";
-  let cardName = document.createElement("p");
-  cardName.innerText = name;
-  let cardArtists = document.createElement("p");
-  cardArtists.innerText = artists;
-  let cardCover = document.createElement("img");
-  cardCover.className = "card-cover";
-  cardCover.src = cover;
+  // let cover = song.album.images[0].url;
+  // let songCard = document.createElement("div");
+  // songCard.className = "song-card";
+  // let cardName = document.createElement("p");
+  // cardName.innerText = name;
+  // let cardArtists = document.createElement("p");
+  // cardArtists.innerText = artists;
+  // let cardCover = document.createElement("img");
+  // cardCover.className = "card-cover";
+  // cardCover.src = cover;
   let spotifyEmbed = document.createElement("iframe");
   spotifyEmbed.src = `https://open.spotify.com/embed/track/${song.id}?utm_source=generator`;
   spotifyEmbed.className = "spotify-embed";
   spotifyEmbed.allowfullscreen = "";
   spotifyEmbed.allow =
     "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-  songCard.append(cardCover, cardName, cardArtists, spotifyEmbed);
-  container.append(songCard);
+  // songCard.append(cardCover, cardName, cardArtists, spotifyEmbed);
+  container.append(spotifyEmbed);
   return data;
 };
 // randomPlaylist = playlists[Math.floor(Math.random() * playlists.length)];
@@ -127,7 +127,7 @@ const getSong = async (playlistID) => {
 
 const getMood = (button) => {
   button.addEventListener("click", () => {
-    mood = button.innerText;
+    mood = button.id;
     console.log(playlists[mood]);
     getSong(
       playlists[mood][Math.floor(Math.random() * playlists[mood].length)]
