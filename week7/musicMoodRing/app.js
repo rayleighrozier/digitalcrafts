@@ -1,11 +1,19 @@
 import { playlists } from "./playlists.js";
 const container = document.querySelector(".song-container");
 
-const happyButton = document.querySelector("#happy");
-const sadButton = document.querySelector("#sad");
-const partyButton = document.querySelector("#party");
+const happy = document.querySelector("#happy");
+const chill = document.querySelector("#chill");
+const pumped = document.querySelector("#pumped");
+const angry = document.querySelector("#angry");
+const pop = document.querySelector("#pop");
+const hiphop = document.querySelector("#hiphop");
+const rb = document.querySelector("#rb");
+const country = document.querySelector("#country");
+const rock = document.querySelector("#rock");
+const indie = document.querySelector("#indie");
 
 let mood = "";
+let genre = "";
 const getToken = async () => {
   const result = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -67,15 +75,15 @@ const getSong = async (playlistID) => {
   let playlistSongs = data.items;
   let song =
     playlistSongs[Math.floor(Math.random() * playlistSongs.length)].track;
-  console.log(song);
-  let name = song.name;
-  let artists = song.artists[0].name;
-  if (song.artists.length > 1) {
-    for (i = 1; i < song.artists.length; i++) {
-      artists = artists + ", " + `${song.artists[i].name}`;
-    }
-  }
-  console.log(artists);
+  // console.log(song);
+  // let name = song.name;
+  // let artists = song.artists[0].name;
+  // if (song.artists.length > 1) {
+  //   for (i = 1; i < song.artists.length; i++) {
+  //     artists = artists + ", " + `${song.artists[i].name}`;
+  //   }
+  // }
+  // console.log(artists);
   // let cover = song.album.images[0].url;
   // let songCard = document.createElement("div");
   // songCard.className = "song-card";
@@ -103,13 +111,33 @@ const getSong = async (playlistID) => {
 const getMood = (button) => {
   button.addEventListener("click", () => {
     mood = button.id;
+    console.log(mood);
     console.log(playlists[mood]);
+    // getSong(
+    //   playlists[mood][Math.floor(Math.random() * playlists[mood].length)]
+    // );
+  });
+};
+const getGenre = (button) => {
+  button.addEventListener("click", () => {
+    genre = button.id;
+    console.log(genre);
+    console.log(playlists[mood][genre]);
     getSong(
-      playlists[mood][Math.floor(Math.random() * playlists[mood].length)]
+      playlists[mood][genre][
+        Math.floor(Math.random() * playlists[mood][genre].length)
+      ]
     );
   });
 };
 
 getMood(happy);
-getMood(sad);
-getMood(party);
+getMood(chill);
+getMood(pumped);
+getMood(angry);
+getGenre(pop);
+getGenre(hiphop);
+getGenre(rb);
+getGenre(country);
+getGenre(rock);
+getGenre(indie);
