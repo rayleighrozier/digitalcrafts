@@ -2,7 +2,7 @@ import { playlists } from "./playlists.js";
 
 const moodRingContainer = document.querySelector(".mood-ring-container");
 const moodContainer = document.querySelector(".mood-container");
-const songContainer = document.querySelector(".song-container");
+const spotifyContainer = document.querySelector(".spotify-container");
 const happy = document.querySelector("#happy");
 const chill = document.querySelector("#chill");
 const pumped = document.querySelector("#pumped");
@@ -101,6 +101,8 @@ const moodRing = (button) => {
           const spotifyTitle = document.createElement("p");
           spotifyTitle.className = "spotify-title";
           spotifyTitle.innerText = "Your music mood ring is:";
+          const spotifyButtonContainer = document.createElement("div");
+          spotifyButtonContainer.classNmae = "spotify-button-container";
           const againButton = document.createElement("button");
           againButton.innerText = "Try Again";
           againButton.className = "spotify-button";
@@ -111,12 +113,12 @@ const moodRing = (button) => {
           const addButton = document.createElement("button");
           addButton.innerText = "Add to My Songs";
           addButton.className = "spotify-button";
+          spotifyButtonContainer.append(addButton, againButton);
 
-          songContainer.append(
+          spotifyContainer.append(
             spotifyTitle,
             spotifyEmbed,
-            addButton,
-            againButton
+            spotifyButtonContainer
           );
           return data;
         };

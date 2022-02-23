@@ -10,7 +10,7 @@ body {
   height: 100vh;
   justify-content: start;
 }
-.song-container {
+.spotify-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +30,9 @@ body {
   color: white;
   background-color: rgba(255, 255, 255, 0.33);
   border-radius: 8px;
+  margin: 10px;
 }
+
 button {
   background: none;
   border: none;
