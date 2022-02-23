@@ -1,6 +1,6 @@
 import { playlists } from "./playlists.js";
-const container = document.querySelector(".song-container");
 
+const container = document.querySelector(".song-container");
 const happy = document.querySelector("#happy");
 const chill = document.querySelector("#chill");
 const pumped = document.querySelector("#pumped");
@@ -11,9 +11,10 @@ const rb = document.querySelector("#rb");
 const country = document.querySelector("#country");
 const rock = document.querySelector("#rock");
 const indie = document.querySelector("#indie");
-
 let mood = "";
 let genre = "";
+
+//functions
 const getToken = async () => {
   const result = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
