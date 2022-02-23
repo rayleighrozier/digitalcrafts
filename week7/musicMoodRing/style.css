@@ -47,8 +47,9 @@ h1 {
   margin: 50px 50px 20px 50px;
   align-self: flex-end;
 }
-#menu-bar:hover {
-  opacity: 0;
+#menu-bar:hover + #dropdown {
+    display:block;
+  
 }
 .header {
   display: flex;
@@ -101,3 +102,30 @@ a {
 .link-container p {
   font-size: 3.5rem;
 }
+#dropdown {
+  /* visibility: hidden; */
+  /* opacity: 0;
+  transition: all 0.5s ease; */
+  display: none;
+  background-color: white;
+  width: 10vw;
+  right: 0px;
+  height: 100vh;
+  float: right;
+  z-index: 1;
+  position: absolute;
+  transition: all 0.5s ease;
+}
+#dropdown:hover {
+    display:block;
+}
+
+/* .dropdown:hover ~ #menu-bar {
+  /* visibility: visible; */
+  /* opacity: 1; */
+  /* display: block; */
+  /* visibility: visible;
+  opacity: 1;
+  display: block; */
+  /* z-index: 1; */
+} */
