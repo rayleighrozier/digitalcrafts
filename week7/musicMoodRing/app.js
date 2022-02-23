@@ -102,17 +102,17 @@ const moodRing = (button) => {
           spotifyTitle.className = "spotify-title";
           spotifyTitle.innerText = "Your music mood ring is:";
           const spotifyButtonContainer = document.createElement("div");
-          spotifyButtonContainer.classNmae = "spotify-button-container";
+          spotifyButtonContainer.className = "spotify-button-container";
           const againButton = document.createElement("button");
           againButton.innerText = "Try Again";
-          againButton.className = "spotify-button";
+          againButton.classList = "spotify-button grow";
           againButton.onclick = () => {
             location.href = "mood-ring.html";
           };
 
           const addButton = document.createElement("button");
           addButton.innerText = "Add to My Songs";
-          addButton.className = "spotify-button";
+          addButton.classList = "spotify-button grow";
           spotifyButtonContainer.append(addButton, againButton);
 
           spotifyContainer.append(
