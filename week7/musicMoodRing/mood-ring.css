@@ -15,15 +15,15 @@ body {
   flex-direction: column;
   align-items: center;
 }
-/* .card-cover {
-  height: 50px;
-} */
+
 .spotify-embed {
   width: 50%;
   height: 380px;
   border: none;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* transform: scale(1);
+  animation: pulse 3s infinite; */
 }
 
 button {
@@ -31,8 +31,7 @@ button {
   border: none;
   font-family: "Staatliches", cursive;
 }
-button:hover {
-}
+
 .genre-button {
   font-size: 2.5rem;
   margin: 15px;
@@ -50,6 +49,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 .button-container {
   background-color: rgba(255, 255, 255, 0.33);
@@ -62,4 +62,30 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.genre-button {
+  color: white;
+}
+
+.spotify-title {
+  font-size: 3rem;
+  letter-spacing: 0.4rem;
+  margin: 10px 0px 5px 0px;
+}
+.hidden {
+  display: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
 }

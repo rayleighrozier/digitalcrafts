@@ -132,3 +132,11 @@ a {
 .grow:hover {
   transform: scale(1.2);
 }
+
+.container-grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.container-grow:hover {
+  transform: scale(1.05);
+}
