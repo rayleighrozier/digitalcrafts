@@ -60,8 +60,8 @@ const moodRing = (button) => {
     rock.id = "rock";
     indie.id = "indie";
     pop.innerText = "pop";
-    hiphop.innerText = "hiphop";
-    rb.innerText = "rb";
+    hiphop.innerText = "hip-hop";
+    rb.innerText = "R&B";
     country.innerText = "country";
     rock.innerText = "rock";
     indie.iinnerText = "indie";
@@ -100,8 +100,24 @@ const moodRing = (button) => {
           // songCard.append(cardCover, cardName, cardArtists, spotifyEmbed);
           const spotifyTitle = document.createElement("p");
           spotifyTitle.className = "spotify-title";
-          spotifyTitle.innerText = "Your current music mood ring is:";
-          songContainer.append(spotifyTitle, spotifyEmbed);
+          spotifyTitle.innerText = "Your music mood ring is:";
+          const againButton = document.createElement("button");
+          againButton.innerText = "Try Again";
+          againButton.className = "spotify-button";
+          againButton.onclick = () => {
+            location.href = "mood-ring.html";
+          };
+
+          const addButton = document.createElement("button");
+          addButton.innerText = "Add to My Songs";
+          addButton.className = "spotify-button";
+
+          songContainer.append(
+            spotifyTitle,
+            spotifyEmbed,
+            addButton,
+            againButton
+          );
           return data;
         };
         getSong(
