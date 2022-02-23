@@ -2,6 +2,14 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.mood-ring-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: start;
+}
 .song-container {
   display: flex;
   flex-direction: column;

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="input.css" />
+    <link rel="stylesheet" href="mood-ring.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,12 +15,22 @@
     <title>Music Mood Ring</title>
   </head>
   <body>
+    <div class="mood-ring-container">
+    <img id="menu-bar" src="images/bars-solid.svg" />
+      <div id="dropdown">
+        <div class="menu-container">
+          <a href="index.html">Home</a>
+          <a href="mood-ring.html">Mood Ring</a>
+          <a href="my-songs.html">My Songs</a>
+          <a href="about.html">About </a>
+        </div>
+      </div>
     <div class="mood-container">
       <p class="mood-title">&#10024; Pick your mood &#10024;</p>
       <div class="button-container">
         <button class="mood-button" id="happy">&#128522</button>
-        <button class="mood-button" id="chill">&#128564</button>
         <button class="mood-button" id="pumped">&#128170</button>
+        <button class="mood-button" id="chill">&#128564</button>
         <button class="mood-button" id="angry">&#128545</button>
        <button class="mood-button" id="heartbroken">&#128148</button>
        <button class="mood-button" id="loved">&#129392</button> 
@@ -34,7 +44,7 @@
         <button class="mood-button" id="party">&#129395</button> -->
       </div>
     </div>
-    <div class="genre-container">
+    <!-- <div class="genre-container">
       <p class="mood-title">&#10024; Pick your genre &#10024;</p>
       <div id="genre-button-container"class="button-container">
         <button class="genre-button" id="pop">Pop</button>
@@ -43,12 +53,13 @@
         <button class="genre-button" id="country">Country</button>
         <button class="genre-button" id="rock">Rock</button>
         <button class="genre-button" id="indie">Indie</button>
-      </div>
+      </div> -->
         <!-- <button class="genre-button" id="surprise">Surprise Me</button> -->
       </div>
       <div class="song-container">
 
       </div>
+    </div>
     </div>
   </body>
 
