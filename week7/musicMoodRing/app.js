@@ -1,4 +1,5 @@
 import { playlists } from "./playlists.js";
+export { getToken, clientId, clientSecret };
 
 const moodRingContainer = document.querySelector(".mood-ring-container");
 const moodContainer = document.querySelector(".mood-container");
@@ -9,6 +10,7 @@ const pumped = document.querySelector("#pumped");
 const angry = document.querySelector("#angry");
 const heartbroken = document.querySelector("#heartbroken");
 const loved = document.querySelector("#loved");
+const arrow = document.querySelector("#link-arrow");
 let mood = "";
 let genre = "";
 
@@ -26,6 +28,11 @@ const getToken = async () => {
   return data.access_token;
 };
 
+const storeSong = (song) => {
+  localStorage.setItem(song.id, `${mood} ${genre}`);
+  console.log(localStorage);
+};
+
 const moodRing = (button) => {
   //capture mood on click and remove mood input
   button.addEventListener("click", () => {
@@ -35,7 +42,7 @@ const moodRing = (button) => {
     moodContainer.classList = "hidden";
     //make genre input
     const genreContainer = document.createElement("div");
-    genreContainer.className = "mood-container";
+    genreContainer.classList = "mood-container fade-in-down";
     const genreButtonContainer = document.createElement("div");
     genreButtonContainer.classList = "button-container container-grow";
     const genreTitle = document.createElement("p");
@@ -64,7 +71,7 @@ const moodRing = (button) => {
     rb.innerText = "R&B";
     country.innerText = "country";
     rock.innerText = "rock";
-    indie.iinnerText = "indie";
+    indie.innerText = "indie";
     genreButtonContainer.append(pop, hiphop, rb, country, rock, indie);
     genreContainer.append(genreTitle, genreButtonContainer);
     moodRingContainer.append(genreContainer);
@@ -113,8 +120,13 @@ const moodRing = (button) => {
           const addButton = document.createElement("button");
           addButton.innerText = "Add to My Songs";
           addButton.classList = "spotify-button grow";
+          addButton.onclick = () => {
+            if (song.id in localStorage === false) {
+              storeSong(song);
+            }
+          };
           spotifyButtonContainer.append(addButton, againButton);
-
+          spotifyContainer.classList = " spotify-container fade-in-down";
           spotifyContainer.append(
             spotifyTitle,
             spotifyEmbed,
@@ -136,9 +148,6 @@ const moodRing = (button) => {
     getGenre(country);
     getGenre(rock);
     getGenre(indie);
-    // getSong(
-    //   playlists[mood][Math.floor(Math.random() * playlists[mood].length)]
-    // );
   });
 };
 
@@ -148,25 +157,3 @@ moodRing(pumped);
 moodRing(angry);
 moodRing(heartbroken);
 moodRing(loved);
-
-//delete get song stuff
-
-// console.log(song);
-// let name = song.name;
-// let artists = song.artists[0].name;
-// if (song.artists.length > 1) {
-//   for (i = 1; i < song.artists.length; i++) {
-//     artists = artists + ", " + `${song.artists[i].name}`;
-//   }
-// }
-// console.log(artists);
-// let cover = song.album.images[0].url;
-// let songCard = document.createElement("div");
-// songCard.className = "song-card";
-// let cardName = document.createElement("p");
-// cardName.innerText = name;
-// let cardArtists = document.createElement("p");
-// cardArtists.innerText = artists;
-// let cardCover = document.createElement("img");
-// cardCover.className = "card-cover";
-// cardCover.src = cover;

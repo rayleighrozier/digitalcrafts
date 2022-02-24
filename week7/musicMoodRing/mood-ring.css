@@ -2,7 +2,20 @@ body {
   padding: 0;
   margin: 0;
 }
+.fade-in-down {
+  animation: fade-in-down 1.5s;
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
 
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
 .mood-ring-container {
   display: flex;
   flex-direction: column;

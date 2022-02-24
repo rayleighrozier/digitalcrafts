@@ -2,7 +2,14 @@ body {
   padding: 0;
   margin: 0;
   color: white;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(
+    -33deg,
+    #ee7752,
+    #e73c7e,
+    #400aa3,
+    #23d5ab,
+    #bedd32
+  );
   background-size: 200% 200%;
   animation: gradient 25s ease infinite;
   height: 100vh;
@@ -89,7 +96,20 @@ a {
   filter: var(--white-filter);
   margin: 0;
 }
-
+#link-arrow:hover {
+  animation: point 1.5s infinite;
+}
+@keyframes point {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 #menu-bar {
   height: 50px;
   width: 50px;
