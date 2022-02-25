@@ -13,7 +13,7 @@ const getToken = async () => {
 console.log(localStorage);
 const songsContainer = document.querySelector(".songs-container");
 const songs = { ...localStorage };
-console.log(songs);
+
 const getStorageSongs = async (songs) => {
   const token = await getToken();
   for (const songId in songs) {
@@ -23,13 +23,51 @@ const getStorageSongs = async (songs) => {
     });
     const song = await result.json();
     console.log(song);
-    const spotifyEmbed = document.createElement("iframe");
-    spotifyEmbed.src = `https://open.spotify.com/embed/track/${songId}?utm_source=generator`;
-    spotifyEmbed.className = "spotify-embed";
-    spotifyEmbed.allowfullscreen = "";
-    spotifyEmbed.allow =
-      "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-    songsContainer.append(spotifyEmbed);
+
+    let name = song.name;
+    let artists = song.artists[0].name;
+    let emoji = "";
+    if (song.artists.length > 1) {
+      for (i = 1; i < song.artists.length; i++) {
+        artists = artists + ", " + `${song.artists[i].name}`;
+      }
+    }
+    let mood = songs[songId];
+
+    if (mood === "happy") {
+      emoji = "😊";
+    }
+    if (mood === "pumped") {
+      emoji = "💪";
+    }
+    if (mood === "chill") {
+      emoji = "😴";
+    }
+    if (mood === "angry") {
+      emoji = "😡";
+    }
+    if (mood === "heartbroken") {
+      emoji = "💔";
+    }
+    if (mood === "loved") {
+      emoji = "🥰";
+    }
+    const songCard = document.createElement("div");
+    songCard.classList = "song-card container-grow";
+    let cardEmoji = document.createElement("p");
+    cardEmoji.innerText = emoji;
+    let cardDisplay = document.createElement("p");
+    cardDisplay.innerText = `${name} - ${artists}`;
+    songCard.append(cardEmoji, cardDisplay);
+    songsContainer.append(songCard);
+    // when you need embed!!!
+    // const spotifyEmbed = document.createElement("iframe");
+    // spotifyEmbed.src = `https://open.spotify.com/embed/track/${songId}?utm_source=generator`;
+    // spotifyEmbed.className = "spotify-embed";
+    // spotifyEmbed.allowfullscreen = "";
+    // spotifyEmbed.allow =
+    //   "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+    // songsContainer.append(spotifyEmbed);
   }
 };
 getStorageSongs(songs);

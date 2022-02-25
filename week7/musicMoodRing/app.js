@@ -1,5 +1,4 @@
 import { playlists } from "./playlists.js";
-export { getToken, clientId, clientSecret };
 
 const moodRingContainer = document.querySelector(".mood-ring-container");
 const moodContainer = document.querySelector(".mood-container");
@@ -28,7 +27,7 @@ const getToken = async () => {
 };
 
 const storeSong = (song) => {
-  localStorage.setItem(song.id, `${mood} ${genre}`);
+  localStorage.setItem(song.id, `${mood}`);
   console.log(localStorage);
 };
 
