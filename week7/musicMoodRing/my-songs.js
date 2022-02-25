@@ -10,7 +10,6 @@ const getToken = async () => {
   const data = await result.json();
   return data.access_token;
 };
-console.log(localStorage);
 const songsContainer = document.querySelector(".songs-container");
 const songs = { ...localStorage };
 
@@ -28,7 +27,7 @@ const getStorageSongs = async (songs) => {
     let artists = song.artists[0].name;
     let emoji = "";
     if (song.artists.length > 1) {
-      for (i = 1; i < song.artists.length; i++) {
+      for (let i = 1; i < song.artists.length; i++) {
         artists = artists + ", " + `${song.artists[i].name}`;
       }
     }
@@ -55,10 +54,19 @@ const getStorageSongs = async (songs) => {
     const songCard = document.createElement("div");
     songCard.classList = "song-card container-grow";
     let cardEmoji = document.createElement("p");
+    cardEmoji.className = "card-emoji";
     cardEmoji.innerText = emoji;
+
     let cardDisplay = document.createElement("p");
+    cardDisplay.className = "card-display";
     cardDisplay.innerText = `${name} - ${artists}`;
-    songCard.append(cardEmoji, cardDisplay);
+    let spotifyEmbed = document.createElement("iframe");
+    spotifyEmbed.src = `https://open.spotify.com/embed/track/${songId}?utm_source=generator`;
+    spotifyEmbed.className = "card-spotify-embed";
+    spotifyEmbed.allowfullscreen = "";
+    spotifyEmbed.allow =
+      "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+    songCard.append(cardEmoji, cardDisplay, spotifyEmbed);
     songsContainer.append(songCard);
     // when you need embed!!!
     // const spotifyEmbed = document.createElement("iframe");
