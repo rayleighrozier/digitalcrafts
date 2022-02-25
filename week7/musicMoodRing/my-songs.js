@@ -1,3 +1,5 @@
+const clientId = //{ Client ID goes here }//;
+const clientSecret = //{ Client Secret goes here }//;
 const getToken = async () => {
   const result = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
