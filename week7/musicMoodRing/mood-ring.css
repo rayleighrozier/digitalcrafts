@@ -123,7 +123,14 @@ button {
 .hidden {
   display: none;
 }
-
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .mood-title {
+    font-size: 3.5rem;
+  }
+  .genre-title {
+    font-size: 3.5rem;
+  }
+}
 @media only screen and (min-width: 992px) {
   .mood-title {
     font-size: 4rem;
