@@ -1,6 +1,6 @@
 import { playlists } from "./playlists.js";
-const clientId = "bfb19e2c22784bce8bae70aa1c85b853";
-const clientSecret = "fe5b80a395a44db69213a87e4d891fa8";
+const clientId = //{ Client ID goes here }//;
+const clientSecret = //{ Client Secret goes here }//;
 const moodRingContainer = document.querySelector(".mood-ring-container");
 const moodContainer = document.querySelector(".mood-container");
 const happy = document.querySelector("#happy");
