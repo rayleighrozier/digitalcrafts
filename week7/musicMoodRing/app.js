@@ -29,15 +29,12 @@ const getToken = async () => {
 
 const storeSong = (song) => {
   localStorage.setItem(song.id, `${mood}`);
-  console.log(localStorage);
 };
 
 const moodRing = (button) => {
   //capture mood on click and remove mood input
   button.addEventListener("click", () => {
     mood = button.id;
-    console.log(mood);
-    console.log(playlists[mood]);
     moodContainer.classList = "mood-container hidden";
 
     const genreContainer = document.createElement("div");
@@ -81,8 +78,6 @@ const moodRing = (button) => {
     const getGenre = (button) => {
       button.addEventListener("click", () => {
         genre = button.id;
-        console.log(genre);
-        console.log(playlists[mood][genre]);
         const getSong = async (playlistID) => {
           genreContainer.classList = "genre-container hidden";
           const token = await getToken();

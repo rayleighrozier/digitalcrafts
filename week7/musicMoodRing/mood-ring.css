@@ -51,19 +51,17 @@ body {
 
 .spotify-embed {
   width: 50%;
-  height: 50vh;
   border: none;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* transform: scale(1);
-  animation: pulse 3s infinite; */
+  height: 50vh;
 }
 .spotify-button {
   font-size: 1.5rem;
   color: white;
   background-color: rgba(255, 255, 255, 0.33);
   border-radius: 8px;
-  margin: 10px 20px;
+  margin: 20px 20px;
 }
 
 button {
@@ -141,6 +139,14 @@ button {
     font-size: 3rem;
     letter-spacing: 0.2rem;
     margin: 10px 0px 5px 0px;
+  }
+  .spotify-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    margin-top: 0px;
   }
   #menu-bar {
     position: absolute;
