@@ -10,7 +10,7 @@ const pumped = document.querySelector("#pumped");
 const angry = document.querySelector("#angry");
 const heartbroken = document.querySelector("#heartbroken");
 const loved = document.querySelector("#loved");
-const arrow = document.querySelector("#link-arrow");
+
 let mood = "";
 let genre = "";
 
@@ -39,8 +39,8 @@ const moodRing = (button) => {
     mood = button.id;
     console.log(mood);
     console.log(playlists[mood]);
-    moodContainer.classList = "hidden";
-    //make genre input
+    moodContainer.classList = "mood-container fade-out-down";
+
     const genreContainer = document.createElement("div");
     genreContainer.classList = "mood-container fade-in-down";
     const genreButtonContainer = document.createElement("div");
@@ -72,9 +72,11 @@ const moodRing = (button) => {
     country.innerText = "country";
     rock.innerText = "rock";
     indie.innerText = "indie";
-    genreButtonContainer.append(pop, hiphop, rb, country, rock, indie);
-    genreContainer.append(genreTitle, genreButtonContainer);
-    moodRingContainer.append(genreContainer);
+    setTimeout(() => {
+      genreButtonContainer.append(pop, hiphop, rb, country, rock, indie);
+      genreContainer.append(genreTitle, genreButtonContainer);
+      moodRingContainer.append(genreContainer);
+    }, 1500);
 
     //capture genre input on click and get song
     const getGenre = (button) => {

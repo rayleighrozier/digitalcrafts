@@ -16,6 +16,21 @@ body {
     transform: none;
   }
 }
+
+.fade-out-down {
+  animation: fade-out-down 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes fade-out-down {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 .mood-ring-container {
   display: flex;
   flex-direction: column;
