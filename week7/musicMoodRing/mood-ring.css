@@ -8,7 +8,7 @@ body {
 @keyframes fade-in-down {
   0% {
     opacity: 0;
-    transform: translate3d(0, -50%, 0);
+    transform: none;
   }
 
   100% {
@@ -20,6 +20,7 @@ body {
 .fade-out-down {
   animation: fade-out-down 1s;
   animation-fill-mode: forwards;
+  height: 0%;
 }
 @keyframes fade-out-down {
   0% {
@@ -36,17 +37,21 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  justify-content: start;
+  align-content: center;
+  justify-content: center;
 }
 .spotify-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 75vh;
+  margin-top: 100px;
 }
 
 .spotify-embed {
   width: 50%;
-  height: 380px;
+  height: 50vh;
   border: none;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -75,8 +80,9 @@ button {
   font-size: 4rem;
 }
 .mood-title {
-  font-size: 4rem;
-  letter-spacing: 0.4rem;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 0.2rem;
   margin: 10px 0px 5px 0px;
 }
 .mood-container {
@@ -84,7 +90,14 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  height: 100vh;
+}
+.genre-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 .button-container {
   background-color: rgba(255, 255, 255, 0.33);
@@ -103,24 +116,28 @@ button {
 }
 
 .spotify-title {
-  font-size: 3rem;
-  letter-spacing: 0.4rem;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
   margin: 10px 0px 5px 0px;
 }
 .hidden {
   display: none;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(0.95);
+@media only screen and (min-width: 992px) {
+  .mood-title {
+    font-size: 4rem;
+    letter-spacing: 0.4rem;
+    margin: 10px 0px 5px 0px;
   }
-
-  70% {
-    transform: scale(1);
+  .spotify-title {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin: 10px 0px 5px 0px;
   }
-
-  100% {
-    transform: scale(0.95);
+  #menu-bar {
+    position: absolute;
+    right: 50px;
+    margin: 50px 0px 20px 50px;
   }
 }

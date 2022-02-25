@@ -1,8 +1,8 @@
 import { playlists } from "./playlists.js";
 export { getToken, clientId, clientSecret };
+
 const moodRingContainer = document.querySelector(".mood-ring-container");
 const moodContainer = document.querySelector(".mood-container");
-const spotifyContainer = document.querySelector(".spotify-container");
 const happy = document.querySelector("#happy");
 const chill = document.querySelector("#chill");
 const pumped = document.querySelector("#pumped");
@@ -38,10 +38,10 @@ const moodRing = (button) => {
     mood = button.id;
     console.log(mood);
     console.log(playlists[mood]);
-    moodContainer.classList = "mood-container fade-out-down";
+    moodContainer.classList = "mood-container hidden";
 
     const genreContainer = document.createElement("div");
-    genreContainer.classList = "mood-container fade-in-down";
+    genreContainer.classList = "genre-container fade-in-down";
     const genreButtonContainer = document.createElement("div");
     genreButtonContainer.classList = "button-container container-grow";
     const genreTitle = document.createElement("p");
@@ -75,7 +75,7 @@ const moodRing = (button) => {
       genreButtonContainer.append(pop, hiphop, rb, country, rock, indie);
       genreContainer.append(genreTitle, genreButtonContainer);
       moodRingContainer.append(genreContainer);
-    }, 1500);
+    }, 1000);
 
     //capture genre input on click and get song
     const getGenre = (button) => {
@@ -84,7 +84,7 @@ const moodRing = (button) => {
         console.log(genre);
         console.log(playlists[mood][genre]);
         const getSong = async (playlistID) => {
-          genreContainer.classList = "hidden";
+          genreContainer.classList = "genre-container hidden";
           const token = await getToken();
           const result = await fetch(
             `https://api.spotify.com/v1/playlists/${playlistID}/tracks`,
@@ -127,12 +127,14 @@ const moodRing = (button) => {
             }
           };
           spotifyButtonContainer.append(addButton, againButton);
+          const spotifyContainer = document.createElement("div");
           spotifyContainer.classList = " spotify-container fade-in-down";
           spotifyContainer.append(
             spotifyTitle,
             spotifyEmbed,
             spotifyButtonContainer
           );
+          moodRingContainer.append(spotifyContainer);
           return data;
         };
         getSong(
