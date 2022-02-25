@@ -1,6 +1,5 @@
 import { playlists } from "./playlists.js";
 export { getToken, clientId, clientSecret };
-
 const moodRingContainer = document.querySelector(".mood-ring-container");
 const moodContainer = document.querySelector(".mood-container");
 const spotifyContainer = document.querySelector(".spotify-container");

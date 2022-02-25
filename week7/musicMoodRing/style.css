@@ -133,8 +133,52 @@ a {
 .container-grow:hover {
   transform: scale(1.05);
 }
+
+/* TABLET */
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .header-container p {
+    width: 500px;
+    margin: 15px;
+    align-self: center;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
+  #music {
+    margin-top: 90px;
+    text-align: center;
+    font-size: 9rem;
+    letter-spacing: 0.8rem;
+    line-height: 0.75;
+  }
+  #mood-ring {
+    text-align: center;
+    font-size: 5rem;
+    letter-spacing: 0.4rem;
+  }
+  #try-button {
+    width: fit-content;
+    margin: 20px 0px 0px 0px;
+    padding: 5px 15px;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.33);
+    font-size: 2.5rem;
+    border-radius: 8px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px,
+      rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+  }
+  .menu-container {
+    justify-content: space-evenly;
+  }
+  #dropdown a {
+    margin: 20px 10px;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
 /* DESKTOP */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .menu-container {
     width: 150px;
     display: flex;
