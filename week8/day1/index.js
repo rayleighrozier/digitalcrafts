@@ -1,14 +1,15 @@
-// NVM >> Node version manager (manage different versions of the program)
-// NPM >> Node package manager
+const express = require("express");
+const app = express();
+const PORT = 3001;
 
-//No DOM and no window in Node (doesn't interact with browser)
-//server-side javascript instead of client-side
+//route
+app.get("/", (req, res) => {
+  const users = [{ name: "joe" }, { name: "sally" }];
+  res.send(users);
+});
 
-const printHello = () => {
-  console.log("hello node");
-};
+app.post("/user_data", (req, res) => {
+  res.send("posting user data");
+});
 
-module.exports = printHello;
-
-// in other file
-//const printInfo = require ( "./index")
+app.listen(PORT, console.log(`listening on port http://localhost:${PORT}`));
