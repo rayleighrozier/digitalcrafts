@@ -17,4 +17,4 @@ To use Music Mood Ring, you will need a [Client ID and Client Secret from Spotif
 
 ## Read More
 
-I wrote about the process of making Music Mood Ring on DEV. You can read it [here](https://dev.to/rayleighrozier/getting-moody-with-spotifys-api-pfa).
+I wrote about the process of making Music Mood Ring on DEV. You can read it [here] (https://dev.to/rayleighrozier/getting-moody-with-spotifys-api-pfa).
