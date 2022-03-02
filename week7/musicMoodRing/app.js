@@ -1,4 +1,7 @@
 import { playlists } from "./playlists.js";
+// Insert your credentials here
+// const clientId = {Your Client ID}
+// const clientSecret = {Your Client Secret}
 const moodRingContainer = document.querySelector(".mood-ring-container");
 const moodContainer = document.querySelector(".mood-container");
 const happy = document.querySelector("#happy");
@@ -153,3 +156,5 @@ moodRing(pumped);
 moodRing(angry);
 moodRing(heartbroken);
 moodRing(loved);
+
+export { clientId, clientSecret };

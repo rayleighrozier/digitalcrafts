@@ -13,7 +13,7 @@ This application was built with JavaScript, HTML and CSS. It uses Spotify's API 
 
 ## How To Use
 
-To use Music Mood Ring, you will need a [Client ID and Client Secret from Spotify] (https://developer.spotify.com/documentation/general/guides/authorization/app-settings/). This application is currently not being hosted, but can be run locally on your computer.
+To use Music Mood Ring, you will need a [Client ID and Client Secret from Spotify] (https://developer.spotify.com/documentation/general/guides/authorization/app-settings/). Insert those credentials into `app.js` and `my-songs.js`. This application is currently not being hosted, but can be run locally on your computer.
 
 ## Read More
 
