@@ -1,0 +1,156 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.fade-in-down {
+  animation: fade-in-down 1.5s;
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: none;
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-out-down {
+  animation: fade-out-down 1s;
+  animation-fill-mode: forwards;
+  height: 0%;
+}
+@keyframes fade-out-down {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+.mood-ring-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-content: center;
+  justify-content: center;
+}
+.spotify-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  margin-top: 100px;
+}
+
+.spotify-embed {
+  width: 50%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 50vh;
+}
+.spotify-button {
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.33);
+  border-radius: 8px;
+  margin: 20px 20px;
+}
+
+button {
+  background: none;
+  border: none;
+  font-family: "Staatliches", cursive;
+}
+
+.genre-button {
+  font-size: 2.5rem;
+  margin: 15px;
+}
+.mood-button {
+  font-size: 4rem;
+}
+.mood-title {
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  margin: 10px 0px 5px 0px;
+}
+.mood-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.genre-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.button-container {
+  background-color: rgba(255, 255, 255, 0.33);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.5) 0px 3px 7px -3px;
+  margin: 10px;
+  width: 60vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.genre-button {
+  color: white;
+}
+
+.spotify-title {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  margin: 10px 0px 5px 0px;
+}
+.hidden {
+  display: none;
+}
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .mood-title {
+    font-size: 3.5rem;
+  }
+  .genre-title {
+    font-size: 3.5rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .mood-title {
+    font-size: 4rem;
+    letter-spacing: 0.4rem;
+    margin: 10px 0px 5px 0px;
+  }
+  .spotify-title {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin: 10px 0px 5px 0px;
+  }
+  .spotify-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    margin-top: 0px;
+  }
+  #menu-bar {
+    position: absolute;
+    right: 50px;
+    margin: 50px 0px 20px 50px;
+  }
+}
