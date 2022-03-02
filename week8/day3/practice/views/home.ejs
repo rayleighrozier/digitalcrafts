@@ -1,0 +1,9 @@
+<%- include ('./templates/head')-%> <%- include ('./templates/nav')-%>
+<div class="home">
+  <h1>Home Page</h1>
+  <div class="picture-grid">
+      <% for(let i=0; i<pictures.length; i++) {%>
+   <img class="picture" src=<%= pictures[i] %>>
+<% } %>
+  </div>
+</div>
