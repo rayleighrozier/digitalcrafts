@@ -1,6 +1,8 @@
 .DS_Store
+.env
+node_modules
 week2/day3/rayleighGroceryAppDemo.mov
 dawgsOnTop/gameIdea.md
-node_modules
 week7/musicMoodRing/client.js
 musicMoodRing/client.js
+
