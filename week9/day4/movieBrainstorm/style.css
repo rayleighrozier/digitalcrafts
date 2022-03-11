@@ -31,7 +31,7 @@ body {
   z-index: 1;
   left: 0;
   top: 0;
-  position: absolute;
+  position: fixed;
   padding: 0px 30px;
   justify-content: space-between;
   align-items: center;
@@ -59,6 +59,7 @@ body {
 
 .card-image {
   height: 350px;
+  width: 260px;
   border-radius: 4px;
   object-fit: cover;
 }
@@ -68,11 +69,11 @@ body {
   font-size: 2em;
 }
 .now-playing-header {
-  font-size: 1.5em;
-  font-weight: 500;
+  font-size: 2em;
+  font-weight: 600;
   font-family: var(--f-main);
   text-transform: uppercase;
-  margin: 80px 0px 0px 0px;
+  margin: 100px 0px 20px 40px;
 }
 .reserve-button {
   border: none;
@@ -84,4 +85,34 @@ body {
   font-size: var(--f-main);
   text-transform: uppercase;
   margin: 0px 60px 0px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    bottom: 0;
+    top: auto;
+    position: fixed;
+  }
+  .now-playing-header {
+    margin: 20px 0px 20px 0px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .now-playing {
+    margin: 0;
+  }
+  .card {
+    width: 100vw;
+    height: 400px;
+    margin: 0px 0px 15px 0px;
+    max-width: 100%;
+  }
+  .card-image {
+    height: 400px;
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: top;
+  }
 }
