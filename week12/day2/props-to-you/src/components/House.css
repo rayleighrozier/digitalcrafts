@@ -1,0 +1,6 @@
+.house {
+  border: 3px solid black;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}

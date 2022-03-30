@@ -17,3 +17,4 @@ logos in public folder
 
 Put a component folder in src folder
 Components only contain things that get data/made of jsx etc.
+Capitalize the name of your component
