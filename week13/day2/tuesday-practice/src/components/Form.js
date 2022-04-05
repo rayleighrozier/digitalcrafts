@@ -7,11 +7,23 @@ export default function Form() {
   const name = useSelector((state) => state.name);
   const email = useSelector((state) => state.email);
   const password = useSelector((state) => state.password);
+  const user = useSelector((state) => state.user);
+  const userlist = useSelector((state) => state.userlist);
 
   const changeInput = (e) => {
     dispatch({
       type: `CHANGE_${e.target.name.toUpperCase()}`,
       payload: e.target.value,
+    });
+  };
+  const addUser = () => {
+    dispatch({
+      type: `CHANGE_USERLIST`,
+      payload: user,
+    });
+    dispatch({
+      type: `CHANGE_USER`,
+      payload: "",
     });
   };
   return (
@@ -28,7 +40,18 @@ export default function Form() {
         onChange={changeInput}
         type="text"
       />
-      <button>Submit</button>
+      <p>New Field</p>
+      <input name="newfield" onChange={changeInput} type="text" />
+      <p>Add To User List:</p>
+      <input value={user} name="user" onChange={changeInput} type="text" />
+      <button name="userlist" onClick={addUser}>
+        Submit
+      </button>
+      <div>
+        {userlist?.map((user) => {
+          return <p> {user} </p>;
+        })}
+      </div>
     </div>
   );
 }
