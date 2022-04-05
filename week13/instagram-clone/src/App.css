@@ -3,7 +3,13 @@
   width: 100vh;
   justify-content: space-between;
 }
-.profile-details {
+.profile-top {
+  display: flex;
+  gap: 10px;
+}
+.profile-count {
+  display: flex;
+  gap: 10px;
 }
 .profile img {
   height: 200px;
