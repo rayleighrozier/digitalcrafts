@@ -11,11 +11,20 @@ export default function Profile({ profile }) {
           <button>Gear</button>
         </div>
         <div className="profile-count">
-          <p>{profile.posts} posts </p>
-          <p>{profile.following} following </p>
-          <p>{profile.followers} followers </p>
+          <div className="profile-stat">
+            <p class="bold">{profile.posts} </p>
+            <p>posts</p>
+          </div>
+          <div className="profile-stat">
+            <p class="bold">{profile.followers} </p>
+            <p>followers</p>
+          </div>
+          <div className="profile-stat">
+            <p class="bold">{profile.following} </p>
+            <p>following</p>
+          </div>
         </div>
-        <p>
+        <p className="profile-name">
           {profile.firstName} {profile.lastName}
         </p>
       </div>
